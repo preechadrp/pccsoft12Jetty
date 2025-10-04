@@ -13,7 +13,9 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		//System.out.println("session timeout : " + request.getSession().getServletContext().getSessionTimeout());
+		
 		request.getRequestDispatcher("./login.zul").forward(request, response);
 		//response.sendRedirect("./menu.zul");
 		
