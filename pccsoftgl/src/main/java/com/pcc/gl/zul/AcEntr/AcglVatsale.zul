@@ -1,0 +1,81 @@
+<?page title="AcAr" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntr.AcglVatsale" id="AcglVatsale" width="950px" title="รายละเอียด(ตัวย่อย)"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSaveSub" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_btnSave(1)" />
+			<button id="btnSaveNoSub" label="บันทึก(ไม่ใส่ตัวย่อย)" onClick="spaceOwner.onClick_btnSave(2)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 20% auto; ">
+			<div>
+				<label value="คำอธิบายรายการ" />
+			</div>
+			<div>
+				<textbox id="txtDESCR" width="98%" readonly="true" />
+			</div>
+
+			<div>
+				<label value="เลขที่เอกสาร/ใบแจ้งหนี้" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtDOCNO" maxlength="40" width="300px" tooltiptext="เลขที่เอกสาร/ใบแจ้งหนี้" />
+			</div>
+
+			<div>
+				<label value="วันที่เอกสาร/ใบแจ้งหนี้" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbDOCDATE" tooltiptext="วันที่เอกสาร/ใบแจ้งหนี้" />
+			</div>
+
+			<div>
+				<label value="รหัสลูกหนี้" id="lblCust" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสลูกหนี้" />
+				<textbox id="txtCUST_NAME" width="550px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="สาขา" />
+			</div>
+			<div>
+				<textbox id="txtCUST_BRANCH_ID" width="150px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="อัตราภาษี" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<decimalbox id="decVAT_RATE" width="150px" tooltiptext="อัตราภาษี" />
+			</div>
+
+			<div>
+				<label value="ภาษี" />
+			</div>
+			<div>
+				<decimalbox id="decAMT" width="150px" tooltiptext="ภาษี" readonly="true" />
+			</div>
+
+			<div>
+				<label value="มูลค่าสินค้า/บริการสุทธิ" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

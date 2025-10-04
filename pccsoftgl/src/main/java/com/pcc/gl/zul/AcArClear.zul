@@ -1,0 +1,69 @@
+<zk>
+	<window use="com.pcc.gl.ui.acArClear.AcArClear" id="AcArClear" width="1000px" title="สอบถามการล้างยอดลูกหนี้"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_txtVOU_TYPE()" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+			</div>
+
+			<div>
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtVOU_NO" width="150px" maxlength="15" />
+				<label value="**เป็นเลขที่ใบสำคัญขาตั้งหนี้เท่านั้น เช่น 610400002" style="color:blue;" />
+			</div>
+
+			<div>
+				<label value="เลขที่เอกสาร" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtDOCNO" width="250px" maxlength="40" />
+			</div>
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridAccList" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="110px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="ลูกหนี้" width="150px" align="left" sort="auto(CUST_CDE)" />
+				<column label="เลขที่เอกสาร" width="150px" align="left" sort="auto(DOCNO)" />
+				<column label="วันที่เอกสาร" width="100px" align="left" sort="auto(DOCDATE)" />
+				<column label="หมายเหตุ" width="200px" align="left" />
+				<column label="สถานะ" width="100px" align="center" sort="auto(RECSTA)" />
+				<column label="ผู้ทำรายการ" width="100px" align="left" sort="auto(UPBY)" />
+				<column label="วันทำรายการ" width="120px" align="left" sort="auto(UPDT)" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<separator />
+		<label value="** แสดงที่ 5,000 รายการแรกเท่านั้น" style="color:red;" />
+
+	</window>
+
+</zk>

@@ -1,0 +1,42 @@
+<?page title="ค้นหา" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window title="ค้นหา" border="normal" use="com.pcc.sys.find.SeUsername2" closable="true" sizable="true"
+		sclass="popup-window" onCancel="spaceOwner.onClose()">
+		<div style="padding-left:10px;">
+			<label value="ชื่อ" />
+			<textbox value="" id="txtFIRSTNAME" />
+			<label value="นามสกุล" />
+			<textbox value="" id="txtLASTNAME" />
+			<space spacing="2px" />
+			<label value="ชื่อเข้าระบบ" />
+			<textbox value="" id="txtUSER_ID" />
+		</div>
+
+		<separator />
+		<div align="center">
+			<button label="${labels.comm.label.find2}" onClick="spaceOwner.onOK()" />
+		</div>
+
+		<separator />
+		<listbox id="listBox1" mold="paging" pageSize="12">
+			<listhead sizable="true">
+				<listheader label="ลำดับ" width="60px;" align="center" />
+				<listheader label="ชื่อเข้าระบบ" width="120px;" sort="auto(USER_ID)" />
+				<listheader label="ชื่อ-นามสกุล" width="230px" sort="auto(FNAME_THAI,LNAME_THAI)" />
+				<listheader label="จัดการข้อมูลผู้ใช้" width="110px" align="center" sort="auto(MAN_USER)" />
+				<listheader label="จัดการสิทธิ์การใช้เมนู" width="140px" align="center" sort="auto(MAN_MENU_GROUP)" />
+				<listheader label="สถานะ" width="100px" align="center" sort="auto(USER_STATUS)" />
+				<listheader label="เพิ่มโดย" width="120px;" />
+				<listheader label="วันที่เพิ่ม" width="160px;" />
+				<listheader label="แก้ไขล่าสุด" width="120px;" />
+				<listheader label="วันที่แก้ไข" width="160px;" />
+			</listhead>
+		</listbox>
+
+		<div style="text-align: center;background-color: #fff1c4;">
+			<button id="btnOK" label="ตกลง" onClick="spaceOwner.onClick_btnOK()" />
+			<button id="btnClose" label="ออก" onClick="spaceOwner.onClose()" />
+		</div>
+
+	</window>
+</zk>

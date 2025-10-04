@@ -1,0 +1,26 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntrLock.AcEntrLock" id="AcEntrLock" width="1000px" title="ป้องกันการลงบัญชี"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="ป้องกันการลงบัญชีถึงวันที่" />
+			</div>
+			<div>
+				<datebox id="tdbToPostdate" tooltiptext="ป้องกันการลงบัญชีถึงวันที่" />
+				<label value="**หมายถึง ไม่อนุญาติให้ลงบัญชีจากวันที่ในอดีตถึงวันที่ที่ระบุในช่องนี้"
+					style="color:red;" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

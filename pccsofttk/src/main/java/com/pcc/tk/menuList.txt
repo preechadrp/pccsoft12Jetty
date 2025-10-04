@@ -1,0 +1,26 @@
+#เมนูต้องขึ้นต้นด้วย - (เครื่องหมายลบ)
+# - ระดับ 1 
+# -- ระดับ 2 
+# --- ระดับ 3
+# ---- ระดับ 4
+#-ชื่อเมนูไทย ` ชื่อเมนู Eng ถ้าว่างจะใช้ชื่อเมนูไทย ` โมดูล ` รหัสโปรแกรม ` รหัสเรียกโปรแกรม ถ้าว่างจะเท่ากับรหัสโปรแกรม ` รหัสโปรแกรมแยกเมนู(ห้ามซ้ำกัน) `css class ` ToolTipText
+#ห้ามใส่ ` เข้าไปในชื่อเมนูเพราะเป็นอักขระคู่ที่ใช้แบ่งเมนู
+-ติดตามงานทนาย ` Job Tracking
+  --ข้อมูลทั่วไป `  ` tk ` ` `
+    ---ตารางทนาย `  ` tk ` FrmTkLawyer ` `
+    ---ตารางสถานะคดี `  ` tk ` FrmTkLawstat ` `
+    ---ตารางประเภทคดี `  ` tk ` FrmTkLawtype ` `    
+    ---ตารางสถานะการทำงาน `  ` tk ` FrmTkJobstat ` `
+    ---ตารางศาล `  ` tk ` FrmTkCourt ` `    
+    ---ตารางJobCode `  ` tk ` FrmTkJobCode ` `
+    ---ตารางรหัสค่าใช้จ่าย `  ` tk ` FrmTkExpenses ` `
+    ---ตารางรหัส Zone จังหวัด `  ` tk ` FrmTkZone ` `
+  --บันทึก Job ` ` tk `
+    ---สร้าง/แก้ไข Job `  ` tk ` FrmTkJob `  `
+    ---บันทึกสถานะ Job `  ` tk ` FrmTkJob ` FrmTkJobLog `
+    ---เก็บเอกสาร Job `  ` tk ` FrmTkJob ` FrmTkJobDoc `
+    ---สอบถาม Job `  ` tk ` FrmTkJob ` FrmTkJobInq `  `
+    ---ปิด Job `  ` tk ` FrmTkJob ` FrmTkJobClose `
+    ---ยกเลิก Job `  ` tk ` FrmTkJob ` FrmTkJobCancel ` FrmTkJobCancel ` menu-cancel
+  --รายงาน ` Report ` tk
+     ---รายงาน Job `  ` tk ` FrmTkJobRep1 `  ` 

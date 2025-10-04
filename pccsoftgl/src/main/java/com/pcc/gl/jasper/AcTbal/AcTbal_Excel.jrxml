@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AcTbal" pageWidth="1202" pageHeight="555" orientation="Landscape" columnWidth="1202" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="079e3b03-efe9-4430-8381-3f9d54f5eff2">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<import value="com.pcc.sys.lib.Fnc"/>
+	<parameter name="compName" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<parameter name="reportConditionString1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="COMP_CDE" class="java.lang.String"/>
+	<field name="ACCT_ID" class="java.lang.String"/>
+	<field name="ACCT_NAME" class="java.lang.String"/>
+	<field name="ACCT_TYPE" class="java.lang.Integer"/>
+	<field name="BEGIN_DR" class="java.math.BigDecimal"/>
+	<field name="BEGIN_CR" class="java.math.BigDecimal"/>
+	<field name="SUMDR" class="java.math.BigDecimal"/>
+	<field name="SUMCR" class="java.math.BigDecimal"/>
+	<field name="BEGIN_DR_SHOW" class="java.math.BigDecimal"/>
+	<field name="BEGIN_CR_SHOW" class="java.math.BigDecimal"/>
+	<field name="END_DR_SHOW" class="java.math.BigDecimal"/>
+	<field name="END_CR_SHOW" class="java.math.BigDecimal"/>
+	<variable name="SUM_BEGIN_DR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BEGIN_DR_SHOW}]]></variableExpression>
+	</variable>
+	<variable name="SUM_BEGIN_CR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BEGIN_CR_SHOW}]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_DR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{END_DR_SHOW}]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_CR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{END_CR_SHOW}]]></variableExpression>
+	</variable>
+	<variable name="SUMDR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUMDR}]]></variableExpression>
+	</variable>
+	<variable name="SUMCR_SHOW" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUMCR}]]></variableExpression>
+	</variable>
+	<variable name="SUM_DR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l || $F{ACCT_TYPE}.intValue() == 5l ? $F{SUMDR}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_CR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l || $F{ACCT_TYPE}.intValue() ==5l ? $F{SUMCR}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_DR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==2l || $F{ACCT_TYPE}.intValue()==3l || $F{ACCT_TYPE}.intValue()==4l ? $F{SUMDR}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_CR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==2l || $F{ACCT_TYPE}.intValue()==3l || $F{ACCT_TYPE}.intValue()==4l ? $F{SUMCR}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_BEGIN_DR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l || $F{ACCT_TYPE}.intValue() == 5l ? $F{BEGIN_DR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_BEGIN_CR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l || $F{ACCT_TYPE}.intValue() ==5l ? $F{BEGIN_CR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_BEGIN_DR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 2l || $F{ACCT_TYPE}.intValue() == 3l || $F{ACCT_TYPE}.intValue() == 4l ? $F{BEGIN_DR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_BEGIN_CR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 2l || $F{ACCT_TYPE}.intValue() ==3l || $F{ACCT_TYPE}.intValue() ==4l ?$F{BEGIN_CR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_DR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==1l || $F{ACCT_TYPE}.intValue()==5l ? $F{END_DR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_CR_ACCTYP15" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==1l || $F{ACCT_TYPE}.intValue()==5l? $F{END_CR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_DR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==2l || $F{ACCT_TYPE}.intValue()==3l || $F{ACCT_TYPE}.intValue()==4l ? $F{END_DR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_END_CR_ACCTYP234" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue()==2l || $F{ACCT_TYPE}.intValue()==3l || $F{ACCT_TYPE}.intValue()==4l ? $F{END_CR_SHOW}:null]]></variableExpression>
+	</variable>
+	<variable name="SUM_ACCTYP4" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 4l ? Fnc.getBigDecimal($F{BEGIN_CR})
+.subtract(Fnc.getBigDecimal($F{BEGIN_DR}))
+.add(Fnc.getBigDecimal($F{SUMCR}))
+.subtract(Fnc.getBigDecimal($F{SUMDR})):null]]></variableExpression>
+	</variable>
+	<variable name="SUM_ACCTYP5" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 5l ? Fnc.getBigDecimal($F{BEGIN_DR})
+.subtract(Fnc.getBigDecimal($F{BEGIN_CR}))
+.add(Fnc.getBigDecimal($F{SUMDR}))
+.subtract(Fnc.getBigDecimal($F{SUMCR})):null]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="650" height="21" uuid="a64062fb-c986-4afe-bf20-7ccd6e417db7"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="650" height="21" uuid="59e14744-a977-4245-b2f6-18478725f808"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="830" y="0" width="90" height="21" uuid="06d2ac53-229c-4a8b-8e9d-33008668c20d"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="920" y="0" width="90" height="21" uuid="c86c32bf-09d7-4287-a07f-d95dcd983a7a"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="830" y="21" width="90" height="21" uuid="f8575f4e-9d8c-4ab7-bdf2-a73d2fb4e1ee"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="920" y="21" width="90" height="21" uuid="b3b45425-f829-42ed-ae9d-025bae128b6f"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString(FnDate.getTodayDateTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="40" y="67" width="80" height="36" backcolor="#50F2AF" uuid="32c2a635-3cf9-4812-8a6a-0dd14da9ef6a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รหัสบัญชี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="180" y="67" width="290" height="36" backcolor="#50F2AF" uuid="dc50734a-65c9-4b55-acdf-9782f15c6e61"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อบัญชี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="470" y="67" width="180" height="18" backcolor="#50F2AF" uuid="2cb764e4-c41b-4991-92cb-b6c777953442"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ต้นงวด"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="67" width="40" height="36" backcolor="#50F2AF" uuid="de4d415b-0daa-40ea-be90-43aaebfb772f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="470" y="85" width="90" height="18" backcolor="#50F2AF" uuid="7c0cb159-7386-4de5-a088-5bcf42e63ebf"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เดบิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="560" y="85" width="90" height="18" backcolor="#50F2AF" uuid="b1e360e2-393d-462e-9a9b-f0b69f6d4179"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เครดิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="650" y="67" width="180" height="18" backcolor="#50F2AF" uuid="062de5cc-8ac7-42fc-87a5-698543da5d8a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ในงวด"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="650" y="85" width="90" height="18" backcolor="#50F2AF" uuid="f70c1809-ea34-42c6-9795-1d84870e4546"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เดบิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="740" y="85" width="90" height="18" backcolor="#50F2AF" uuid="7d1fbbaa-1540-403f-a1af-dcdc6c54dfc3"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เครดิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="830" y="67" width="180" height="18" backcolor="#50F2AF" uuid="0aa8bf39-f258-4ea0-ab1b-aa4a7628d160"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สิ้นงวด"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="830" y="85" width="90" height="18" backcolor="#50F2AF" uuid="8539eab2-2534-4fad-ba15-1d7b6576ffd4"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เดบิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="920" y="85" width="90" height="18" backcolor="#50F2AF" uuid="bc482260-fbb6-42e0-86d4-f34746d48e3f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เครดิต"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="650" height="21" uuid="c56ea04d-0b90-4ddf-a0f2-c25198a5a694"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportConditionString1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="120" y="67" width="60" height="36" backcolor="#50F2AF" uuid="c1e63717-19d4-474b-9c6e-c2ce7409834f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["หมวด"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}%2l == 0l?true:false]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="40" y="0" width="80" height="17" uuid="66190d88-eb43-4b2c-91c9-b1805189a178">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="0" width="290" height="17" uuid="3063d508-77b4-4db0-a3ea-a139fbfd8bed"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="470" y="0" width="90" height="17" uuid="e5b5cb27-2d0a-47a9-9ec3-7677f2b3b0fc"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEGIN_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="17" uuid="27b98932-8d9d-4b01-b07f-559ffe2ef0b3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="560" y="0" width="90" height="17" uuid="cf160e3e-5f9e-4c14-954f-53733a97a824"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEGIN_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="650" y="0" width="90" height="17" uuid="ace4c07d-941a-4a3a-aa56-0676501bab1a"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMDR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="740" y="0" width="90" height="17" uuid="73f378d7-b3a5-4557-9187-72bdd1ed9af0"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMCR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="830" y="0" width="90" height="17" uuid="e3ef949f-9b65-48a9-86b2-1aa7449d3ce3"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="920" y="0" width="90" height="17" uuid="e54d8fc3-77cc-4ba8-999d-cb424a6b0716"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="120" y="0" width="60" height="17" uuid="8366483f-002c-46c6-b364-b3f5e0a79847">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l ?"สินทรัพย์":
+$F{ACCT_TYPE}.intValue() == 2l ?"หนี้สิน":
+$F{ACCT_TYPE}.intValue() == 3l ?"ทุน":
+$F{ACCT_TYPE}.intValue() == 4l ?"รายได้":
+$F{ACCT_TYPE}.intValue() == 5l ?"ค่าใช้จ่าย":
+"ไม่ระบุ"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}%2l != 0l?true:false]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="40" y="0" width="80" height="17" backcolor="#E3DEDE" uuid="a33a439a-cae7-41b1-9175-04b5d5dd04ad">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="180" y="0" width="290" height="17" backcolor="#E3DEDE" uuid="a7af7187-6d6a-4c87-85f4-1e6a771fd900"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="470" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="6fffd1d8-4d48-401e-a852-f87c182a69de"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEGIN_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="40" height="17" backcolor="#E3DEDE" uuid="09046a66-5eba-4fdd-98c5-255b1260b6cd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="560" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="b32eb10b-d238-4506-92bb-844d1f03f98f"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEGIN_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="650" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="690b1d75-2ea3-4d4d-82f7-a2ac05f22ad0"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMDR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="740" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="973e0bf6-2f77-4614-975b-7b6c11032f40"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMCR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="830" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="ba23d434-1146-47e2-9570-c54f24558160"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="920" y="0" width="90" height="17" backcolor="#E3DEDE" uuid="95dff437-04a4-45a8-8d8a-338a441f7a9f"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="120" y="0" width="60" height="17" backcolor="#E3DEDE" uuid="68b74883-cfc4-49ff-af94-5d0e50156902">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_TYPE}.intValue() == 1l ?"สินทรัพย์":
+$F{ACCT_TYPE}.intValue() == 2l ?"หนี้สิน":
+$F{ACCT_TYPE}.intValue() == 3l ?"ทุน":
+$F{ACCT_TYPE}.intValue() == 4l ?"รายได้":
+$F{ACCT_TYPE}.intValue() == 5l ?"ค่าใช้จ่าย":
+"ไม่ระบุ"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="88">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="470" height="17" backcolor="#8FF7C3" uuid="170cf0e6-3ec9-477d-a81f-93ab35ddcbd6"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รวม : "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="470" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="336becdb-5574-4fc3-beb3-f887b4e098ce"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="560" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="c1666c13-53e6-463d-90ef-aab9961f398f"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="650" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="fc197a5f-445a-4d5b-ba3f-989accf754bf"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUMDR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="740" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="f7517b6c-c5ef-44f9-9eef-25a4047939f6"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUMCR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="830" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="9203ea94-5a2a-4057-8287-1e5abf442c75"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_DR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="920" y="0" width="90" height="17" backcolor="#8FF7C3" uuid="ff1060c9-cdac-4308-9d88-c9330f00ab33"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_CR_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="17" width="470" height="17" backcolor="#8FF7C3" uuid="d180a591-87ce-4949-9d3d-652f75a5144f"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รวมสินทรัพย์,ค่าใช้จ่าย : "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="470" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="c1503af4-1b8a-48b4-9704-01283ddeb5cc"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_DR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="560" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="8bc5d853-0b00-4da0-976c-583ecbd1cbdf"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_CR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="650" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="db54b558-0ca7-48e0-80bc-409f7e4ad178"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_DR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="740" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="9da86821-e1ef-46dd-9684-390893d582ca"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_CR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="830" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="b80718d9-3956-485b-a2d9-4b29b0c8280d"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_DR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="920" y="17" width="90" height="17" backcolor="#8FF7C3" uuid="eaaccce9-62ea-49da-bd65-8e7a0b5b0684"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_CR_ACCTYP15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="34" width="470" height="17" backcolor="#8FF7C3" uuid="783f87bd-73f9-40ba-a0de-147fb0d768ee"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รวมหนี้สิน,ทุน,รายได้ : "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="470" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="6254f481-7b1a-4142-81e8-0c90233bd3ac"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_DR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="560" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="afa87032-3f6a-4c56-8e80-0de5187dca0f"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_BEGIN_CR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="650" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="9f39599e-56e3-4df7-95dd-6ed810f78ebd"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_DR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="740" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="f80bcfe4-1f5f-4cd9-8d58-09f10a876b90"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_CR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="830" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="bcd6a084-544b-4434-9646-7b7246086a44"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_DR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="920" y="34" width="90" height="17" backcolor="#8FF7C3" uuid="81895820-2e1d-452d-a843-726503189259"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_END_CR_ACCTYP234}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="51" width="470" height="17" backcolor="#8FF7C3" uuid="74f449f8-a3cd-4922-b14f-6ba7a9780f70"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["กำไร(-ขาดทุน)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="470" y="51" width="450" height="17" backcolor="#8FF7C3" uuid="af5492f9-36be-4fca-9a6d-89240a288e51"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="920" y="51" width="90" height="17" backcolor="#8FF7C3" uuid="27d2b9c1-b44f-4128-858a-9c4422813f21"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_ACCTYP4}.subtract($V{SUM_ACCTYP5})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

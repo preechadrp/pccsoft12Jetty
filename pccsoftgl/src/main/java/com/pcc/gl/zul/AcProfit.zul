@@ -1,0 +1,24 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acProfit.AcProfit" id="AcProfit" width="1000px" title="รายงานกำไรขาดทุน"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<label value="จากวันที่ใบสำคัญ" />
+			<datebox id="tdbFromPostdate" tooltiptext="จากวันที่ใบสำคัญ" />
+
+			<label value="ถึงวันที่ใบสำคัญ" />
+			<datebox id="tdbToPostdate" tooltiptext="ถึงวันที่ใบสำคัญ" />
+		</div>
+
+	</window>
+
+</zk>

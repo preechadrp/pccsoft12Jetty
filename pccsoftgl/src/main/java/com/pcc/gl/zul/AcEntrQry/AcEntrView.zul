@@ -1,0 +1,66 @@
+<zk>
+	<window use="com.pcc.gl.ui.acEntrQry.AcEntrView" id="AcEntrView" width="95%" title="GL" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<label value="สมุดรายวัน" />
+			<div>
+				<textbox id="txtVOU_TYPE" width="100px" readonly="true" tabindex="-1" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+				<label value="เลขที่ใบสำคัญ" />
+				<textbox id="txtVOU_NO" width="150px" readonly="true" tabindex="-1" />
+				<label value="วันที่ใบสำคัญ" />
+				<datebox id="tdbPOSTDATE" readonly="true" tabindex="-1" />
+			</div>
+
+			<label value="หมายเหตุ" />
+			<textbox id="txtDESCRH" width="700px" readonly="true" tabindex="-1" />
+
+		</div>
+
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<label value="รายการลงบัญชี" />
+		</div>
+
+		<separator />
+
+		<grid id="gridAccList" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="รหัสบัญชี" width="90px" align="left" />
+				<column label="ชื่อบัญชี" width="300px" align="left" />
+				<column label="แผนก" width="90px" align="left" />
+				<column label="เดบิต" width="110px" align="left" />
+				<column label="เครดิต" width="110px" align="left" />
+				<column label="คำอธิบายรายการ" width="800px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div sclass="mainGridLayout1">
+			<div align="left">
+				<label value="สถานะ : " />
+				<label id="lblStat" value="" />
+			</div>
+			<div align="center">
+				<label value="รวมเดบิต" />
+				<decimalbox id="decSUM_DB" width="150px" readonly="true" tabindex="-1" />
+				<label value="รวมเครดิต" />
+				<decimalbox id="decSUM_CR" width="150px" readonly="true" tabindex="-1" />
+				<label value="ผลต่าง" />
+				<decimalbox id="decSUM_DIFF" width="150px" readonly="true" tabindex="-1" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

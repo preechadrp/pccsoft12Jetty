@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- <property name="LOG_DIR" value="E:/pccsoft12Springboot" /> -->
+	
+	<!-- ดึงจาก vm argument -DmyLogPath -->
+	<property name="LOG_DIR" value="${myLogPath:-.}/logs}" />
+	
+	<!-- ถ่้ารันแอปใน tomcat สามารใช้ ${catalina.home}/logs ได้เพื่อให้เขียนลง [tomcat_install_dir]/logs  -->
+	<!-- <property name="LOG_DIR" value="${catalina.home}/logs" />  --> 
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n </pattern> -->
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n </pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/pccsoft.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_DIR}/pccsoft.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+<!-- <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>./my-application.log</file>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender> -->	
+	
+	<!-- trace, debug, info, warn, error -->
+	<root level="debug">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ROLLING" />
+		<!-- <appender-ref ref="FILE" />  -->
+	</root>
+	
+	<logger name="org.mariadb.jdbc" level="ERROR" />
+	<logger name="org.mariadb.jdbc.internal" level="ERROR" />
+	<logger name="com.zaxxer.hikari" level="WARN" />
+	
+	<logger name="org.eclipse.jetty" level="WARN" />
+	
+	<logger name="org.zkoss" level="WARN" />
+	
+	
+</configuration>

@@ -1,0 +1,45 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acGlAcSpec.AcGlAcSpec" id="AcGlAcSpec" width="1000px" title="รายงานบัญชีแยกประเภท"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<label value="จากรหัสบัญชี" />
+			<div>
+				<bandbox id="txtFromAcctid" width="130px" maxlength="15" onOpen="spaceOwner.popupFromAcctid()"
+					onChange="spaceOwner.onChange_txtFromAcctid()" tooltiptext="จากรหัสบัญชี" placeholder="ทั้งหมด" />
+				<textbox id="txtFromAcctName" width="400px" readonly="true" tabindex="-1" />
+			</div>
+
+			<label value="ถึงรหัสบัญชี" />
+			<div>
+				<bandbox id="txtToAcctid" width="130px" maxlength="15" onOpen="spaceOwner.popupToAcctid()"
+					onChange="spaceOwner.onChange_txtToAcctid()" tooltiptext="ถึงรหัสบัญชี" placeholder="ทั้งหมด" />
+				<textbox id="txtToAcctName" width="400px" readonly="true" tabindex="-1" />
+			</div>
+
+			<hbox>
+				<label value="จากวันที่ใบสำคัญ" />
+				<label value="*" style="color:red;" />
+			</hbox>
+			<datebox id="tdbFromPostdate" tooltiptext="จากวันที่ใบสำคัญ" />
+
+			<hbox>
+				<label value="ถึงวันที่ใบสำคัญ" />
+				<label value="*" style="color:red;" />
+			</hbox>
+			<datebox id="tdbToPostdate" tooltiptext="ถึงวันที่ใบสำคัญ" />
+		</div>
+
+	</window>
+
+</zk>

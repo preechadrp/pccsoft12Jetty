@@ -1,0 +1,254 @@
+<zk>
+	<window use="com.pcc.gl.ui.FrmCus.FrmCus" id="FrmCus" width="1000px" title="รหัสเจ้าหนี้/ลูกหนี้"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสลูกค้า" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupData()"
+					tooltiptext="รหัสลูกค้า" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+				<button id="btnCard" label="${labels.comm.label.readCard}" onClick="spaceOwner.onClick_btnCard()"
+					sclass="buttonAdd" tooltiptext="${labels.comm.label.readCardDesc}" />
+			</div>
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="คำนำหน้า" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtTITLE" width="150px" maxlength="60" tooltiptext="คำนำหน้า" />
+					<label value="ชื่อ" />
+					<label value="*" style="color:red;" />
+					<textbox id="txtFNAME" width="200px" maxlength="60" tooltiptext="ชื่อ" />
+					<label value="นามสกุล" />
+					<textbox id="txtLNAME" width="200px" maxlength="60" tooltiptext="นามสกุล" />
+				</div>
+
+				<div>
+					<label value="ประเภทลูกค้า" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<combobox id="cmbCUSTYP" width="150px" tooltiptext="ประเภทลูกค้า">
+						<comboitem value="1" label="บุคคลธรรมดา" />
+						<comboitem value="2" label="นิติบุคคล" />
+					</combobox>
+					<label value="เลขประจำตัวผู้เสียภาษี" />
+					<label value="" style="color:red;" />
+					<textbox id="txtIDNO" width="200px" maxlength="20" tooltiptext="เลขประจำตัวผู้เสียภาษี" />
+					<label value="สาขา" />
+					<textbox id="txtBRANCH_CODE" width="90px" maxlength="6" tooltiptext="สาขา" />
+				</div>
+
+				<div>
+					<label value="เครดิตลูกหนี้" />
+				</div>
+				<div>
+					<intbox id="intAR_CREDIT" width="60px" maxlength="10" />
+					<label value="วัน    เครดิตเจ้าหนี้" />
+					<intbox id="intAP_CREDIT" width="60px" maxlength="10" />
+					<label value="วัน" />
+				</div>
+
+				<div>
+					<label value="เบอร์โทร 1" />
+				</div>
+				<div>
+					<textbox id="txtTEL1" width="120px" maxlength="15" />
+					<label value="เบอร์โทร 2" />
+					<textbox id="txtTEL2" width="120px" maxlength="15" />
+					<label value="เบอร์โทร 3" />
+					<textbox id="txtTEL3" width="120px" maxlength="15" />
+					<label value="เบอร์แฟกซ์ 1" />
+					<textbox id="txtFAXNO1" width="120px" maxlength="15" />
+				</div>
+
+
+				<div>
+					<label value="ที่อยู่ตามทะเบียนบ้าน" />
+				</div>
+				<div>
+					<label value="ชื่ออาคาร/หมู่บ้าน" />
+					<textbox id="txtVILAPT1" width="200px" maxlength="60" />
+					<label value="ชั้น" />
+					<textbox id="txtFLOOR1" width="50px" maxlength="5" />
+					<label value="ห้อง" />
+					<textbox id="txtROOM1" width="80px" maxlength="10" />
+					<label value="เลขท่ี่" />
+					<textbox id="txtADDRESS1" width="100px" maxlength="30" />
+					<label value="หมู่ที่" />
+					<textbox id="txtMOO1" width="50px" maxlength="5" />
+				</div>
+
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="ซอย" />
+					<textbox id="txtSOI1" width="150px" maxlength="30" />
+					<label value="ถนน" />
+					<textbox id="txtROAD1" width="150px" maxlength="30" />
+					<label value="ตำบล" />
+					<textbox id="txtTAMBOLNAME1" width="150px" maxlength="30" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="จังหวัด" />
+					<bandbox id="txtPROVIN_ID1" width="70px" maxlength="6" onOpen="spaceOwner.popupProvin(1)"
+						tooltiptext="จังหวัด" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtPROVIN_NAME1" width="200px" readonly="true" />
+					<label value="อำเภอ/เขต" />
+					<bandbox id="txtAMPHURID1" width="70px" maxlength="6" onOpen="spaceOwner.popupAMPHURID(1)"
+						tooltiptext="อำเภอ/เขต" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtAMPHURNAME1" width="200px" readonly="true" />
+					<label value="รหัส ปณ." />
+					<textbox id="txtZIPCODE1" width="150px" maxlength="20" tooltiptext="รหัส ปณ." />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<button label="คัดลอกไปที่อยู่จัดส่งเอกสาร" onClick="spaceOwner.copyToAddress2()" />
+					<button label="คัดลอกไปที่อยู่ปัจจุบัน" onClick="spaceOwner.copyToAddress3()" />
+				</div>
+
+				<div>
+					<label value="ที่อยู่จัดส่งเอกสาร" />
+				</div>
+				<div>
+					<label value="ชื่ออาคาร/หมู่บ้าน" />
+					<textbox id="txtVILAPT2" width="200px" maxlength="60" />
+					<label value="ชั้น" />
+					<textbox id="txtFLOOR2" width="50px" maxlength="5" />
+					<label value="ห้อง" />
+					<textbox id="txtROOM2" width="80px" maxlength="10" />
+					<label value="เลขท่ี่" />
+					<textbox id="txtADDRESS2" width="100px" maxlength="30" />
+					<label value="หมู่ที่" />
+					<textbox id="txtMOO2" width="50px" maxlength="5" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="ซอย" />
+					<textbox id="txtSOI2" width="150px" maxlength="30" />
+					<label value="ถนน" />
+					<textbox id="txtROAD2" width="150px" maxlength="30" />
+					<label value="ตำบล" />
+					<textbox id="txtTAMBOLNAME2" width="150px" maxlength="30" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="จังหวัด" />
+					<bandbox id="txtPROVIN_ID2" width="70px" maxlength="6" onOpen="spaceOwner.popupProvin(2)"
+						tooltiptext="จังหวัด" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtPROVIN_NAME2" width="200px" readonly="true" />
+					<label value="อำเภอ/เขต" />
+					<bandbox id="txtAMPHURID2" width="70px" maxlength="6" onOpen="spaceOwner.popupAMPHURID(2)"
+						tooltiptext="อำเภอ/เขต" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtAMPHURNAME2" width="200px" readonly="true" />
+					<label value="รหัส ปณ." />
+					<textbox id="txtZIPCODE2" width="150px" maxlength="20" tooltiptext="รหัส ปณ." />
+				</div>
+
+
+				<div>
+					<label value="ที่อยู่ปัจจุบัน" />
+				</div>
+				<div>
+					<label value="ชื่ออาคาร/หมู่บ้าน" />
+					<textbox id="txtVILAPT3" width="200px" maxlength="60" />
+					<label value="ชั้น" />
+					<textbox id="txtFLOOR3" width="50px" maxlength="5" />
+					<label value="ห้อง" />
+					<textbox id="txtROOM3" width="80px" maxlength="10" />
+					<label value="เลขท่ี่" />
+					<textbox id="txtADDRESS3" width="100px" maxlength="30" />
+					<label value="หมู่ที่" />
+					<textbox id="txtMOO3" width="50px" maxlength="5" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="ซอย" />
+					<textbox id="txtSOI3" width="150px" maxlength="30" />
+					<label value="ถนน" />
+					<textbox id="txtROAD3" width="150px" maxlength="30" />
+					<label value="ตำบล" />
+					<textbox id="txtTAMBOLNAME3" width="150px" maxlength="30" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<label value="จังหวัด" />
+					<bandbox id="txtPROVIN_ID3" width="70px" maxlength="6" onOpen="spaceOwner.popupProvin(3)"
+						tooltiptext="จังหวัด" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtPROVIN_NAME3" width="200px" readonly="true" />
+					<label value="อำเภอ/เขต" />
+					<bandbox id="txtAMPHURID3" width="70px" maxlength="6" onOpen="spaceOwner.popupAMPHURID(3)"
+						tooltiptext="อำเภอ/เขต" onChange="spaceOwner.onChange_Data(this.self)" />
+					<textbox id="txtAMPHURNAME3" width="200px" readonly="true" />
+					<label value="รหัส ปณ." />
+					<textbox id="txtZIPCODE3" width="150px" maxlength="20" tooltiptext="รหัส ปณ." />
+				</div>
+
+
+				<div>
+					<label value="วันที่สร้างรายการ" />
+				</div>
+				<div>
+					<textbox id="txtINSDT" width="150px" readonly="true" />
+					<label value="ผู้สร้างรายการ" />
+					<textbox id="txtINSBY" width="150px" readonly="true" />
+				</div>
+
+				<div>
+					<label value="วันที่ปรับปรุงรายการล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPDT" width="150px" readonly="true" />
+					<label value="ผู้ปรับปรุงรายการล่าสุด" />
+					<textbox id="txtUPBY" width="150px" readonly="true" />
+				</div>
+
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

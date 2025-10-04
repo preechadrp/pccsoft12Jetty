@@ -1,0 +1,73 @@
+<zk>
+	<window use="com.pcc.sys.ui.FrmComp.FrmCompBranch" width="1100px" title="สาขา" border="normal" closable="false">
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: auto auto; ">
+
+			<div>
+				<label value="ชื่อสาขา" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtBRANC_NAME" width="400px" maxlength="100" tooltiptext="ชื่อสาขา" />
+				<label value="* เช่น บางเขน,สายไหม เป็นต้นไม่ต้องมีคำว่าสาขา" style="color:red;" />
+			</div>
+
+			<div>
+				<label value="ชื่อย่อสาขา" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtBRANC_SHORTNAME" width="200px" maxlength="100" tooltiptext="ชื่อย่อสาขา" />
+				<label value="* ใช้ในเอกสารต่างๆ" style="color:red;" />
+			</div>
+
+			<div>
+				<label value="เลขภาษีสาขาที่จดทะเบียน" />
+			</div>
+			<div>
+				<textbox id="txtBRANCTAXNO" width="200px" maxlength="5" tooltiptext="เลขภาษีสาขาที่จดทะเบียน" />
+			</div>
+
+			<div>
+				<label value="ที่อยู่บรรทัด 1" />
+			</div>
+			<div>
+				<textbox id="txtADDR1" width="300px" maxlength="200" tooltiptext="ที่อยู่บรรทัด 1" />
+			</div>
+
+			<div>
+				<label value="ที่อยู่บรรทัด 2" />
+			</div>
+			<div>
+				<textbox id="txtADDR2" width="300px" maxlength="200" tooltiptext="ที่อยู่บรรทัด 2" />
+			</div>
+
+			<div>
+				<label value="เบอร์โทร" />
+			</div>
+			<div>
+				<textbox id="txtTELNO" width="200px" maxlength="200" />
+			</div>
+
+			<div>
+				<label value="เบอร์แฟกซ์" />
+			</div>
+			<div>
+				<textbox id="txtFAXNO" width="200px" maxlength="200" />
+			</div>
+
+			<div>
+				<label value="" />
+			</div>
+			<div>
+				<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_btnSave()" />
+				<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

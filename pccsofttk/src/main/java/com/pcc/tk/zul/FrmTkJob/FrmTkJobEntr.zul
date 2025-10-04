@@ -1,0 +1,248 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJob.FrmTkJobEntr" id="FrmTkJobEntr" width="1100px" title="สร้าง/แก้ไข Job"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<space spacing="300px" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()" sclass="buttondel"  />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่รับงาน" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbJOBDATE" width="120px" tooltiptext="วันที่รับงาน" />
+				
+				<label value="สถานะคดี" />
+				<label value="*" style="color:red;" />
+				<bandbox id="txtLAWSTATID" width="70px" maxlength="7" 
+					   onOpen="spaceOwner.popupLAWSTATID()" 
+					   onChange="spaceOwner.onChange_Data(this.self)" 
+					   tooltiptext="สถานะคดี"  />
+				<textbox id="txtLAWSTATNAME" width="200px" readonly="true" />
+						
+				<label value="เลขที่งาน" />
+				<label value="*" style="color:red;" />
+				<textbox id="txtJOBNO" width="150px" maxlength="20" tooltiptext="เลขที่งาน" readonly="true" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="วันที่จ่ายงานทนาย" />
+				</div>
+				<div>
+					<datebox id="tdbSENDJOBDATE" width="120px" tooltiptext="วันที่จ่ายงานทนาย" />
+					<label value="Job Code" />
+					<label value="*" style="color:red;" />
+					<bandbox id="txtJOBCODE" width="70px" maxlength="7" onOpen="spaceOwner.popupJOBCODE()" 
+					  	onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="Job Code" />
+					<textbox id="txtJOBCODENAME" width="200px" readonly="true" tooltiptext="Job Code Name" />
+					<label value="เลขที่สัญญาของลูกค้า" />
+					<textbox id="txtCUSTCONTACTNO" width="200px" maxlength="100" tooltiptext="เลขที่สัญญาของลูกค้า" />
+				</div>
+				
+				<div>
+					<label value="ข้อหา" />
+				</div>
+				<div>
+					<label value="" style="color:red;" />
+					<textbox id="txtPLAINT" width="600px" maxlength="250" tooltiptext="ข้อหา" />
+				</div>
+				
+				<div>
+					<label value="ประเภทคดี" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtLAWTYPEID" width="70px" maxlength="7" 
+					    onOpen="spaceOwner.popupLAWTYPEID()" 
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสประเภทคดี" />
+					<textbox id="txtLAWTYPENAME" width="400px" readonly="true" tooltiptext="ชื่อประเภทคดี" />
+				</div>
+
+				<div>
+					<label value="วันที่ยื่นฟ้อง" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<datebox id="tdbSUEATDATE" width="120px"  tooltiptext="วันที่ยื่นฟ้อง" />
+					<label value="วันที่ถูกฟ้อง" />
+					<datebox id="tdbSUEDDATE" width="120px" tooltiptext="วันที่ถูกฟ้อง" />
+					<label value="ทุนทรัพย์ฟ้อง/บาท" />
+					<label value="*" style="color:red;" />
+					<decimalbox id="decSUECOSTAMT" width="130px" tooltiptext="ทุนทรัพย์ฟ้อง/บาท" />
+					<label value="ค่าฤชาธรรมเนียม/บาท" />
+					<label value="*" style="color:red;" />
+					<decimalbox id="decFEEAMT" width="130px" tooltiptext="ค่าฤชาธรรมเนียม/บาท"/>
+				</div>
+				
+				<div>
+					<label value="คำขอท้ายฟ้อง" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtREMARK1" width="600px" maxlength="250" tooltiptext="คำขอท้ายฟ้อง" />
+				</div>
+				
+				<div>
+					<label value="วันที่คดีดำ" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<datebox id="tdbLAWBLACKDATE" width="120px"  tooltiptext="วันที่คดีดำ" />
+					<label value="เลขคดีดำ" />
+					<textbox id="txtLAWBLACKNO" width="200px" maxlength="100" tooltiptext="เลขคดีดำ" />
+					<label value="วันที่คดีแดง" />
+					<datebox id="tdbLAWREDDATE" width="120px"  tooltiptext="วันที่คดีแดง" />
+					<label value="เลขคดีแดง" />
+					<textbox id="txtLAWREDNO" width="200px" maxlength="100" tooltiptext="เลขคดีแดง" />
+				</div>
+				
+				<div>
+					<label value="ศาล" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtCOURTID" width="70px" maxlength="7" 
+						onOpen="spaceOwner.popupCOURTID()" 
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสศาล" />
+					<textbox id="txtCOURTNAME" width="350px" readonly="true" tooltiptext="ชื่อศาล" />
+					
+					<label value="Zone" />
+					<label value="*" style="color:red;" />
+					<bandbox id="txtZONEID" width="70px" maxlength="7" 
+						onOpen="spaceOwner.popupZONEID()" 
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัส Zone จังหวัด" />
+					<textbox id="txtZONENAME" width="250px" readonly="true" tooltiptext="ชื่อ Zone จังหวัด" />
+				</div>
+				
+				<div>
+					<label value="หมายเหตุอื่นๆ" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtREMARK2" width="600px" maxlength="250" tooltiptext="หมายเหตุอื่นๆ" />
+				</div>
+				
+			</div>
+			
+			<div sclass="div-split-box">
+				<label value="ลูกความ" />
+			</div>
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="โจทย์ที่" id="lblLAWSTAT1" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<intbox id="intCLIENTSEQ" width="50px" maxlength="7" tooltip="ลำดับ"  />
+					<label value="คำนำหน้า" />
+					<label value="*" style="color:red;" />
+					<textbox id="txtCLIENTTITLE" width="120px" maxlength="50"  tooltiptext="คำนำหน้า" />
+					<label value="ชื่อ" />
+					<label value="*" style="color:red;" />
+					<textbox id="txtCLIENTFNAME" width="160px" maxlength="150"  tooltiptext="ชื่อลูกค้า" />
+					<label value="นามสกุล" />
+					<textbox id="txtCLIENTLNAME" width="160px" maxlength="150"  tooltiptext="นามสกุลลูกค้า" />
+					<label value="เบอร์ติดต่อ" />
+					<textbox id="txtTELNO" width="180px" maxlength="150"  tooltiptext="เบอร์ติดต่อ" />
+				</div>
+				
+				<label value="" />
+				<hbox>
+					<button id="btnAddCus" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAddCus()" sclass="buttonAdd" />
+					<button id="btnUndoCus" label="${labels.comm.label.undo}" onClick="spaceOwner.onClick_btnUndoCus()" sclass="buttonAdd" />
+				</hbox>
+			</div>
+			<grid id="grdCust" mold="paging" pageSize="3">
+				<columns sizable="true">
+					<column label=".." width="55px" align="center" />
+					<column label=".." width="55px" align="center" />
+					<column label="ลำดับ" width="40px" align="center" />
+					<column label="โจทย์ที่" width="100px" align="center" id="grcCLIENTSEQ" />
+					<column label="ชื่อ-นามสกุล" width="400px" align="left" />
+					<column label="เบอร์ติดต่อ" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<button label="แก้ไข" />
+						<button label="ลบ" sclass="buttondel" />
+						<label value="1" />
+						<label value="1" />
+						<label value="นาย สนธิ ลิ้นดี" />
+						<label value="090xxxx" />
+					</row>
+				</rows>
+			</grid>
+			
+			<div sclass="div-split-box">
+				<label value="ทนายที่รับงาน" />
+			</div>
+			<div sclass="mainGridLayout2">
+				<hbox>
+					<label value="รหัสทนาย" />
+					<label value="*" style="color:red;" />
+				</hbox>
+				<hbox>
+					<bandbox id="txtLAWYERID" width="80px" maxlength="7" 
+					 	onOpen="spaceOwner.popupLAWYERID()" 
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสทนาย" />
+					<textbox id="txtLAWYERNAME" width="300px" tooltiptext="ชื่อทนาย" readonly="true" />
+				</hbox>
+				
+				<label value="" />
+				<hbox>
+					<button id="btnAddLawyer" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAddLawyer()" sclass="buttonAdd" />
+				</hbox>
+			</div>
+			<grid id="grdLawyer" mold="paging" pageSize="3">
+				<columns sizable="true">
+					<column label=".." width="55px" align="center" />
+					<column label="ลำดับ" width="40px" align="center" />
+					<column label="รหัสทนาย" width="150px" align="left" />
+					<column label="ชื่อทนาย"  align="left" />
+				</columns>
+				<rows>
+					<row>
+						<button label="ลบ" sclass="buttondel" />
+						<label value="1" />
+						<label value="20" />
+						<label value="นายสุขใจ บ้านสว่าง" />
+					</row>
+				</rows>
+			</grid>
+			
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="ผู้สร้างรายการ" />
+				</div>
+				<div>
+					<textbox id="txtINSDBY" width="200px" readonly="true" />
+					<label value="วันสร้างรายการ" />
+					<textbox id="txtINSDTE" width="200px" readonly="true" />
+				</div>
+				
+				<div>
+					<label value="ผู้แก้ไขล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPBY" width="200px" readonly="true" />
+					<label value="วันแก้ไขล่าสุด" />
+					<textbox id="txtUPDT" width="200px" readonly="true" />
+				</div>
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

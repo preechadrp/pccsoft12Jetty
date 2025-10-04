@@ -1,0 +1,53 @@
+<zk>
+	<window use="com.pcc.sys.ui.FrmZipcode.FrmZipCode" id="FrmZipCode" width="1000px" title="รหัสไปรษณีย์"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสจังหวัด" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtPROVIN_ID" width="60px" maxlength="2" onOpen="spaceOwner.popupProvince()"
+					tooltiptext="รหัสจังหวัด" onChange="spaceOwner.onChange_Data(this.self)" />
+				<textbox id="txtPROVIN_NAME" width="300px" readonly="true" tooltiptext="ชื่อจังหวัด" />
+			</div>
+
+			<div>
+				<label value="รหัสไปรษณีย์" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtZIPCODE" width="160px" maxlength="20" onOpen="spaceOwner.popupData()"
+					tooltiptext="รหัสไปรษณีย์" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="ชื่อเขต/อำเภอ" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtDISTRICT_NAME" width="300px" maxlength="250" tooltiptext="ชื่อเขต/อำเภอ" />
+				</div>
+			</div>
+		</div>
+
+	</window>
+
+</zk>

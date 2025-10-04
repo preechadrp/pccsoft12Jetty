@@ -1,0 +1,143 @@
+<zk>
+	<window use="com.pcc.bx.ui.FrmBxBill.FrmBxBillView" id="FrmBxBillView" width="1000px" title="เอกสาร" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_Print()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<div>
+				<label value="รหัสรูปแบบเอกสาร" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtTMPLCDE" width="70px" readonly="true" buttonVisible="false" />
+				<textbox id="txtTMPLNAME" width="300px" maxlength="250" tooltiptext="ชื่อรูปแบบเอกสาร" readonly="true" />
+				<label value="อักษรนำหน้าเลขเอกสาร" />
+				<textbox id="txtDOCPREFIX" width="50px" maxlength="2" tooltiptext="อักษรนำหน้าเลขเอกสาร" readonly="true" />
+			</div>
+
+			<div>
+				<label value="เลขที่เอกสาร" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtBLNO" width="100px" maxlength="15" tooltiptext="เลขที่เอกสาร" readonly="true" />
+				<label value="วันที่เอกสาร" />
+				<datebox id="tdbBLDATE" width="100px" tooltiptext="วันที่เอกสาร" readonly="true" />
+				<label value="คำนวนภาษีแบบ" />
+				<combobox id="cmbVATTYPE" width="400px" readonly="true" autodrop="true" tooltiptext="คำนวนภาษีแบบ" disabled="true" >
+					<comboitem value="" label="=กรุณาเลือก=" />
+					<comboitem value="1" label="ราคาไม่รวม VAT(คำนวน VAT จากรวมมูลค่าสินค้าหลังหักส่วนลด)" />
+					<comboitem value="2" label="ราคาไม่รวม VAT(คำนวน VAT แต่ละหน่วย)" />
+					<comboitem value="3" label="ราคารวม VAT(ถอด Vat จากราคาต่อหน่วย)" />
+					<comboitem value="5" label="NOVAT" />
+				</combobox>
+				<label value="อัตราภาษี" />
+				<decimalbox id="decVATRATE" width="60px" tooltiptext="อัตราภาษี" readonly="true" />
+			</div>
+
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout1">
+			
+				<div>
+					<label value="สาขาที่ออกเอกสาร" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtBRANC_CDE" width="50px" buttonVisible="false"  tooltiptext="สาขาที่ออกเอกสาร" readonly="true" />
+					<textbox id="txtBRANC_NAME" width="300px" tooltiptext="สาขาที่ออกเอกสาร" readonly="true" />
+					<label value="วันที่ส่งของ" />
+					<datebox id="tdbSENDDATE" width="100px" tooltiptext="วันที่ส่งของ" readonly="true" />
+				</div>
+				
+				<div>
+					<label value="รหัสลูกค้า" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtCUST_CDE" width="120px" readonly="true" buttonVisible="false"  />
+					<textbox id="txtCUST_TITLE" width="120px" tooltiptext="คำนำหน้าชื่อ" readonly="true" />
+					<textbox id="txtCUST_FNAME" width="250px" tooltiptext="ชื่อลูกค้า" readonly="true" />
+					<textbox id="txtCUST_LNAME" width="250px" tooltiptext="นามสกุล" readonly="true" />
+				</div>
+
+				<div>
+					<label value="ที่อยู่" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtCUST_ADDR1" width="500px" readonly="true" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<textbox id="txtCUST_ADDR2" width="400px" readonly="true" />
+					<label value="รหัส ปณ." />
+					<textbox id="txtZIPCODE" width="200px" readonly="true" />
+				</div>
+
+				<div>
+					<label value="หมายเหตุ" />
+				</div>
+				<div>
+					<textbox id="txtREMARK1" width="500px" readonly="true" />
+				</div>
+			</div>
+
+			<div sclass="div-split-box">
+				<label value="รายการสินค้า" />
+			</div>
+
+			<grid id="grdData1" height="250px">
+				<columns sizable="true">
+					<column label="ลำดับ" width="40px" align="center" />
+					<column label="รหัสสินค้า" width="120px" />
+					<column label="ชื่อสินค้า" width="350px" />
+					<column label="หมายเหตุ" width="230px" />
+					<column label="จำนวน" width="80px" />
+					<column label="ราคา/หน่วย" width="120px" />
+					<column label="จำนวนเงิน" width="120px" />
+				</columns>
+				<rows>
+					<row>
+						<label value="1" />
+						<label value="001" />
+						<label value="เต่าแก๊ซ" />
+						<label value="รุ่น B001" />
+						<label value="2" />
+						<label value="1500" />
+						<label value="3000" />
+					</row>
+				</rows>
+			</grid>
+
+			<div>
+				<label value="สถานะเอกสาร" />
+				<textbox id="txtSTATUS" width="130px" readonly="true" value="" />
+				<label value="รวมมูลค่าสินค้า" />
+				<decimalbox id="decBASAMT" width="100px" tooltiptext="รวมมูลค่าสินค้า" readonly="true" value="3000" />
+				<label value="ส่วนลด" />
+				<decimalbox id="decDISCOUNTAMT" width="100px" tooltiptext="ส่วนลด" readonly="true" value="0" />
+				<label value="รวมมูลค่าสินค้าหลังหักส่วนลด" />
+				<decimalbox id="decNETAMT" width="100px" tooltiptext="รวมมูลค่าสินค้าหลังหักส่วนลด" readonly="true" value="0" />
+				<label value="รวมภาษี" />
+				<decimalbox id="decVATAMT" width="100px" tooltiptext="รวมภาษี" readonly="true" value="0" />
+				<label value="รวมทั้งสิ้น" />
+				<decimalbox id="decTOTALAMT" width="100px" tooltiptext="รวมทั้งสิ้น" readonly="true" value="3000" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

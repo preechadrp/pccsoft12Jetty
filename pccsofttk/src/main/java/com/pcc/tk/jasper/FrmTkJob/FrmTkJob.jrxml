@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FrmTkJob" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1eaa83d0-49e2-489d-acef-f539d60a4aa4">
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<import value="com.pcc.sys.lib.Fnc"/>
+	<parameter name="JOBNO" class="java.lang.String"/>
+	<parameter name="JOBDATE" class="java.sql.Date"/>
+	<parameter name="LAWSTATID" class="java.lang.String"/>
+	<parameter name="LAWSTATNAME" class="java.lang.String"/>
+	<parameter name="SENDJOBDATE" class="java.sql.Date"/>
+	<parameter name="JOBCODE" class="java.lang.String"/>
+	<parameter name="JOBCODENAME" class="java.lang.String"/>
+	<parameter name="CUSTCONTACTNO" class="java.lang.String"/>
+	<parameter name="PLAINT" class="java.lang.String"/>
+	<parameter name="LAWTYPEID" class="java.lang.String"/>
+	<parameter name="LAWTYPENAME" class="java.lang.String"/>
+	<parameter name="SUEATDATE" class="java.sql.Date"/>
+	<parameter name="SUEDDATE" class="java.sql.Date"/>
+	<parameter name="SUECOSTAMT" class="java.math.BigDecimal"/>
+	<parameter name="FEEAMT" class="java.math.BigDecimal"/>
+	<parameter name="REMARK1" class="java.lang.String"/>
+	<parameter name="LAWBLACKDATE" class="java.sql.Date"/>
+	<parameter name="LAWBLACKNO" class="java.lang.String"/>
+	<parameter name="LAWREDDATE" class="java.sql.Date"/>
+	<parameter name="LAWREDNO" class="java.lang.String"/>
+	<parameter name="COURTID" class="java.lang.String"/>
+	<parameter name="COURTNAME" class="java.lang.String"/>
+	<parameter name="ZONEID" class="java.lang.String"/>
+	<parameter name="ZONENAME" class="java.lang.String"/>
+	<parameter name="REMARK2" class="java.lang.String"/>
+	<parameter name="CLOSEDATE" class="java.sql.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="REPGROUP" class="java.lang.String"/>
+	<field name="CLIENTSEQ_DESC" class="java.lang.String"/>
+	<field name="CUSTNAME" class="java.lang.String"/>
+	<field name="TELNO" class="java.lang.String"/>
+	<field name="LAWYERID" class="java.lang.Integer"/>
+	<field name="LAWYERNAME" class="java.lang.String"/>
+	<field name="LOGDATE" class="java.sql.Date"/>
+	<field name="JOBSTATNAME_SHOW" class="java.lang.String"/>
+	<field name="JOBSTATREMARK" class="java.lang.String"/>
+	<field name="UPDBY" class="java.lang.String"/>
+	<field name="UPDDTE" class="java.sql.Timestamp"/>
+	<field name="EXPENSESNAME_SHOW" class="java.lang.String"/>
+	<field name="EXPENSESAMT" class="java.math.BigDecimal"/>
+	<field name="WITHDRAWAL_AMT" class="java.math.BigDecimal"/>
+	<field name="EXPCOM_ADV" class="java.math.BigDecimal"/>
+	<field name="EXP_REMARK" class="java.lang.String"/>
+	<variable name="V_SEQ_LAWYER" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "2" )?$F{REPGROUP}:null]]></variableExpression>
+	</variable>
+	<variable name="V_SEQ_JOBSTAT" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "3" )?$F{REPGROUP}:null]]></variableExpression>
+	</variable>
+	<variable name="V_SEQ_JOBEXP" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "4" )?$F{REPGROUP}:null]]></variableExpression>
+	</variable>
+	<variable name="V_SUM_EXPENSESAMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "4" )?$F{EXPENSESAMT}:null]]></variableExpression>
+	</variable>
+	<variable name="V_SUM_WITHDRAWAL_AMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "4" )?$F{WITHDRAWAL_AMT}:null]]></variableExpression>
+	</variable>
+	<variable name="V_SUM_EXPCOM_ADV" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{REPGROUP}.equals( "4" )?$F{EXPCOM_ADV}:null]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{REPGROUP}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "1" )]]></printWhenExpression>
+				<staticText>
+					<reportElement x="0" y="1" width="553" height="20" uuid="c01edf85-71aa-4a35-9c60-2602ff001984"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="14" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[ลูกความ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="21" width="124" height="17" uuid="0fd92e6f-32a5-4a6d-b3bc-6e6ea4e3964d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="124" y="21" width="256" height="17" uuid="e64503b7-c0d7-49f0-8ba8-2dfbd4f858d4"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ชื่อ-นามสกุล"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="380" y="21" width="173" height="17" uuid="9ec54a33-c8d0-4d04-bfff-c027b424c3ae">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เบอร์ติดต่อ"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{REPGROUP}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "2" )]]></printWhenExpression>
+				<staticText>
+					<reportElement x="0" y="4" width="553" height="20" uuid="9f680bf3-0971-45b4-b31e-88470dbe049c"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="14" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[ทนายที่รับงาน]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="24" width="44" height="17" uuid="cbe176c9-63d6-4074-9f50-9d9a83deedc7"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="124" y="24" width="429" height="17" uuid="acdf941f-2491-4d1e-b0f0-6c39d1bfbd26">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ชื่อทนาย"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="44" y="24" width="80" height="17" uuid="6bdac099-f178-474c-809b-bcaa6ff49eef"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["รหัสทนาย"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{REPGROUP}]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "3" )]]></printWhenExpression>
+				<staticText>
+					<reportElement x="0" y="5" width="553" height="20" uuid="5e2f7ac7-3bc9-4014-b867-8add19e59d3b"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="14" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[สถานะการทำงาน]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="25" width="34" height="17" uuid="e2620777-c49d-4ded-9194-84bf8b0eb3e5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="95" y="25" width="153" height="17" uuid="1a8a41da-e50a-42a7-972a-4aeef7d4c1c6"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["สถานะการทำงาน"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="34" y="25" width="61" height="17" uuid="44016019-ce6f-4f76-826f-98479b669d62"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วันที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="248" y="25" width="153" height="17" uuid="08217e36-6471-4b10-8bf1-4ed6114bb4ce"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["หมายเหตุ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="401" y="25" width="74" height="17" uuid="e2a47e91-af2c-4c6e-b9fe-348b48a201de">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ผู้ทำรายการ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="475" y="25" width="78" height="17" uuid="71cd2391-c66b-45ed-bc2a-b68b3a87e461">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วันทำรายการ"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{REPGROUP}]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "4" )]]></printWhenExpression>
+				<staticText>
+					<reportElement x="0" y="5" width="553" height="20" uuid="7fd36b25-1a13-4299-a768-72c509782285"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="14" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[ค่าใช้จ่าย]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="25" width="34" height="17" uuid="e52582d8-f027-40bd-a94b-3379b7d60ae2">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="34" y="25" width="114" height="17" uuid="0efc1a28-919f-478f-ab34-a0fd35555e09"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ค่าใช้จ่าย"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="148" y="25" width="47" height="17" uuid="6547ca3a-0205-4014-8d31-e6c91e413772"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["จำนวนเงิน"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="345" y="25" width="208" height="17" uuid="837218a8-54b9-486a-aed0-a0983e8e421c"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["หมายเหตุ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="195" y="25" width="75" height="17" uuid="7fe2f2c8-967f-44d9-9fa7-f44ad39d18d1"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ตั้งเบิกลูกความ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="270" y="25" width="75" height="17" uuid="61385d83-b9d4-40b0-a229-e498210b894d"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ค่าใช้จ่ายบริษัท"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="17">
+				<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "4" )]]></printWhenExpression>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00">
+					<reportElement stretchType="RelativeToBandHeight" x="148" y="0" width="47" height="17" uuid="25b842e4-5ddc-4336-a97f-db9ac6bf193e"/>
+					<box leftPadding="0" rightPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{V_SUM_EXPENSESAMT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00">
+					<reportElement stretchType="RelativeToBandHeight" x="270" y="0" width="75" height="17" uuid="5ee4ee6a-48ec-4821-b174-3145c837a1e2"/>
+					<box leftPadding="0" rightPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{V_SUM_EXPCOM_ADV}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00">
+					<reportElement stretchType="RelativeToBandHeight" x="195" y="0" width="75" height="17" uuid="0d955bc9-5196-4dd3-82c4-dfe968a0d317"/>
+					<box leftPadding="0" rightPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{V_SUM_WITHDRAWAL_AMT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToBandHeight" x="34" y="0" width="114" height="17" uuid="2499d049-f538-43fa-b866-3bed2da28ae2"/>
+					<box leftPadding="3" rightPadding="5">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["รวม : "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="17" uuid="4ca4b702-8f15-44d4-a38f-3b4ac4bcf955">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="345" y="0" width="208" height="17" uuid="9376056d-da92-4773-bd21-82fca39bf9d0"/>
+					<box leftPadding="3">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="Angsana New" size="12"/>
+					</textElement>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="203">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="19" width="44" height="20" uuid="62d8720b-ab98-4101-83dc-9302dcb3c9d5"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[เลขที่งาน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="19" width="116" height="20" uuid="7b6564af-3f07-4fb6-aa2c-8f3fe489759f"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{JOBNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="19" width="60" height="20" uuid="f418318e-30ac-474c-a351-df610325ee9a"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่รับงาน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="19" width="100" height="20" uuid="a55ce78e-4ce9-4b2d-9eff-8d8ee1046f85"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{JOBDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="19" width="60" height="20" uuid="e95a9493-a48f-4b38-a08d-5350f98475ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[สถานะคดี]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="19" width="150" height="20" uuid="91e8fc16-41b3-4d7d-affd-b5be92ae1c88"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LAWSTATNAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="39" width="80" height="20" uuid="be78c2ec-324f-49ae-bde3-12428cdb4769"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่จ่ายงานทนาย]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="39" width="80" height="20" uuid="fa4eecc7-b408-4ca6-9465-c6c293a4975d"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{SENDJOBDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="39" width="60" height="20" uuid="093c8dcd-63a0-4ea3-a295-9d12dba270b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Job Code]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="39" width="100" height="20" uuid="b9b56c52-d936-45a7-b1e8-c980aee53acb"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{JOBCODENAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="39" width="80" height="20" uuid="f9a995fa-4b76-4ab4-ad3e-29737455bb88"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[เลขที่สัญญาลูกค้า]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="39" width="154" height="20" uuid="8ff41b06-557f-46e6-954a-9a5b9facdf01"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CUSTCONTACTNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="59" width="34" height="20" uuid="3f5b7de8-0505-4ca8-8a3c-c9b609a8187f"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ข้อหา]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="59" width="520" height="20" uuid="b1c02a95-b709-4148-b78b-e3a16a64bc93"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PLAINT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="79" width="50" height="20" uuid="f769b05d-e833-4084-94cd-56f480a307c1"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ประเภทคดี]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="79" width="504" height="20" uuid="7ecc6a2b-583b-4be1-9ec9-b76e322845c1"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LAWTYPENAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="99" width="50" height="20" uuid="805d23e1-d290-4d6a-a498-1eed9fa5115d"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่ยื่นฟ้อง]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="99" width="60" height="20" uuid="c169ddc4-8810-45d7-b44d-cfab6eecd167"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{SUEATDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="99" width="50" height="20" uuid="889ace04-dc38-40af-9cb9-97b9018e3057"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่ถูกฟ้อง]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="99" width="60" height="20" uuid="1de21e9b-ec97-4de6-a61f-2af56788352d"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{SUEDDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="220" y="99" width="74" height="20" uuid="0232de32-0d8e-4a6d-911c-4a6abf35b8bf"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ทุนทรัพย์ฟ้อง/บาท]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="294" y="99" width="66" height="20" uuid="c0442e72-c877-4991-b9dd-627041c0bc96"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SUECOSTAMT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="99" width="94" height="20" uuid="09e9abb4-3d7c-4336-be69-f7c220d5c446"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ค่าฤชาธรรมเนียม/บาท]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="454" y="99" width="66" height="20" uuid="a6faa495-ae1e-4fdc-a7a4-ea85036e6658"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FEEAMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="119" width="494" height="20" uuid="bd4bd3a4-4079-442f-9575-490f34111de3"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REMARK1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="60" height="20" uuid="2aa7b29b-d422-4478-8bb5-4f3a29c6d44c"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[คำขอท้ายฟ้อง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="139" width="44" height="20" uuid="e4469c52-ea9b-4523-9bd1-9f5ca7e409b5"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่คดีดำ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="139" width="64" height="20" uuid="6bab5b95-89a0-461e-94a2-4e401d474075"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{LAWBLACKDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="108" y="139" width="40" height="20" uuid="8a274eed-7966-4e76-8baf-d852faab8f78"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[เลขคดีดำ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="139" width="100" height="20" uuid="b4745b84-1b00-4265-9f18-c098c608782d"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LAWBLACKNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="139" width="50" height="20" uuid="2ff26c1e-b2e6-4a4f-a61d-747a9390d214"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันที่คดีแดง]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="139" width="66" height="20" uuid="7a7d615c-87cb-4a8c-9010-8331f93efce3"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{LAWREDDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="139" width="52" height="20" uuid="350f0ee3-bb4e-4051-9cff-61fa7ee59ccf"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[เลขคดีแดง]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="139" width="138" height="20" uuid="1b8c1278-2269-44a8-aad9-7d3badff7a92"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LAWREDNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="159" width="24" height="20" uuid="8063e018-d263-411c-b266-d894c4b90113"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ศาล]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="159" width="200" height="20" uuid="c6f55f71-53b5-4035-81d2-59123919720f"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COURTNAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="225" y="159" width="30" height="20" uuid="ec948b50-bedd-4237-8191-a993f6d9d24a"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Zone]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="159" width="170" height="20" uuid="3aac168f-3d55-4a01-a637-9447a7d3a2d7"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ZONENAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="179" width="50" height="20" uuid="e05ca516-af25-42d3-8a6b-32fd856e8d94"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[หมายเหตุ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="179" width="504" height="20" uuid="899b38b2-884a-4b46-b827-16d014688e47"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REMARK2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="446" y="159" width="44" height="20" uuid="c75ca029-5a60-427d-bf4f-f6514dbb6078"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[วันปิดงาน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="159" width="64" height="20" uuid="94460eaa-f716-4705-9787-36974144abf7"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($P{CLOSEDATE})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="195" y="0" width="144" height="20" uuid="002a51eb-faa5-4b33-a4b7-62d1318d3187"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[รายละเอียดงาน]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "1" )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="380" y="0" width="173" height="17" uuid="849efcc3-3c18-4d9b-9600-8f0d28c8d253">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TELNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="124" height="17" uuid="6cc11279-ecf9-47ff-8145-d5266e95158b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLIENTSEQ_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="124" y="0" width="256" height="17" uuid="224aa3e3-8f42-45e4-b794-f5ad11266f51"/>
+				<box leftPadding="5" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUSTNAME}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "2" )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="44" height="17" uuid="777f1fa6-0540-4351-979f-b05159fac494"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{V_SEQ_LAWYER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="124" y="0" width="429" height="17" uuid="9754cf83-3d1a-45d0-b88d-7c690374754e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWYERNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="44" y="0" width="80" height="17" uuid="cd59c4b1-fb2a-4c27-80a4-f42cda16a768"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWYERID}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "3" )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="17" uuid="048e04f3-38ef-4550-b5c7-10365a65de31">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{V_SEQ_JOBSTAT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="401" y="0" width="74" height="17" uuid="4e8df65b-96ba-497b-9eac-cf6ca219d7bb">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UPDBY}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="475" y="0" width="78" height="17" uuid="515a74fe-5a3f-46d9-b646-1228ee7124fb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString($F{UPDDTE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="34" y="0" width="61" height="17" uuid="d07b51be-b3c0-4f6d-bf50-f45a5637bda8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{LOGDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="95" y="0" width="153" height="17" uuid="ae6f0edd-8812-4202-b012-1ad53a509636"/>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATNAME_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="248" y="0" width="153" height="17" uuid="83f1d25b-bf05-426c-a8cc-a232898c13bb"/>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATREMARK}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{REPGROUP}.equals( "4" )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="17" uuid="910d8c35-a3d6-4c8d-85d5-cf4838b45a6c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{V_SEQ_JOBEXP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="148" y="0" width="47" height="17" uuid="e07c8eb7-ce8c-4bf8-bf43-8217055c98d6"/>
+				<box leftPadding="0" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXPENSESAMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="34" y="0" width="114" height="17" uuid="ed248e4c-a8bc-4cd8-ab74-c4e6908ae1e2"/>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXPENSESNAME_SHOW}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="270" y="0" width="75" height="17" uuid="b3a5c84d-c347-4e5a-8f5c-dab003cab200"/>
+				<box leftPadding="0" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXPCOM_ADV}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="345" y="0" width="208" height="17" uuid="8afe8b61-0608-45f8-9271-d5cd5780b0db"/>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXP_REMARK}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="195" y="0" width="75" height="17" uuid="e20235a4-37e6-4802-8744-dc9b4d0f6b60"/>
+				<box leftPadding="0" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WITHDRAWAL_AMT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,41 @@
+<zk>
+	<window use="com.pcc.gl.ui.acAcctNoQry.AcAcctNoQry" id="AcAcctNoQry" width="1000px" title="สอบถาม/พิมพ์ผังบัญชี"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint2" label="พิมพ์ทั้งหมด" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel2" label="Excel ทั้งหมด" onClick="spaceOwner.onClick_btnPrint(2)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสบัญชี" />
+			</div>
+			<div>
+				<textbox value="" id="txtACCT_ID" width="150px" />
+				<space spacing="2px" />
+				<label value="ชื่อบัญชี" />
+				<textbox value="" id="txtACCT_NAME" width="200px" />
+			</div>
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<listbox id="listBox1" mold="paging" pageSize="10">
+			<listhead sizable="true">
+				<listheader label="ลำดับ" width="60px;" align="center" />
+				<listheader label="รหัสบัญชี" width="150px;" />
+				<listheader label="ชื่อบัญชี" />
+				<listheader label="หมวดบัญชี" width="120px;" align="center" />
+			</listhead>
+		</listbox>
+
+	</window>
+
+</zk>

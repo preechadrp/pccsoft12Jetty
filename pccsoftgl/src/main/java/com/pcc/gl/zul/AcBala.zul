@@ -1,0 +1,27 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acBala.AcBala" id="AcBala" width="1000px" title="รายงานงบดุล" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)"
+				width="50px" />
+			<!-- 			<button id="btnTest" label="Test" onClick="spaceOwner.onClick_Test()" width="50px" /> -->
+			<!-- 			<button id="btnTestJpg" label="TestJpg" onClick="spaceOwner.onClick_TestJpg()" width="50px" /> -->
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="สิ้นสุดวันที่" />
+			</div>
+			<div>
+				<datebox id="tdbToPostdate" tooltiptext="ถึงวันที่ใบสำคัญ" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

@@ -1,0 +1,135 @@
+<zk>
+	<window use="com.pcc.gl.ui.acChqWd.AcChqWd" id="AcChqWd" width="1000px" title="ล้างเช็คจ่ายล่วงหน้า"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_btnSave()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE_FROM" tooltiptext="วันที่ใบสำคัญ" />
+				<label value="ถึงวันที่ใบสำคัญ" />
+				<datebox id="tdbPOSTDATE_TO" tooltiptext="ถึงวันที่ใบสำคัญ" />
+				<label value="รหัสบัญชีเช็คจ่ายล่วงหน้า" />
+				<bandbox id="txtACCT_ID_CHQ" width="150px" maxlength="15" onOpen="spaceOwner.popupACCTID_CHQ()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสบัญชีเช็คจ่ายล่วงหน้า" />
+				<textbox id="txtACCT_NAME_CHQ" width="250px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+				<textbox id="txtVOU_NO" width="150px" maxlength="15" />
+			</div>
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridList1" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="เลขที่เช็ค" width="100px" align="left" sort="auto(CHQ_NO)" />
+				<column label="วันที่เช็ค" width="100px" align="left" sort="auto(CHQ_DATE)" />
+				<column label="สั่งจ่ายในนาม" width="150px" align="left" />
+				<column label="จำนวนเงิน" width="100px" align="right" />
+				<column label="คำอธิบายรายการ" width="250px" align="left" />
+				<column label="รหัสบัญชี" width="200px" align="left" />
+				<column label="Cr.ด้วยรหัสบัญชี" width="200px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<label value="รายการที่เลือก" />
+		</div>
+
+		<grid id="gridList2" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="เลขที่เช็ค" width="100px" align="left" sort="auto(CHQ_NO)" />
+				<column label="วันที่เช็ค" width="100px" align="left" sort="auto(CHQ_DATE)" />
+				<column label="สั่งจ่ายในนาม" width="150px" align="left" />
+				<column label="จำนวนเงิน" width="100px" align="right" />
+				<column label="คำอธิบายรายการ" width="250px" align="left" />
+				<column label="รหัสบัญชี" width="200px" align="left" />
+				<column label="Cr.ด้วยรหัสบัญชี" width="200px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="ยอดรวม" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<decimalbox id="decSUMALL" readonly="true" tabindex="-1" />
+			</div>
+
+			<div>
+				<label value="ล้างเช็คด้วยบัญชีอื่น" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<checkbox id="chkClearByAcctid" onClick="spaceOwner.onClick_chkClearByAcctid()" />
+			</div>
+
+			<div>
+				<label value="รหัสลงบัญชีอื่น(Cr.)" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<label value="" style="color:red;" />
+				<bandbox id="txtACCT_ID_OTH" width="120px" maxlength="15" onOpen="spaceOwner.popupACCTID()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสลงบัญชีอื่น(Cr.)" />
+				<textbox id="txtACCT_NAME_OTH" width="400px" readonly="true" tabindex="-1" />
+				<label value="** ระบบจะ Cr. ด้วยรหัสบัญชีนี้ทุกรายการแทนตัวเดิม" style="color:red;" />
+			</div>
+
+			<div>
+				<label value="ลงบัญชีวันที่" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE" tooltiptext="ลงบัญชีวันที่" />
+			</div>
+
+			<div>
+				<label value="หมายเหตุสมุดรายวัน" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtDESCR" width="400px" maxlength="255" tooltiptext="หมายเหตุสมุดรายวัน" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

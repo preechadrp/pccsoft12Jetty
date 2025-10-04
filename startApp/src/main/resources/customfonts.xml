@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<fontFamilies>
+
+	<fontFamily name="Angsana New">
+		<normal><![CDATA[com/pcc/fonts/ANGSA.TTF]]></normal>
+		<bold><![CDATA[com/pcc/fonts/ANGSAB.TTF]]></bold>
+		<italic><![CDATA[com/pcc/fonts/ANGSAI.TTF]]></italic>
+		<boldItalic><![CDATA[com/pcc/fonts/ANGSAZ.TTF]]></boldItalic>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+	</fontFamily>
+	
+	<fontFamily name="WINGDNG2">
+		<normal><![CDATA[com/pcc/fonts/WINGDNG2.TTF]]></normal>
+		<bold><![CDATA[com/pcc/fonts/WINGDNG2.TTF]]></bold>
+		<italic><![CDATA[com/pcc/fonts/WINGDNG2.TTF]]></italic>
+		<boldItalic><![CDATA[com/pcc/fonts/WINGDNG2.TTF]]></boldItalic>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+	</fontFamily>
+
+</fontFamilies>

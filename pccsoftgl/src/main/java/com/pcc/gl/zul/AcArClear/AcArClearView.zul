@@ -1,0 +1,27 @@
+<zk>
+	<window use="com.pcc.gl.ui.acArClear.AcArClearView" title="รายละเอียด" width="95%" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<grid id="gridAccList" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="110px" align="center" />
+				<column label=".." width="100px" align="left" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="เจ้าหนี้" width="150px" align="left" sort="auto(CUST_CDE)" />
+				<column label="เลขที่เอกสาร" width="150px" align="left" sort="auto(DOCNO)" />
+				<column label="วันที่เอกสาร" width="100px" align="left" sort="auto(DOCDATE)" />
+				<column label="หมายเหตุ" width="200px" align="left" />
+				<column label="สถานะ" width="100px" align="center" sort="auto(RECSTA)" />
+				<column label="ผู้ทำรายการ" width="100px" align="left" sort="auto(UPBY)" />
+				<column label="วันทำรายการ" width="120px" align="left" sort="auto(UPDT)" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+	</window>
+</zk>

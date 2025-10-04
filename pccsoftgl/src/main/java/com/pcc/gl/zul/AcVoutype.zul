@@ -1,0 +1,69 @@
+<zk>
+	<window use="com.pcc.gl.ui.acVoutype.AcVoutype" id="AcVoutype" width="1000px" title="รหัสสมุดรายวัน"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="120px" maxlength="10" onOpen="spaceOwner.popupData()"
+					tooltiptext="รหัสสมุดรายวัน" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="ชื่อสมุดรายวัน" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtVOU_NAME" width="300px" maxlength="60" tooltiptext="ชื่อสมุดรายวัน" />
+				</div>
+
+				<div>
+					<label value="ทำล้างยอดเจ้าหนี้ได้" />
+				</div>
+				<div>
+					<checkbox id="chkUSE_PV" />
+				</div>
+
+				<div>
+					<label value="ทำล้างยอดลูกหนี้ได้" />
+				</div>
+				<div>
+					<checkbox id="chkUSE_RV" />
+				</div>
+
+				<div>
+					<label value="ผู้แก้ไขล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPBY" width="200px" readonly="true" />
+					<label value="วันแก้ไขล่าสุด" />
+					<textbox id="txtUPDT" width="200px" readonly="true" />
+				</div>
+
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

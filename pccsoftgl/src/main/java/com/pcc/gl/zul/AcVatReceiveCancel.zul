@@ -1,0 +1,65 @@
+<zk>
+	<window use="com.pcc.gl.ui.acVatReceiveCancel.AcVatReceiveCancel" id="AcVatReceiveCancel" width="1000px"
+		title="ยกเลิก-รับภาษีซื้อรอตัด" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE_FROM" tooltiptext="วันที่ใบสำคัญ" />
+				<label value="ถึงวันที่ใบสำคัญ" />
+				<datebox id="tdbPOSTDATE_TO" tooltiptext="ถึงวันที่ใบสำคัญ" />
+			</div>
+
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_txtVOU_TYPE()" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="250px" readonly="true" tabindex="-1" />
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+				<textbox id="txtVOU_NO" width="150px" maxlength="15" />
+			</div>
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridAccList" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="110px" align="center" />
+				<column label=".." width="110px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="หมายเหตุ" width="200px" align="left" />
+				<column label="สถานะ" width="100px" align="center" sort="auto(RECSTA)" />
+				<column label="ผู้ทำรายการ" width="100px" align="left" sort="auto(UPBY)" />
+				<column label="วันทำรายการ" width="120px" align="left" sort="auto(UPDT)" />
+				<column label="ผู้อนุมัติ" width="100px" align="left" sort="auto(APPR_BY)" />
+				<column label="วันอนุมัติ" width="120px" align="left" sort="auto(APPR_DT)" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<separator />
+		<label value="** แสดงที่ 5,000 รายการแรกเท่านั้น" style="color:red;" />
+
+	</window>
+
+</zk>

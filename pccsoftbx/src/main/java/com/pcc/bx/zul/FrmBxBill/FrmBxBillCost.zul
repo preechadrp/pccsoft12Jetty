@@ -1,0 +1,88 @@
+<zk>
+	<window use="com.pcc.bx.ui.FrmBxBill.FrmBxBillCost" id="FrmBxBillCost" width="1000px" title="เอกสาร" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<div>
+				<label value="เลขที่เอกสาร" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtBLNO" width="100px" maxlength="15" tooltiptext="เลขที่เอกสาร" readonly="true" />
+				<label value="วันที่เอกสาร" />
+				<datebox id="tdbBLDATE" width="100px" tooltiptext="วันที่เอกสาร" readonly="true" />
+				<label value="คำนวนภาษีแบบ" />
+				<combobox id="cmbVATTYPE" width="300px" readonly="true" autodrop="true" tooltiptext="คำนวนภาษีแบบ" disabled="true" >
+					<comboitem value="" label="=กรุณาเลือก=" />
+					<comboitem value="1" label="ราคาไม่รวม VAT(คำนวนจากรวมมูลค่าสินค้า)" />
+					<comboitem value="2" label="ราคาไม่รวม VAT(คำนวนแต่ละหน่วย)" />
+					<comboitem value="3" label="ราคารวม VAT(ถอด Vat จากราคาต่อหน่วย)" />
+					<comboitem value="5" label="NOVAT" />
+				</combobox>
+				<label value="อัตราภาษี" />
+				<decimalbox id="decVATRATE" width="60px" tooltiptext="อัตราภาษี" readonly="true" />
+			</div>
+
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout1">
+			
+				<div>
+					<label value="สาขาที่ออกเอกสาร" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtBRANC_CDE" width="50px" buttonVisible="false"  tooltiptext="สาขาที่ออกเอกสาร" readonly="true" />
+					<textbox id="txtBRANC_NAME" width="300px" tooltiptext="สาขาที่ออกเอกสาร" readonly="true" />
+				</div>
+				
+				<div>
+					<label value="รหัสลูกค้า" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtCUST_CDE" width="120px" readonly="true" buttonVisible="false"  />
+					<textbox id="txtCUST_TITLE" width="120px" tooltiptext="คำนำหน้าชื่อ" readonly="true" />
+					<textbox id="txtCUST_FNAME" width="250px" tooltiptext="ชื่อลูกค้า" readonly="true" />
+					<textbox id="txtCUST_LNAME" width="250px" tooltiptext="นามสกุล" readonly="true" />
+				</div>
+			 
+			</div>
+
+			<div sclass="mainGridLayout1">
+				<div>
+					<label value="รวมมูลค่าสินค้าซื้อ" />
+				</div>
+				<div>
+					<decimalbox id="decCOSTBASAMT" width="150px" tooltiptext="รวมมูลค่าสินค้า" readonly="false" value="0" onChange="spaceOwner.onChange_Data(this.self)" />
+					<label value="รวมภาษีซื้อ" />
+					<decimalbox id="decCOSTVATAMT" width="150px" tooltiptext="รวมภาษี" readonly="false" value="0" onChange="spaceOwner.onChange_Data(this.self)" />
+					<label value="รวมยอดซื้อ" />
+					<decimalbox id="decCOSTTOTAL" width="150px" tooltiptext="รวมทั้งสิ้น" readonly="true" value="0" />
+				</div>
+				
+				<div>
+					<label value="เจ้าหนี้" />
+					<label value="" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtCUST_CDE_AP" width="120px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE_AP()" onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="เจ้าหนี้" />
+					<textbox id="txtAPNAME" width="250px" maxlength="250" tooltiptext="เจ้าหนี้" readonly="true" />
+				</div>
+				
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

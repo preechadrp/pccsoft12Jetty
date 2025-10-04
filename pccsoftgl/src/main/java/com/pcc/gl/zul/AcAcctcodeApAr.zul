@@ -1,0 +1,56 @@
+<zk>
+	<window use="com.pcc.gl.ui.acAcctcodeApAr.AcAcctcodeApAr" id="AcAcctcodeApAr" width="1000px"
+		title="รหัสบัญชีลูกหนี้/เจ้าหนี้ที่มีตัวย่อย ,เช็คจ่ายล่วงหน้า" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสบัญชี" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtACCT_ID" width="130px" maxlength="15" tooltiptext="รหัสบัญชี" />
+				<label value="ชื่อบัญชี" />
+				<textbox id="txtACCT_NAME" width="180px" tooltiptext="ชื่อบัญชี" />
+				<label value="ตัวย่อย" />
+				<combobox id="cmbSUB_TYPE" width="180px" readonly="true" >
+					<comboitem value="0" label="ทั้งหมด" />
+					<comboitem value="1" label="เจ้าหนี้" />		
+					<comboitem value="2" label="ลูกหนี้" />
+					<comboitem value="3" label="เช็คจ่ายล่วงหน้า" />
+				</combobox>
+			</div>
+
+			<label value="" />
+			<hbox>
+				<button id="btnShow" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnShow()" />
+			</hbox>
+
+		</div>
+
+		<grid id="gridAccList" mold="paging" pageSize="7">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label=".." width="70px" align="center" />
+				<column label=".." width="45px" align="center" />
+				<column label="รหัสบัญชี" width="100px" align="center" sort="auto(ACCT_ID)" />
+				<column label="ชื่อบัญชี" width="250px" sort="auto(ACCT_NAME)" />
+				<column label="ตัวย่อย" width="120px" sort="auto(SUB_TYPE)" />
+				<column label="รหัสบัญชีล้างเช็คจ่ายล่วงหน้า" width="250px" sort="auto(ACCT_ID_BANK)" />
+				<column label="ผู้สร้าง" width="100px" align="left" sort="auto(INSBY)" />
+				<column label="วันสร้าง" width="150px" align="left" sort="auto(INSDT)" />
+				<column label="ผู้ปรับปรุง" width="100px" align="left" sort="auto(UPBY)" />
+				<column label="วันปรับปรุง" width="150px" align="left" sort="auto(UPDT)" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+	</window>
+
+</zk>

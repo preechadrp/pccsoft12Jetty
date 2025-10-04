@@ -1,0 +1,65 @@
+<zk>
+	<window use="com.pcc.bx.ui.FrmBxTempl.FrmBxTemplView" id="FrmBxTemplView" width="1000px" title="รูปแบบหัวเอกสาร" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสรูปแบบเอกสาร" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<intbox id="intTMPLCDE" width="40px" tooltiptext="รหัสรูปแบบเอกสาร" readonly="true" />
+
+				<label value="อักษรนำหน้าเลขเอกสาร" />
+				<label value="*" style="color:red;" />
+				<textbox id="txtDOCPREFIX" width="70px" maxlength="2" tooltiptext="อักษรนำหน้าเลขเอกสาร" readonly="true" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout1">
+				<div>
+					<label value="ชื่อรูปแบบเอกสาร" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtTMPLNAME" width="400px" maxlength="250" tooltiptext="ชื่อรูปแบบเอกสาร" readonly="true" />
+				</div>
+				
+				<div>
+					<label value="บันทึกตุ้นทุน" />
+				</div>
+				<div>
+					<combobox id="cmbPOSTCOST" width="60px" maxlength="250" tooltiptext="บันทึกตุ้นทุน" disabled="true" >
+						<comboitem value="N" label="No" />
+						<comboitem value="Y" label="Yes" />
+					</combobox>
+				</div>
+			</div>
+			<div sclass="div-split-box">
+				<label value="หัวเอกสาร" />
+			</div>
+			<grid id="grdData1" mold="paging" pageSize="3">
+				<columns sizable="true">
+					<column label="ลำดับ" width="40px" align="center" />
+					<column label="หัวเลขเอกสาร" width="350px" />
+					<column label="สำหรับ" width="350px" />
+				</columns>
+				<rows>
+					<row>
+						<label value="1" />
+						<label value="ใบกำกับภาษี/ใบส่งของ" />
+						<label value="ลูกค้า" />
+					</row>
+				</rows>
+			</grid>
+		</div>
+
+	</window>
+
+</zk>

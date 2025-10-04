@@ -1,0 +1,27 @@
+#common
+comm.label.msgNoRight=Permission denied
+comm.label.exit=Exit
+comm.label.save=Save
+comm.label.saveCancel=Save
+comm.label.delete=Delete
+comm.label.add=Add
+comm.label.deleteComfirm=Delete
+comm.label.print=Print
+comm.label.printExcel=Excel
+comm.label.find=Find
+comm.label.find2=Find
+comm.label.show=Find
+comm.label.undo=Undo
+comm.label.ComfirmNew=New Record
+comm.label.deleteSucces=Delete completed
+comm.label.readCard=Read CardId
+comm.label.readCardDesc=Need install pccsoft mircroservice on client
+
+# login.zul
+login.label.logname=Login
+login.label.password=Password
+login.label.errorUser=Invalid User
+login.label.errorPassword=Invalid password
+
+#AcAcctcodeApAr.zul
+AcAcctcodeApAr.label.ViewAll=View all

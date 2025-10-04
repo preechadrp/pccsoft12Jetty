@@ -1,0 +1,25 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acCloseY.AcCloseY" id="AcCloseY" width="1000px" title="ปิดบัญชีสิ้นปี" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnStart" label="ดำเนินการปิดบัญชี" onClick="spaceOwner.onClick_btnStart()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่ปิดบัญชี" />
+			</div>
+			<div>
+				<intbox id="intDD" width="30px" readonly="true" />
+				<intbox id="intMM" width="30px" readonly="true" />
+				<intbox id="intYYYY" width="50px" readonly="false" onChange="spaceOwner.onChange_intYYYY()" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

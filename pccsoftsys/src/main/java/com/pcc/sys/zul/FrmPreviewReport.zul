@@ -1,0 +1,5 @@
+<?page id="pageMain"?>
+<window title="รายงาน" use="com.pcc.sys.ui.FrmPreviewReport" closable="true" width="95%" height="95%" border="normal"
+	sizable="true">
+	<iframe id="iframeReport" width="100%" height="100%" />
+</window>

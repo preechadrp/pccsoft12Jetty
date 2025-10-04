@@ -1,0 +1,475 @@
+/*
+@font-face {
+  font-family: "THSarabun";
+  src: url("font/THSarabun.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "THSarabun";
+  src: url("font/THSarabun Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "THSarabun";
+  src: url("font/THSarabun Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "THSarabun";
+  src: url("font/THSarabun Bold Italic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+*/
+@font-face {
+  font-family: "tahoma";
+  /*src: url("font/tahoma.ttf") format("truetype");*/
+  src: url("font/Taeyhom.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "tahoma";
+  /*src: url("font/tahomabd.ttf") format("truetype");*/
+  src: url("font/Taeyhom-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+/*begin overide zul theme
+old : #ccccff , #cccccc , rgb(0, 204, 204);
+*/
+[class*="z-"]:not([class*="z-icon-"]) {
+	font-family: tahoma, Arial, Sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.z-combobox-button, 
+.z-bandbox-button, 
+.z-datebox-button, 
+.z-timebox-button, 
+.z-spinner-button, 
+.z-doublespinner-button {
+	height: 24px;
+	min-width: 27px;
+	padding: 4px 4px;
+	border-radius: 0px;
+	/*border-radius: 0px 4px 4px 0px; แบบกลม */
+}
+	
+.z-textbox,
+.z-decimalbox, 
+.z-intbox,  
+.z-longbox, 
+.z-doublebox, 
+.z-combobox-input, 
+.z-datebox-input,
+.z-bandbox-input, 
+.z-timebox-input, 
+.z-spinner-input, 
+.z-doublespinner-input {
+	height: 24px;
+	border-radius: 0px;
+	border-image: none;
+	margin: 0px;
+	padding: 1px 1px;
+	line-height: 14px;
+	border: 1px solid #a4a4ff;
+}
+
+.z-combobox, .z-bandbox, .z-datebox, .z-timebox, .z-spinner, .z-doublespinner {
+    height: 24px;
+}
+
+.z-textbox[readonly], 
+.z-decimalbox[readonly], 
+.z-intbox[readonly],  
+.z-longbox[readonly], 
+.z-doublebox[readonly], 
+.z-combobox-input[readonly], 
+.z-datebox-input[readonly],
+.z-bandbox-input[readonly], 
+.z-timebox-input[readonly], 
+.z-spinner-input[readonly], 
+.z-doublespinner-input[readonly] {
+    background: #ECE1E1 none repeat scroll 0% 0%;
+    border: 1px solid #a4a4ff;
+}
+
+.z-combobox-input[readonly] {
+	background: white none repeat scroll 0% 0%;
+}
+
+.z-listheader-content, 
+.z-listcell-content, 
+.z-listgroup-content, 
+.z-listgroupfoot-content, 
+.z-listfooter-content {
+	padding: 2px 2px;
+}
+
+.z-grid-header table th {
+    padding: 2px;
+}
+
+.z-column {	
+    border-left: 1px solid white;
+    border-bottom: 0px solid white;
+    padding: 2px 0px;
+}
+
+.z-columns-bar {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.z-column,
+.z-listheader,
+.z-grid-header  {
+	background: #36a2c3;
+}
+
+.z-column-content, 
+.z-row-content, 
+.z-group-content, 
+.z-groupfoot-content, 
+.z-footer-content {
+	padding: 0px 2px;
+}
+
+.z-grid-header-border {
+    border-bottom: 1px solid white;
+}
+
+.z-listheader {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;  
+}
+
+.z-listheader-content {
+    color: white;
+}
+
+.z-listbox-header-border {
+    border-bottom: 1px solid white;
+}
+
+.z-button {
+	color:white;
+	min-height: 24px;
+	border: 0px solid #c0c0c0;
+	/*border-radius: 0px;*/
+	border-radius: 3px;
+	padding: 3px 5px;
+	line-height: 14px;
+/* 	background: #0c8fa5 url("") no-repeat scroll center center; */
+	background: #0c8fa5 url("") no-repeat scroll center center;
+/* 	background: llinear-gradient(to bottom, #7AB1B4, #407D80); */
+	text-shadow: 0px 0px 0px white;
+}
+
+.z-button:focus {
+	color:#000000;
+	border-color: #006633;
+	background: #FFFF99 url("") no-repeat scroll center center;
+	box-shadow: 0px 0px 2px rgb(12, 188, 255) inset;
+}
+
+.z-button:hover {
+    color:#000000;
+}
+
+.z-button[disabled] {
+	color: grey;
+	background: #EEE url("") no-repeat scroll center center;
+}
+
+.z-tabbox {
+    border: 1px solid #d9d9d9;
+    border-radius: 0px;
+}
+    
+.z-tab {
+	padding: 5px 16px;	
+}
+
+.z-tabs {
+	min-height: auto;
+}
+
+.z-tabs-content {
+	min-height: auto;
+}
+
+.z-tabpanel {
+    padding:0px 0px 0px 0px;
+}
+
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	margin: 0px;
+	font-size: inherit;
+	border-radius: 0px;
+	border: 1px solid #a4a4ff;
+}
+
+.z-row .z-row-inner, .z-row .z-cell {
+    border-top: 1px solid #f2f2f2;
+    border-left: 1px solid #f2f2f2;
+}
+
+.z-window {
+/* 	background-color: #64b06a; */
+	background-color: #06c8b8;
+ 	/*border-radius: 0px;*/ 
+	/*แบบกลม*/
+	border-radius: 4px;
+	padding: 5px;
+}
+
+.z-window-modal {
+	padding: 0px 5px 5px 5px;
+}
+
+.z-window-header {
+	padding: 0px 2px 0px 2px;
+	line-height: 24px;
+	color: white;
+}
+
+.z-window-content {
+	padding: 4px;
+}
+
+.z-window-noborder {
+	padding: 0px;
+}
+
+.z-window-icon {
+    line-height: 18px;
+    width: 20px;
+}
+
+.z-messagebox-window .z-window-header {
+    padding: 1px 5px;
+}
+
+.z-menubar {
+    padding: 0px;
+}
+
+.z-paging {
+    height: auto;
+    padding: 0px 4px 0px 4px;
+}
+
+.z-paging-input {
+	height: 27px;
+	width: 45px;
+	padding: 0px;
+	text-align: center;
+}
+
+.z-paging-button {
+	padding: 1px;
+	height: auto;
+}
+
+.z-paging-info {
+    padding: 0px;
+}
+
+.z-toolbarbutton-content {
+   color: black;
+   padding: 1px 4px;
+   line-height: 10px;
+}
+
+.z-tabbox-left-scroll, .z-tabbox-right-scroll {
+    width: 32px;
+    min-height: 30px;
+}
+
+.z-tabbox-icon {
+   padding: 7px 8px;	
+}
+
+.z-combobox-popup, .z-bandbox-popup, .z-datebox-popup, .z-timebox-popup {
+   border-radius: 0px;	
+   /*border-radius: 4px;	แบบกลม*/
+}
+
+.z-menu-content, .z-menuitem-content {
+   border-radius: 0px;
+   padding: 4px 23px 4px 2px;
+}
+	
+.z-tabs.allow-wrap .z-tabs-content {
+    white-space: normal; /*for classic themes e.g. breeze*/
+    flex-wrap: wrap; /*for modern themes e.g. iceblue*/
+}
+	
+/*end overide zul theme*/
+
+body {
+	background-color: #FFF;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0px;
+	border-color: gray;
+	border-width: 0px;
+}
+
+.rowSclassNone {
+	background-color: transparent;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+.rowGrid1 {
+	vertical-align: top;
+}
+
+input:focus {
+	background-color: #FFFF99;
+}
+
+.buttonAdd {
+/* 	background-color: #408080; */
+}
+
+.buttondel {
+	/*background-color: #A4092F;*/
+	background-color: #A4092F;
+/* 	color: #ff0000; */
+}
+
+.buttondel[disabled] {
+	/*background-color: #A4092F;*/
+	color: grey;
+}
+
+.buttonedit {
+	/*background-color: #008080;*/
+	/*color: white;*/
+}
+
+.buttoneditsub {
+	/*background-color: #008080;*/
+	color: #e236a2;
+}
+
+.buttonmove {
+	background-color: #911b94;
+/* 	color: #911b94; */
+}
+
+.buttonView {
+	/*background-color: #F8D080;*/
+/*     color: #150505; */
+      color: white;
+}
+
+.div-toolbar {
+	text-align: left;
+	background-color: #F8F4CC;
+}
+
+.div-login-box {
+	
+	/*สีเทา*/
+	/*background: linear-gradient( #c0c0c0, #e0e0e0 , #e0e0e0);*/
+	/*border-color:#cccccc; */
+	
+	/*สีชมพู*/
+    /*background-color:#e7a09d;*/
+    /*border-color:#e7a09d;*/
+    
+    /*สีเขียว*/
+    /*background-color:#64b06a; */
+    /*border-color:#64b06a; */
+	
+	/*สีคราม*/
+	background-color:#06c8b8;
+    border-color:#06c8b8;
+    
+    
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	border-width: 1px 1px 0px 1px ;
+	border-style: solid;
+	/*border-radius: 0px;*/ 
+ 	border-radius: 3px 3px 0px 0px; 
+}
+
+.div-login-box2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	border-width: 1px;
+	border-color:#cccccc;
+	border-style: solid;
+	/*border-radius: 0px;*/ 
+    border-radius: 0px 0px 3px 3px;  
+}
+
+.div-login-box-label {
+	color:#ffffff;
+/* 	font-size:15px; */
+	font-weight: bold;
+	padding: 2px 0px; 
+}
+
+.div-split-box {
+	text-align: center;
+	background-color: #cccc33; 
+}
+
+.main-window {
+ 	width:1200px; 
+	/*max-width:95%;*/
+	min-width:1100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: #4D7A97;
+	padding: 0px;
+}
+
+.popup-window {
+/* 	width:1000px; */
+	max-width:95%;
+	min-width:1100px;
+}
+
+.menu-cancel span {
+	color: red;
+}
+
+.mainGridLayout1 {
+	display: grid; 
+	grid-template-columns: 14% auto; 
+	grid-gap: 2px; 
+	padding: 2px 2px 0px 2px;
+}
+
+.mainGridLayout2 {
+	display: grid; 
+	grid-template-columns: 14% auto; 
+	grid-gap: 2px; 
+	padding: 2px 2px 2px 2px;
+}
+
+.mainGridLayout3 {
+	display: grid; 
+	grid-template-columns: 14% auto; 
+	grid-gap: 2px; 
+	padding: 2px 0px 0px 0px;
+}

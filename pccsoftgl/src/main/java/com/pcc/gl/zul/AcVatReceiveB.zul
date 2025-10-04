@@ -1,0 +1,137 @@
+<zk>
+	<window use="com.pcc.gl.ui.acVatReceiveB.AcVatReceiveB" id="AcVatReceiveB" width="1000px"
+		title="รับภาษีซื้อ(รวมหลายบิล)" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_btnSave()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE_FROM" tooltiptext="วันที่ใบสำคัญ" />
+				<label value="ถึงวันที่ใบสำคัญ" />
+				<datebox id="tdbPOSTDATE_TO" tooltiptext="ถึงวันที่ใบสำคัญ" />
+				<label value="รหัสเจ้าหนี้" />
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสเจ้าหนี้" />
+				<textbox id="txtCUST_NAME" width="250px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+				<textbox id="txtVOU_NO" width="150px" maxlength="15" />
+			</div>
+
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridList1" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" sort="auto(POSTDATE)" />
+				<column label="เลขที่เอกสาร" width="120px" align="left" sort="auto(DOCNO)" />
+				<column label="วันที่เอกสาร" width="100px" align="left" sort="auto(DOCDATE)" />
+				<column label="ผู้จำหน่าย" width="120px" align="left" />
+				<column label="คำอธิบายรายการ" width="250px" align="left" />
+				<column label="จำนวนเงิน" width="100px" align="center" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<label value="รายการที่เลือก" />
+		</div>
+
+		<grid id="gridList2" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="left" />
+				<column label="เลขที่เอกสาร" width="120px" align="left" />
+				<column label="วันที่เอกสาร" width="100px" align="left" />
+				<column label="ผู้จำหน่าย" width="120px" align="left" />
+				<column label="คำอธิบายรายการ" width="200px" align="left" />
+				<column label="คงเหลือ" width="100px" align="center" />
+				<column label="รับครั้งนี้" width="100px" align="center" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="ยอดรวม" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<decimalbox id="decSUMALL" readonly="true" tabindex="-1" />
+				<label value="ยอดรับภาษีซื้อจริง" />
+				<label value="*" style="color:red;" />
+				<decimalbox id="decSUMREC" onChange="spaceOwner.onChange_Data(this.self)"
+					tooltiptext="ยอดรับภาษีซื้อจริง" />
+				<label value="มูลค่าสินค้า/บริการสุทธิ" />
+				<label value="*" style="color:red;" />
+				<decimalbox id="decSUMBASE_AMT" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" />
+			</div>
+
+			<div>
+				<label value="ส่วนต่าง" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<decimalbox id="decSUMDIFF" readonly="true" tabindex="-1" />
+				<label value="รหัสลงบัญชีส่วนต่าง" />
+				<label value="" style="color:red;" />
+				<bandbox id="txtACCT_ID_DIFF" width="120px" maxlength="10" onOpen="spaceOwner.popupACCTID()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสลงบัญชีส่วนต่าง" />
+				<textbox id="txtACCT_NAME_DIFF" width="400px" readonly="true" tabindex="-1" />
+				<label value="** ระบุกรณีมีส่วนต่าง" style="color:red;" />
+			</div>
+
+			<div>
+				<label value="เลขที่เอกสาร" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtDOCNO" width="200px" maxlength="40" tooltiptext="เลขที่เอกสาร" />
+				<label value="วันที่เอกสาร" />
+				<label value="*" style="color:red;" />
+				<datebox id="tdbDOCDATE" tooltiptext="วันที่เอกสาร" />
+			</div>
+
+			<div>
+				<label value="ลงบัญชีวันที่" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE" tooltiptext="ลงบัญชีวันที่" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

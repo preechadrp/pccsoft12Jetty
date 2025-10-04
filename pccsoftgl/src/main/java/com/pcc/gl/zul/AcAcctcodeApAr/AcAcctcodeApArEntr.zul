@@ -1,0 +1,72 @@
+<zk>
+	<window use="com.pcc.gl.ui.acAcctcodeApAr.AcAcctcodeApArEntr" id="AcAcctcodeApArEntr" width="1000px"
+		title="รหัสบัญชีลูกหนี้/เจ้าหนี้ที่มีตัวย่อย ,เช็คจ่ายล่วงหน้า" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+		</div>
+
+		<separator />
+
+		<div id="div1">
+			<div style="display: grid; grid-template-columns: 16% auto; grid-gap: 5px; padding: 5px 5px 5px 5px;">
+			
+				<div>
+					<label value="รหัสบัญชี" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtACCT_ID" width="130px" maxlength="15" onOpen="spaceOwner.popupACCT_ID()"
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสบัญชี" />
+					<textbox id="txtACCT_NAME" width="400px" tooltiptext="ชื่อบัญชี" readonly="true" />	
+				</div>
+				
+				<div>
+					<label value="ตัวย่อย" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<combobox id="cmbSUB_TYPE" width="180px" readonly="true" tooltiptext="ตัวย่อย" onChange="spaceOwner.onChange_Data(this.self)" >
+						<comboitem value="1" label="เจ้าหนี้" />		
+						<comboitem value="2" label="ลูกหนี้" />
+						<comboitem value="3" label="เช็คจ่ายล่วงหน้า" />
+					</combobox>
+				</div>
+
+				<div>
+					<label value="รหัสบัญชีล้างเช็คจ่ายล่วงหน้า" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtACCT_ID_BANK" width="130px" maxlength="15" onOpen="spaceOwner.popupACCT_ID_BANK()"
+						onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสบัญชีล้างเช็คจ่ายล่วงหน้า" />
+					<textbox id="txtACCT_NAME_BANK" width="400px" tooltiptext="ชื่อบัญชี" readonly="true" />
+					<label value="* ต้องเป็นรหัสบัญชีที่ไม่มีตัวย่อย" style="color:red;" />
+				</div>
+
+				<div>
+					<label value="ผู้สร้างรายการ" />
+				</div>
+				<div>
+					<textbox id="txtINSBY" width="200px" readonly="true" />
+					<label value="วันสร้างรายการ" />
+					<textbox id="txtINSDT" width="200px" readonly="true" />
+				</div>
+
+				<div>
+					<label value="ผู้แก้ไขล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPBY" width="200px" readonly="true" />
+					<label value="วันแก้ไขล่าสุด" />
+					<textbox id="txtUPDT" width="200px" readonly="true" />
+				</div>
+
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

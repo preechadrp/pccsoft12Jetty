@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.pcc</groupId>
+    <artifactId>pccsoft12</artifactId>
+    <version>0.0.1</version>
+  </parent>
+  <artifactId>startApp</artifactId>
+  
+  <dependencies>
+  
+  		<!-- ตอนเรียกใช้ module ที่สร้าง-->
+		<dependency>
+			<groupId>com.pcc</groupId> 
+			<artifactId>pccsoftsys</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsoftgl</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsofttk</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsoftbx</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+  </dependencies>
+  
+  <build>
+	   
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.14.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- ทำหน้าที่ copy library มาใส่ในโฟลเดอร์ lib -->
+			<!--
+				ถ้าแดงให้ maven compile package จาก parent project แล้ว refresh project Explorer เพื่อให้ eclipse เห็น .jar ของ module อื่นๆ ที่อ้างอิง
+			 	ตอน package ให้เลือก skiptest 
+			 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.9.0</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<!--<phase>prepare-package</phase>-->
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							<includeScope>runtime</includeScope>
+						</configuration>
+					</execution>
+	 
+				</executions>
+				
+			</plugin>
+
+			<!-- สร้าง jar ที่รันได้ -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.4.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.pcc.start.MainApp</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+		
+	</build>
+		
+</project>

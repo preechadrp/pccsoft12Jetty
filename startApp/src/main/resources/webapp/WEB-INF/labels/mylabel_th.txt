@@ -1,0 +1,27 @@
+#common
+comm.label.msgNoRight=ไม่มีสิทธิ์ใช้เมนูนี้
+comm.label.exit=ออก
+comm.label.save=บันทึก
+comm.label.saveCancel=ยกเลิกรายการ
+comm.label.delete=ลบ
+comm.label.add=เพิ่ม
+comm.label.deleteComfirm=ลบ
+comm.label.print=พิมพ์
+comm.label.printExcel=Excel
+comm.label.find=ค้นหา
+comm.label.find2=ค้นหา
+comm.label.show=แสดง
+comm.label.undo=ไม่บันทึก
+comm.label.ComfirmNew=สร้างรายการใหม่
+comm.label.deleteSucces=ลบเรียบร้อย
+comm.label.readCard=อ่านข้อมูลจากบัตร
+comm.label.readCardDesc=จะใช้ได้เครื่องลูกต้องติดตั้ง pccsoft mircroservice และมีการเชื่อมเครื่องอ่านบัตรประชาชน
+
+#login.zul
+login.label.logname=ชื่อเข้าระบบ
+login.label.password=รหัสผ่าน
+login.label.errorUser=ชื่อไม่ถูกต้อง
+login.label.errorPassword=รหัสผ่านไม่ถูกต้อง
+
+#AcAcctcodeApAr.zul
+AcAcctcodeApAr.label.ViewAll=ดูทั้งหมด

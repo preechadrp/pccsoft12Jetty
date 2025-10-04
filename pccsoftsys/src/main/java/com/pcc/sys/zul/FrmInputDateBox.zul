@@ -1,0 +1,13 @@
+<?page title="input" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window width="300px" title="*" border="normal" onCancel="spaceOwner.onClose()">
+		<label id="lblMsg" value="Title" />
+		<separator />
+		<datebox id="tb" />
+		<separator />
+		<space spacing="20px" />
+		<button label="OK" id="okBtn" />
+		<space spacing="10px" />
+		<button label="Cancel" id="cacelBtn" />
+	</window>
+</zk>

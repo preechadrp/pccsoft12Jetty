@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2022-04-21T16:38:04 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AcAcctNoQry" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="079e3b03-efe9-4430-8381-3f9d54f5eff2">
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<parameter name="compName" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ACCT_ID" class="java.lang.String"/>
+	<field name="ACCT_NAME" class="java.lang.String"/>
+	<field name="ACCT_TYPE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="430" height="21" uuid="a64062fb-c986-4afe-bf20-7ccd6e417db7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="430" height="21" uuid="59e14744-a977-4245-b2f6-18478725f808"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="40" height="21" uuid="06d2ac53-229c-4a8b-8e9d-33008668c20d"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="85" height="21" uuid="c86c32bf-09d7-4287-a07f-d95dcd983a7a"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="21" width="40" height="21" uuid="f8575f4e-9d8c-4ab7-bdf2-a73d2fb4e1ee"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="21" width="85" height="21" uuid="b3b45425-f829-42ed-ae9d-025bae128b6f"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString(FnDate.getTodayDateTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="40" y="42" width="90" height="21" backcolor="#50F2AF" uuid="32c2a635-3cf9-4812-8a6a-0dd14da9ef6a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รหัสบัญชี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="130" y="42" width="300" height="21" backcolor="#50F2AF" uuid="dc50734a-65c9-4b55-acdf-9782f15c6e61"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อบัญชี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="430" y="42" width="125" height="21" backcolor="#50F2AF" uuid="2cb764e4-c41b-4991-92cb-b6c777953442"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["หมวดบัญชี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="42" width="40" height="21" backcolor="#50F2AF" uuid="de4d415b-0daa-40ea-be90-43aaebfb772f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="40" y="0" width="90" height="17" uuid="66190d88-eb43-4b2c-91c9-b1805189a178">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="130" y="0" width="300" height="17" uuid="3063d508-77b4-4db0-a3ea-a139fbfd8bed"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="430" y="0" width="125" height="17" uuid="e5b5cb27-2d0a-47a9-9ec3-7677f2b3b0fc"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_TYPE}.equals( "1" )?"สินทรัพย์":
+$F{ACCT_TYPE}.equals( "2" )?"หนี้สิน":
+$F{ACCT_TYPE}.equals( "3" )?"ทุน":
+$F{ACCT_TYPE}.equals( "4" )?"รายได้":
+$F{ACCT_TYPE}.equals( "5" )?"ค่าใช้จ่าย":""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="17" uuid="27b98932-8d9d-4b01-b07f-559ffe2ef0b3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,19 @@
+<?page title="ค้นหา" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window title="ค้นหา" border="normal" use="com.pcc.sys.find.SeUserCompList" closable="true" sizable="true"
+		sclass="popup-window" onCancel="spaceOwner.onClose()">
+
+		<listbox id="listBox1" mold="paging" pageSize="12" checkmark="true">
+			<listhead>
+				<listheader label="" width="40px;" align="center" />
+				<listheader label="รหัสบริษัท" width="250px;" />
+				<listheader label="ชื่อบริษัท" />
+			</listhead>
+		</listbox>
+
+		<div style="text-align: center;background-color: #fff1c4;">
+			<button id="btnOK" label="ตกลง" onClick="spaceOwner.onClick_OK()" />
+		</div>
+
+	</window>
+</zk>

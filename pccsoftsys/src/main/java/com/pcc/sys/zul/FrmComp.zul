@@ -1,0 +1,112 @@
+<zk>
+	<window use="com.pcc.sys.ui.FrmComp.FrmComp" id="FrmComp" width="1000px" title="ข้อมูลบริษัท" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<!-- <button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.testH2Database()" /> -->
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสบริษัท" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtCOMP_CDE" width="80px" maxlength="5" onOpen="spaceOwner.popupData()"
+					tooltiptext="รหัสบริษัท" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout2">
+
+				<div>
+					<label value="ชื่อบริษัท" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtCOMP_NAME" width="400px" maxlength="100" tooltiptext="ชื่อบริษัท" />
+					<label value="* ให้พิมพ์คำหน้าด้วยเช่น บริษัท รุ่งเรือง จำกัด เป็นต้น" style="color:red;" />
+				</div>
+
+				<div>
+					<label value="ชื่อย่อ" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtCOMP_SHORTNAME" width="200px" maxlength="100" tooltiptext="ชื่อย่อ" />
+					<label value="* ใช้ในเอกสารต่างๆ" style="color:red;" />
+				</div>
+
+				<div>
+					<label value="เลขประจำตัวผู้เสียภาษี" />
+				</div>
+				<div>
+					<textbox id="txtTAXNO" width="200px" maxlength="100" tooltiptext="เลขประจำตัวผู้เสียภาษี" />
+				</div>
+
+				<div>
+					<label value="วันที่เริ่มเปิดกิจการ" />
+				</div>
+				<div>
+					<datebox id="tdbOPENCOMP" tooltiptext="วันที่เริ่มเปิดกิจการ" />
+				</div>
+
+				<div>
+					<label value="เดือนเริ่มรอบบัญชีบริษัท" />
+				</div>
+				<div>
+					<intbox id="intGLMONTH" width="30px" maxlength="2" tooltiptext="เดือนเริ่มรอบบัญชีบริษัท" />
+					<label value=" * ใส่เลข 1-12 ตามเดือนจริง เช่น 1=มกราคม เป็นต้น" style="color:red;" />
+				</div>
+
+				<div>
+					<label value="วันเริ่มรอบบัญชีบริษัท" />
+				</div>
+				<div>
+					<intbox id="intGLDAY" width="30px" maxlength="2" tooltiptext="วันเริ่มรอบบัญชีบริษัท" />
+					<label value=" * ใส่เลข 1-31 ตามเดือนเริ่มรอบบัญชี" style="color:red;" />
+				</div>
+
+			</div>
+
+			<div style="text-align: center;background-color: #ebebeb;">
+				<label value="**สาขา" />
+				<button id="btnAddBranch" label="เพิ่มสาขา" onClick="spaceOwner.onClick_btnAddBranch()"
+					sclass="buttonAdd" />
+			</div>
+
+			<grid id="grid2" style="border-width: 1px" mold="paging" pageSize="5">
+
+				<columns>
+					<column label="ลำดับ" align="center" width="45px" />
+					<column label=".." align="center" width="45px" />
+					<column label=".." align="center" width="45px" />
+					<column label="รหัสสาขา" align="left" width="100px" />
+					<column label="ชื่อสาขา" align="left" width="150px" />
+					<column label="ชื่อย่อสาขา" align="left" width="150px" />
+					<column label="เลขภาษีสาขาที่จดทะเบียน" align="left" width="150px" />
+					<column label="ที่อยู่บรรทัด 1" align="left" width="250px" />
+					<column label="ที่อยู่บรรทัด 2" align="left" width="250px" />
+					<column label="เบอร์โทร" align="left" width="150px" />
+					<column label="เบอร์แฟ๊ก" align="left" width="150px" />
+				</columns>
+
+				<rows></rows>
+			</grid>
+
+		</div>
+
+	</window>
+
+</zk>

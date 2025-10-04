@@ -1,0 +1,26 @@
+#RunMode= jar or war
+RunMode=jar
+#Description
+ShowDesc=Production
+#MasterDb
+MasterDb=jdbc/MASTERDB
+#
+#is dev 1=visible txtOpenMenu , 0=hide txtOpenMenu
+txtOpenMenu=NO
+#
+#preview report
+Report_In_Iframe=NO
+#microservice
+MicroServiceLink=http://localhost:8081/pccsoftMicroService/service/
+#
+#WebserviceUrl
+#WebserviceUrl = http://localhost:8877/pccsoftWeb
+WebserviceUrl = http://localhost:8877
+#==list module
+module=sys
+module=gl
+module=bil
+module=mt
+module=tk
+module=cc
+module=bx

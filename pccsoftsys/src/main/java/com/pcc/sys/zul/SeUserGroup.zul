@@ -1,0 +1,33 @@
+<?page title="ค้นหา" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window title="ค้นหา" border="normal" use="com.pcc.sys.find.SeUserGroup" closable="true" sizable="true"
+		sclass="popup-window" onCancel="spaceOwner.onClose()">
+		<div style="padding-left:10px;">
+			<label value="ชื่อกลุ่มสิทธิ์" />
+			<textbox value="" id="txtTHAI_NAME" />
+			<space spacing="2px" />
+			<label value="รหัสกลุ่มสิทธิ์" />
+			<textbox value="" id="txtUSER_MENU_GROUP" />
+		</div>
+
+		<separator />
+		<div align="center">
+			<button label="${labels.comm.label.find2}" onClick="spaceOwner.onOK()" />
+		</div>
+
+		<separator />
+		<listbox id="listBox1" mold="paging" pageSize="12">
+			<listhead sizable="true">
+				<listheader label="ลำดับ" width="60px;" align="center" />
+				<listheader label="รหัสกลุ่มสิทธิ์" width="250px;" sort="auto(USER_MENU_GROUP)" />
+				<listheader label="ชื่อกลุ่มสิทธิ์" sort="auto(THAI_NAME)" />
+			</listhead>
+		</listbox>
+
+		<div style="text-align: center;background-color: #fff1c4;">
+			<button id="btnOK" label="ตกลง" onClick="spaceOwner.onClick_btnOK()" />
+			<button id="btnClose" label="ออก" onClick="spaceOwner.onClose()" />
+		</div>
+
+	</window>
+</zk>

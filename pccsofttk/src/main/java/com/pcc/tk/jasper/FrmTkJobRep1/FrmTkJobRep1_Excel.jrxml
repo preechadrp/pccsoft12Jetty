@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FrmTkJobRep1_Excel" pageWidth="3802" pageHeight="555" orientation="Landscape" columnWidth="3802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="654fa0ed-f8ad-4f16-b67c-6c7424142ee3">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<import value="com.pcc.sys.lib.Fnc"/>
+	<parameter name="compName" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="reportConditionString1" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="JOBNO" class="java.lang.String"/>
+	<field name="JOBDATE" class="java.sql.Date"/>
+	<field name="LAWSTATID" class="java.lang.Integer"/>
+	<field name="SENDJOBDATE" class="java.sql.Date"/>
+	<field name="JOBCODE" class="java.lang.String"/>
+	<field name="CUSTCONTACTNO" class="java.lang.String"/>
+	<field name="PLAINT" class="java.lang.String"/>
+	<field name="SUEATDATE" class="java.sql.Date"/>
+	<field name="SUEDDATE" class="java.sql.Date"/>
+	<field name="SUECOSTAMT" class="java.math.BigDecimal"/>
+	<field name="FEEAMT" class="java.math.BigDecimal"/>
+	<field name="REMARK1" class="java.lang.String"/>
+	<field name="LAWBLACKDATE" class="java.sql.Date"/>
+	<field name="LAWBLACKNO" class="java.lang.String"/>
+	<field name="LAWREDDATE" class="java.sql.Date"/>
+	<field name="LAWREDNO" class="java.lang.String"/>
+	<field name="COURTID" class="java.lang.Integer"/>
+	<field name="REMARK2" class="java.lang.String"/>
+	<field name="CLOSEDATE" class="java.sql.Date"/>
+	<field name="JOBSTAT" class="java.lang.String"/>
+	<field name="UPDBY" class="java.lang.String"/>
+	<field name="UPDDTE" class="java.sql.Timestamp"/>
+	<field name="LAWTYPEID" class="java.lang.Integer"/>
+	<field name="LAWYER_LIST" class="java.lang.String"/>
+	<field name="CLIENT_LIST" class="java.lang.String"/>
+	<field name="LAWSTATNAME" class="java.lang.String"/>
+	<field name="JOBNAME" class="java.lang.String"/>
+	<field name="COURTNAME" class="java.lang.String"/>
+	<field name="LAWTYPENAME" class="java.lang.String"/>
+	<field name="LOGDATE" class="java.sql.Date"/>
+	<field name="JOBSTATNAME" class="java.lang.String"/>
+	<field name="JOBSTATREMARK" class="java.lang.String"/>
+	<field name="UPDBY2" class="java.lang.String"/>
+	<field name="UPDDTE2" class="java.sql.Timestamp"/>
+	<field name="SUM_EXPENSESAMT" class="java.math.BigDecimal"/>
+	<field name="SUM_WITHDRAWAL_AMT" class="java.math.BigDecimal"/>
+	<field name="SUM_EXPCOM_ADV" class="java.math.BigDecimal"/>
+	<field name="DAYWORK" class="java.lang.String"/>
+	<variable name="V_SEQ_GROUP1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{JOBNO}]]></variableExpression>
+	</variable>
+	<variable name="V_SEQ_GROUP2" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{JOBNO}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{JOBNO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="1000" height="21" uuid="db4dbe96-529e-476a-8504-313bd5123ea7"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="1000" height="21" uuid="a82b9b81-a4ee-4deb-9264-89e97cc14d92"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1210" y="0" width="90" height="21" uuid="30b45c7b-f25f-42fa-948c-f65a404303b8"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1300" y="0" width="80" height="21" uuid="d3b7988f-230a-4030-a5e9-aa137dd7014c"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1210" y="21" width="90" height="21" uuid="1f828be3-85d7-4ed8-b56b-c6b7c53097ec"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1300" y="21" width="80" height="21" uuid="1401763e-dff5-499c-b2f3-622f8c0edf5d"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString(FnDate.getTodayDateTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="1000" height="21" uuid="bdee60c4-d4cb-4ba5-997b-e14ec39ad32a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportConditionString1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="63" width="60" height="17" uuid="a9809cee-316a-4f7c-9781-94eff8b9bc8f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="63" width="80" height="17" uuid="b2af0f62-ec25-4979-8ef4-91da7df749f4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลข JOB"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="63" width="60" height="17" uuid="dd043933-9c67-49a7-a779-01f51d4eaf3c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่รับงาน"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="63" width="80" height="17" uuid="555174fb-ddb0-434c-8579-fce37463e2ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานะคดี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="63" width="220" height="17" uuid="1fff2e2e-6ddd-4848-b5d4-70f0ec4bfad5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ลำดับลูกความ/เบอร์ติดต่อ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="63" width="70" height="17" uuid="03bd9148-d41b-4f26-8d1b-ccd3a78b5f53"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่จ่ายงานทนาย"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="63" width="70" height="17" uuid="7d6cf8e6-d479-4e40-80b8-da65337b550b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รับงาน - วันที่คดีดำ (วัน)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="63" width="140" height="17" uuid="9710ea5c-6cc7-4885-a372-fc61e4eb311c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ทนายผู้รับผิดชอบ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1380" y="63" width="140" height="17" uuid="c3ce58b7-7813-4ba6-8af6-be117322f098"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ศาล"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1520" y="63" width="180" height="17" uuid="615b9817-ab7a-4fd7-909f-5a34153ecd2d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ข้อหา"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1700" y="63" width="150" height="17" uuid="ded4ca1e-1410-4006-a78e-8365f9cc64c2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ประเภทคดี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1850" y="63" width="70" height="17" uuid="d251d7ea-d9d7-436f-9a77-cda0e15a13c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ยื่นฟ้อง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1920" y="63" width="70" height="17" uuid="02e92e85-51cd-4140-a699-ccc6dee21d4c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ถูกฟ้อง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1990" y="63" width="70" height="17" uuid="29215719-7007-4ddf-bf30-5f10964e3ad6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ทุนทรัพย์ฟ้อง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2060" y="63" width="70" height="17" uuid="5b844f26-8aa7-4a9d-b312-9b2624a14387"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ค่าฤชาธรรมเนียม"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2130" y="63" width="150" height="17" uuid="832c017c-51c3-4bec-ad8d-2acec6a19222"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["คำขอท้ายฟ้อง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2280" y="63" width="70" height="17" uuid="56282a0a-25e0-477b-974b-bc35852e9136"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่คดีดำ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2350" y="63" width="80" height="17" uuid="f46147d6-534d-44d5-a070-79e289c68818"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขคดีดำ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2430" y="63" width="70" height="17" uuid="46f0b446-a0e4-4eb6-83e9-32ed34c760a8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่คดีแดง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2500" y="63" width="80" height="17" uuid="d4cb5741-9937-4538-9217-729b225a507f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขคดีแดง"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="780" y="63" width="80" height="17" uuid="7cc1ba2d-7713-4ecc-b1ee-705745a54301">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Status Date"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="860" y="63" width="140" height="17" uuid="5f856301-915d-4634-aece-7f163beb4f26">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานะการทำงาน"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1000" y="63" width="210" height="17" uuid="3a97c61c-959a-4a53-80f9-4327157fc938">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["บันทึกข้อความ / สถานะการทำงาน"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1210" y="63" width="90" height="17" uuid="515f0ab0-60af-4d11-a294-da25fb50dae2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้ทำรายการ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1300" y="63" width="80" height="17" uuid="7b92291e-abc0-48bb-9869-3996e5a3c4d9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ทำรายการ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2580" y="63" width="80" height="17" uuid="bf60ba16-32f1-4e95-a6c6-6188766e397d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ปิดงาน"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2660" y="63" width="80" height="17" uuid="c2579ae4-0d9a-4b4d-88d8-403b446c18e0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ค่าใช้จ่ายรวม"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2740" y="63" width="80" height="17" uuid="4f28cc63-c0c6-4bec-a204-af594e8019ae">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เบิกลูกความ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2820" y="63" width="80" height="17" uuid="7f9aaf4a-007a-48b1-9d46-ea51c0ad6233">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ค่าใช้จ่ายบริษัท"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{V_SEQ_GROUP2}.intValue() == 1l?true:false]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="60" height="17" uuid="3c4810c4-3017-4c23-b977-502280e88a60"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{V_SEQ_GROUP1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="60" y="0" width="80" height="17" uuid="4e3a1614-6d26-435a-a0dc-8d9366ac40c0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="140" y="0" width="60" height="17" uuid="70445656-7786-4a59-b579-f4df3eef5690"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{JOBDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="200" y="0" width="80" height="17" uuid="0ef6f566-5c7e-4b70-a6dd-cc69ed6f706d"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWSTATNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="280" y="0" width="220" height="17" uuid="4a8c262e-b579-421c-ad15-067ef6facb43"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLIENT_LIST}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="500" y="0" width="70" height="17" uuid="3b027631-e180-48b4-a539-9a7ccec05dda"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{SENDJOBDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="570" y="0" width="70" height="17" uuid="5d88826b-b0e2-4cb8-8204-f06be481949b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DAYWORK}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="640" y="0" width="140" height="17" uuid="65498ec9-4566-4f47-802f-b435307422ca"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWYER_LIST}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1380" y="0" width="140" height="17" uuid="a5f0f418-8239-4ac1-a1b8-7e3471fe6344"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COURTNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1520" y="0" width="180" height="17" uuid="529e4b46-7e40-41ca-a4c8-d8f30aa21d48"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLAINT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1700" y="0" width="150" height="17" uuid="0e4b0d06-b16b-42bd-88f6-18bd96e874db"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWTYPENAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1850" y="0" width="70" height="17" uuid="81a8c3c7-90af-415e-bcd3-43bd6b791675"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{SUEATDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1920" y="0" width="70" height="17" uuid="f3bf4415-2d25-4c1e-9f3f-b72c6e132b73"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{SUEDDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1990" y="0" width="70" height="17" uuid="cf1a2342-98e0-41cc-aa61-051f324d8d5d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUECOSTAMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2060" y="0" width="70" height="17" uuid="9e65281f-cfe0-4fc5-ae96-6c239cdb91e3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEEAMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2130" y="0" width="150" height="17" uuid="d2ae9716-5f3d-4b31-b7f3-4d284451342e"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARK1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2280" y="0" width="70" height="17" uuid="231ae1a7-cae7-4002-b26b-a59baa97a0b8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{LAWBLACKDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2350" y="0" width="80" height="17" uuid="c191a77b-8c5e-4210-8372-d7b20b3f7b5d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWBLACKNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2430" y="0" width="70" height="17" uuid="e7bb1d9c-f984-4bb4-a865-270afc6d2d6d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{LAWREDDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2500" y="0" width="80" height="17" uuid="095bc405-c3e9-4b7d-8c2b-2d312dfa310c">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LAWREDNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="780" y="0" width="80" height="17" uuid="5dedff8f-a03e-4e3e-93ec-8e911f44be3b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{LOGDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="860" y="0" width="140" height="17" uuid="40274bc0-6d07-4339-82e1-08dbc3855b62">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1000" y="0" width="210" height="17" uuid="75ee2cfa-abef-4803-a152-c6f0f3333048">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATREMARK}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1210" y="0" width="90" height="17" uuid="b9c3902c-e8ef-4d04-a8a9-ef081c8eccc7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UPDBY2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1300" y="0" width="80" height="17" uuid="08e48855-6445-4a52-9e36-d070932b57d5">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString($F{UPDDTE2})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2580" y="0" width="80" height="17" uuid="8d914e94-8dab-4a6e-88b3-1086018f5257">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{CLOSEDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2660" y="0" width="80" height="17" uuid="dc130be2-f2a4-4155-812e-85a2e31c2090">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM_EXPENSESAMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2740" y="0" width="80" height="17" uuid="ab5f11a6-2684-4519-bbad-0b0e754ad014">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM_WITHDRAWAL_AMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2820" y="0" width="80" height="17" uuid="24e1ccf0-113b-49ba-baf3-66bc70db679d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM_EXPCOM_ADV}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{V_SEQ_GROUP2}.intValue() == 1l?false:true]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="780" y="0" width="80" height="17" uuid="4a97bbc7-e377-4a51-9191-c731025a38c5">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{LOGDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="860" y="0" width="140" height="17" uuid="ec66a473-8b0c-420c-9a51-25c4e3cf8b50">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1000" y="0" width="210" height="17" uuid="09989953-879d-4d65-b5a6-a5ad7d5ae830">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JOBSTATREMARK}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1210" y="0" width="90" height="17" uuid="9f36aa45-433e-4605-9d40-ebce6eabaff2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UPDBY2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1300" y="0" width="80" height="17" uuid="23a206b0-98dd-40a8-8470-4323ddb7ca62">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString($F{UPDDTE2})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

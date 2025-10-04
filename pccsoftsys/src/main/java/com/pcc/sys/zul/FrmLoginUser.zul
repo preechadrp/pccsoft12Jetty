@@ -1,0 +1,118 @@
+<zk>
+	<window use="com.pcc.sys.ui.FrmLoginUser.FrmLoginUser" id="FrmLoginUser" width="1000px" title="จัดการข้อมูลผู้ใช้"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="ชื่อ Login" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtUSER_ID" width="180px" maxlength="20" onOpen="spaceOwner.popupUserId()"
+					tooltiptext="ชื่อ Login" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="รหัสผ่าน" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtUSERPASS" visible="false" tooltiptext="รหัสผ่าน" />
+					<button id="btnSetPassword" label="กำหนดรหัสผ่าน" width="120px"
+						onClick="spaceOwner.popupSetPassword()" />
+				</div>
+
+				<div>
+					<label value="คำนำหน้าชื่อ" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtTITLE" width="120px" maxlength="20" tooltiptext="คำนำหน้าชื่อ" />
+					<label value="ชื่อ" />
+					<label value="*" style="color:red;" />
+					<textbox id="txtFNAME_THAI" width="200px" maxlength="50" tooltiptext="ชื่อ" />
+					<label value="นามสกุล" />
+					<label value="" style="color:red;" />
+					<textbox id="txtLNAME_THAI" width="200px" maxlength="50" tooltiptext="นามสกุล" />
+				</div>
+
+				<div>
+					<label value="จัดการข้อมูลผู้ใช้" />
+				</div>
+				<div>
+					<checkbox id="chkRightUser" />
+				</div>
+
+				<div>
+					<label value="จัดการสิทธิ์การใช้เมนู" />
+				</div>
+				<div>
+					<checkbox id="chkRightUsermenu" />
+				</div>
+
+				<div>
+					<label value="เปิดใช้งาน" />
+				</div>
+				<div>
+					<checkbox id="chkStatus" />
+				</div>
+			</div>
+
+			<div style="text-align: center;background-color: #ebebeb;">
+				<label value="**สิทธิ์การใช้เมนูระบบ" />
+			</div>
+
+			<div style="display: grid; grid-template-columns: 14% auto; grid-gap: 5px; padding: 5px 5px 0px 5px;">
+				<div>
+					<label value="รหัสบริษัท" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<bandbox id="txtCOMP_CDE" width="100px" tooltiptext="รหัสบริษัท" onOpen="spaceOwner.popupCOMP_CDE()"
+						onChange="spaceOwner.onChange_txtCOMP_CDE()" />
+					<textbox id="txtCOMP_NAME" width="200px" readonly="true" tabindex="-1" />
+					<label value="รหัสกลุ่มสิทธิ์" />
+					<label value="*" style="color:red;" />
+					<bandbox id="txtUSER_MENU_GROUP" width="150px" tooltiptext="รหัสกลุ่มสิทธิ์"
+						onOpen="spaceOwner.popupUSER_MENU_GROUP()" onChange="spaceOwner.onChange_txtUSER_MENU_GROUP()" />
+					<textbox id="txtUSER_MENU_GROUP_NAME" width="200px" readonly="true" tabindex="-1" />
+					<button id="btnAddGroup" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAddGroup()"
+						sclass="buttonAdd" />
+				</div>
+			</div>
+
+			<grid id="grid01" style="border-width: 1px" mold="paging" pageSize="5">
+
+				<columns>
+					<column label="ลำดับ" align="center" width="45px" />
+					<column label=".." align="center" width="45px" />
+					<column label="รหัสบริษัท" align="left" width="100px" sort="auto(COMP_CDE)" />
+					<column label="ชื่อบริษัท" align="left" width="250px" sort="auto(COMP_NAME)" />
+					<column label="รหัสกลุ่มสิทธิ์" align="left" width="200px" sort="auto(USER_MENU_GROUP)" />
+					<column label="ชื่อกลุ่มสิทธิ์" align="left" sort="auto(THAI_NAME)" />
+				</columns>
+
+				<rows></rows>
+			</grid>
+
+		</div>
+
+	</window>
+
+</zk>

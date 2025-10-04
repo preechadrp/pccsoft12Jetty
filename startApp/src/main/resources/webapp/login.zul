@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="pccsoft"?> 
+<zk>
+	<window id="FLogin" use="com.pcc.sys.ui.Login" border="none" sclass="main-window" title="">
+
+		<separator />
+		<separator />
+		<separator />
+		<separator />
+		<separator />
+		<separator />
+
+		<div align="center" sclass="div-login-box">
+			<div sclass="div-login-box-label">เข้าสู่ระบบ</div>
+		</div>
+
+		<div sclass="div-login-box2">
+
+			<div style="display: grid; grid-template-columns: auto auto; grid-gap: 5px; padding: 10px;">
+				<label value="${labels.login.label.logname}" />
+				<textbox id="txtUserName" width="150px" />
+				<label value="${labels.login.label.password}" />
+				<textbox id="txtPassword" type="password" width="150px" />
+				<div style="grid-column: 1 / 3; text-align: center;">
+					<button id="btnLogin" label="OK" onClick="spaceOwner.login()" />
+				</div>
+			</div>
+
+		</div>
+<!-- 				<button id="btnTest" label="Test" onClick="spaceOwner.testPopup()" /> -->
+		<separator />
+		<separator />
+
+		<div style="margin-left:10px">
+			<separator />
+			<space spacing="1px" />
+			<label value="ข้อกำหนดการใช้งานเบื้องต้น" style="font-weight: bold;color: blue;" />
+			<separator />
+			<hbox>
+				<space spacing="1px" />
+				<label value="->" />
+				<label value="สนับสนุน Browser : Firefox, Google Chrome, Opera, IE 9+ เท่านั้น" style="color: red;" />
+			</hbox>
+			<separator />
+			<space spacing="1px" />
+			<label value="การพัฒนา" style="font-weight: bold;color: blue;" />
+			<hbox>
+				<space spacing="1px" />
+				<label value="->" />
+				<label value=" PCC Develop Team." />
+			</hbox>
+			<hbox>
+				<space spacing="1px" />
+				<label value="->" />
+				<label id="lblINFO" />
+			</hbox>
+		</div>
+
+		<separator />
+		<separator />
+		<separator />
+		<separator />
+
+	</window>
+</zk>

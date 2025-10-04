@@ -1,0 +1,61 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJob.FrmTkJobDoc" id="FrmTkJobDoc" width="1100px" title="ไฟล์เอกสาร Job" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+		</div>
+
+		<separator />
+		
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="เลขที่งาน" />
+			</div>
+			<div>
+				<textbox id="txtJOBNO" width="150px" readonly="true" />
+				<label value="วันที่รับงาน" />
+				<datebox id="tdbJOBDATE" width="120px" tooltiptext="วันที่รับงาน" readonly="true" />
+				<label value="สถานะคดี" />
+				<bandbox id="txtLAWSTATID" width="70px" readonly="true" buttonVisible="false" />
+				<textbox id="txtLAWSTATNAME" width="200px" readonly="true" />
+			</div>
+		</div>
+
+		<div sclass="mainGridLayout2">
+			<div>
+				<label value="คำอธิบาย" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<combobox id="cmbDOCDESC" width="400px" maxlength="250" tooltiptext="คำอธิบาย" autocomplete="true" autodrop="true" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" sclass="buttonAdd" />
+			</div>
+
+			<label value="" />
+			<label value="*ใส่คำอธิบายแล้วกดปุ่มเพิ่มระบบจะให้เลือกภาพ" style="color:red;" />
+
+		</div>
+		<grid id="grdData1" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label=".." width="90px" align="center" />
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="คำอธิบาย" align="left" />
+				<column label="ไฟล์เอกสาร" align="left" width="100px" />
+				<column label=".." width="55px" align="center" />
+				<column label="ผู้ทำรายการล่าสุด" align="left" width="200px" />
+				<column label="วันทำรายการล่าสุด" align="left" width="200px" />
+			</columns>
+			<rows>
+				<row>
+					<button label="Download" />
+					<button label="ลบ" sclass="buttondel" />
+					<label value="1" />
+					<label value="หน้าสัญญาลูกค้า" />
+					<label value="pdf" />
+				</row>
+			</rows>
+		</grid>
+
+	</window>
+
+</zk>

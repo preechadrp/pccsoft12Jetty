@@ -1,0 +1,45 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acArRem.AcArRem" id="AcArRem" width="1000px" title="รายงานลูกหนี้คงเหลือรายตัว"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="สิ้นสุด ณ วันที่" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbToPostdate" tooltiptext="สิ้นสุด ณ วันที่" />
+			</div>
+
+			<div>
+				<label value="รหัสลูกหนี้" id="lblCust" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสลูกหนี้" />
+				<textbox id="txtCUST_NAME" width="550px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="รหัสบัญชี" />
+			</div>
+			<div>
+				<bandbox id="txtFromAcctid" width="130px" maxlength="15" onOpen="spaceOwner.popupFromAcctid()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสบัญชี" />
+				<textbox id="txtFromAcctName" width="400px" readonly="true" tabindex="-1" />
+			</div>
+		</div>
+
+	</window>
+
+</zk>

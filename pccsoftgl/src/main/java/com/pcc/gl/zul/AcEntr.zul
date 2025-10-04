@@ -1,0 +1,129 @@
+<zk>
+	<window use="com.pcc.gl.ui.acEntr.AcEntr" id="AcEntr" width="1000px" title="บันทึกสมุดรายวัน" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 12% auto; ">
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="*e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_txtVOU_TYPE()" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+				<label value="วันที่ใบสำคัญ" />
+				<label value="*e" style="color:red;" />
+				<datebox id="tdbPOSTDATE" tooltiptext="วันที่ใบสำคัญ" />
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="*e" style="color:red;" />
+				<bandbox id="txtVOU_NO" width="150px" maxlength="15" onOpen="spaceOwner.popupVouNo()" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+
+			<div sclass="mainGridLayout2" style="grid-template-columns: 12% auto; ">
+				<div>
+					<label value="หมายเหตุ" />
+					<label value="*e" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtDESCRH" width="500px" maxlength="255" />
+				</div>
+			</div>
+
+			<div style="text-align: center;background-color: #ebebeb;">
+				<label value="รายการลงบัญชี" />
+			</div>
+
+			<div sclass="mainGridLayout2" style="grid-template-columns: 12% auto; ">
+				<div>
+					<label value="*e" style="color:red;" />
+				</div>
+				<div>
+					<combobox id="cmbDRCR" readonly="true" width="100px" autodrop="true">
+						<comboitem value="1" label="D-เดบิต" />
+						<comboitem value="-1" label="C-เครดิต" />
+					</combobox>
+					<label value="รหัสบัญชี" />
+					<label value="*e" style="color:red;" />
+					<bandbox id="txtACCT_ID" width="150px" maxlength="15" onOpen="spaceOwner.popupAcctNo()"
+						onChange="spaceOwner.onChange_txtACCT_ID()" />
+					<textbox id="txtACCT_NAME" width="500px" readonly="true" tabindex="-1" />
+				</div>
+
+				<div>
+					<label value="แผนก" />
+				</div>
+				<div>
+					<bandbox id="txtSECT_ID" width="100px" maxlength="15" onOpen="spaceOwner.popupSectID()"
+						onChange="spaceOwner.onChange_txtSECT_ID()" />
+					<textbox id="txtSECT_NAME" width="300px" readonly="true" tabindex="-1" />
+					<label value="จำนวน" />
+					<label value="*e" style="color:red;" />
+					<decimalbox id="decAMT" width="150px" />
+				</div>
+
+				<div>
+					<label value="คำอธิบายรายการ" />
+				</div>
+				<div>
+					<textbox id="txtDESCR" width="650px" maxlength="255" />
+				</div>
+
+				<div>
+					<label value="" />
+				</div>
+				<div>
+					<button id="btnAddDet" label="บันทีก(เพิ่ม)" onClick="spaceOwner.onClick_btnAddDet()"
+						sclass="buttonAdd" />
+					<button id="btnUndoDet" label="ยกเลิกการแก้ไข" onClick="spaceOwner.onClick_btnUndoDet()" />
+					<intbox id="intEdit_VOU_SEQ" visible="false" readonly="true" />
+					<button id="btnAp" label="ล้างยอดเจ้าหนี้" onClick="spaceOwner.onClick_btnAp()" />
+					<button id="btnAr" label="ล้างยอดลูกหนี้" onClick="spaceOwner.onClick_btnAr()" />
+				</div>
+			</div>
+
+			<separator />
+
+			<grid id="gridAccList" mold="paging" pageSize="7">
+				<columns sizable="true">
+					<column label="ลำดับ" width="40px" align="center" />
+					<column label=".." width="55px" align="center" />
+					<column label=".." width="45px" align="center" />
+					<column label=".." width="35px" align="center" />
+					<column label=".." width="57px" align="center" />
+					<column label="รหัสบัญชี" width="90px" align="left" />
+					<column label="ชื่อบัญชี" width="300px" align="left" />
+					<column label="แผนก" width="90px" align="left" />
+					<column label="เดบิต" width="100px" align="left" />
+					<column label="เครดิต" width="100px" align="left" />
+					<column label="คำอธิบายรายการ" width="500px" align="left" />
+				</columns>
+				<rows></rows>
+			</grid>
+
+			<div align="center">
+				<label value="รวมเดบิต" />
+				<decimalbox id="decSUM_DB" width="150px" readonly="true" tabindex="-1" />
+				<label value="รวมเครดิต" />
+				<decimalbox id="decSUM_CR" width="150px" readonly="true" tabindex="-1" />
+				<label value="ผลต่าง" />
+				<decimalbox id="decSUM_DIFF" width="150px" readonly="true" tabindex="-1" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

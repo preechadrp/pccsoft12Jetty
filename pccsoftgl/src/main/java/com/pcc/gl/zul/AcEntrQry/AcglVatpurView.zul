@@ -1,0 +1,45 @@
+<?page title="AcAr" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntrQry.AcglVatpurView" id="AcglVatpurView" width="950px" title="รายละเอียด(ตัวย่อย)"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 20% auto; ">
+
+			<label value="คำอธิบายรายการ" />
+			<textbox id="txtDESCR" width="98%" readonly="true" />
+
+			<label value="เลขที่เอกสาร/ใบแจ้งหนี้" />
+			<textbox id="txtDOCNO" maxlength="40" width="300px" tooltiptext="เลขที่เอกสาร/ใบแจ้งหนี้" readonly="true" />
+
+			<label value="วันที่เอกสาร/ใบแจ้งหนี้" />
+			<datebox id="tdbDOCDATE" tooltiptext="วันที่เอกสาร/ใบแจ้งหนี้" readonly="true" />
+
+			<label value="รหัสเจ้าหนี้" id="lblCust" />
+			<div>
+				<textbox id="txtCUST_CDE" width="150px" maxlength="15" tooltiptext="รหัสเจ้าหนี้" readonly="true" />
+				<textbox id="txtCUST_NAME" width="550px" readonly="true" />
+			</div>
+
+			<label value="สาขา" />
+			<textbox id="txtCUST_BRANCH_ID" width="150px" readonly="true" />
+
+			<label value="อัตราภาษี" />
+			<decimalbox id="decVAT_RATE" width="150px" tooltiptext="อัตราภาษี" readonly="true" />
+
+			<label value="ภาษี" />
+			<decimalbox id="decAMT" width="150px" tooltiptext="ภาษี" readonly="true" />
+
+			<label value="มูลค่าสินค้า/บริการสุทธิ" />
+			<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" readonly="true" />
+
+		</div>
+
+	</window>
+
+</zk>

@@ -1,0 +1,29 @@
+<zk>
+	<window use="com.pcc.bx.ui.FrmBxRepCostAndAp.FrmBxRepCostAndAp" id="FrmBxRepCostAndAp" width="1000px" title="รายงาน Job" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<!-- <button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" /> -->
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" width="50px" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+ 
+			<div>
+				<label value="จากวันที่ใบรับเงิน" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbBLDATE_FROM" width="120px" tooltiptext="จากวันที่ใบรับเงิน" placeholder="ทั้งหมด"  />
+				<label value="ถึงวันที่ใบรับเงิน" />
+				<label value="" style="color:red;" />
+				<datebox id="tdbBLDATE_TO" width="120px" tooltiptext="ถึงวันที่ใบรับเงิน" placeholder="ทั้งหมด"  />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

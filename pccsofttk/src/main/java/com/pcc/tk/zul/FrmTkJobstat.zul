@@ -1,0 +1,50 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJobstat.FrmTkJobstat" id="FrmTkJobstat" width="1000px" title="ตารางสถานะการทำงาน"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()" sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="รหัสสถานะการทำงาน" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtJOBSTATID" width="80px" maxlength="7" onOpen="spaceOwner.popupData()" tooltiptext="รหัสสถานะการทำงาน" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="ชื่อสถานะการทำงาน" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtJOBSTATNAME" width="400px" maxlength="250" tooltiptext="ชื่อสถานะการทำงาน" />
+				</div>
+				
+				<div>
+					<label value="ผู้แก้ไขล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPBY" width="200px" readonly="true" />
+					<label value="วันแก้ไขล่าสุด" />
+					<textbox id="txtUPDT" width="200px" readonly="true" />
+				</div>
+
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

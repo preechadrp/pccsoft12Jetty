@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="pccsoft"?>
+<zk>
+	<zscript src="/chklogin.zs" />
+	<window id="FMainMn" use="com.pcc.sys.ui.FMainMn" title="" border="none" sclass="main-window" sizable="false" if="${!empty sessionScope.user}">
+
+		<div sclass="mainGridLayout3" style="grid-template-columns: auto auto;">
+			<div style="text-align: left;">
+				<label id="lblComp" value="บริษัท รุ่งเรื่อง จำกัด" />
+				<div style="text-align: left;">
+					<label value="User : " style="font-weight: bold;color: #177E99;" />
+					<label id="lblUser" value="preecha.d" style="color: blue;" />
+					<space spacing="1px" />
+					<label value="Database : " style="font-weight: bold;color: #177E99;" />
+					<label id="lblDbName" value="PCCMASTER" style="color: #f622b0;" />
+					<space spacing="1px" />
+					<label id="lblAppInfo" value="PccSoft" style="color: #ff9900;" />
+				</div>
+			</div>
+		
+			<div style="text-align: right;">
+				<button id="btnUser" label="ข้อมูลผู้ใช้" onClick="spaceOwner.menuUser()" visible="true" />
+				<button id="btnUserGroup" label="สิทธิ์การใช้เมนู" onClick="spaceOwner.menuUserGroup()" visible="true" />
+				<button id="btnChComp" label="เปลี่ยนบริษัท" onClick="spaceOwner.menuChComp()" visible="true" />
+				<button id="btnChPass" label="เปลี่ยนรหัสผ่าน" onClick="spaceOwner.menuPassWord()" visible="true" />
+				<button id="btnLogout" label="ออกจากระบบ" onClick="spaceOwner.logout()" />
+			</div>
+			
+		</div>
+
+		<menubar id="mainMenubar" autodrop="false" orient="horizontal" style="width:100%;" />
+		<tabbox id="tabOpenMain" tabscroll="false" style="width:100%;padding:0px;">
+			<tabs sclass="allow-wrap" />
+			<tabpanels />
+		</tabbox>
+		<bandbox id="txtOpenMenu" width="200px" maxlength="40" onOK="spaceOwner.runMenu()" onOpen="spaceOwner.findApp()" tooltiptext="เลือกโปรแกรม" visible="false" />
+		<!-- <button label="Test" onClick="spaceOwner.test1()" />  -->
+
+	</window>
+</zk>

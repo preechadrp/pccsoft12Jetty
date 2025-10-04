@@ -1,0 +1,159 @@
+<zk xmlns:h="native">
+	<window use="com.pcc.gl.ui.FrmCus.FrmCusCardId"  
+	width="1100px" title="Read CardId" border="normal">
+
+		 <separator />
+		 <textbox id="txtMicroServiceLink" value="" visible="false" />
+
+		 <div style="grid-template-columns: 50% 50%;" sclass="mainGridLayout1">
+
+		 	<div style="grid-template-columns: auto auto;" sclass="mainGridLayout1">
+		 		<label value="เลขบัตร" />
+		 		<textbox id="txtCitizenID" readonly="true" width="250px" />
+		 		<label value="คำนำหน้าชื่อ" />
+		 		<textbox id="txtNameTH_Prefix" readonly="true" width="250px" />
+		 		<label value="ชื่อ" />
+		 		<textbox id="txtNameTH_FirstName" readonly="true" width="250px" />
+		 		<label value="นามสกุล" />
+		 		<textbox id="txtNameTH_SurName" readonly="true" width="250px" />
+		 		<label value="เพศ" />
+		 		<textbox id="txtSex" readonly="true" width="250px" />
+		 		<label value="วันเกิด" />
+		 		<textbox id="txtBirthDate" readonly="true" width="250px" />
+		 		<label value="อายุ" />
+		 		<textbox id="txtAge" readonly="true" width="250px" />
+		 		<label value="เลขที่" />
+		 		<textbox id="txtAddress_No" readonly="true" width="250px" />
+		 		<label value="หมู่ที่" />
+		 		<textbox id="txtAddress_Moo" readonly="true" width="250px" />
+		 		<label value="ซอย" />
+		 		<textbox id="txtAddress_Soi" readonly="true" width="250px" />
+		 		<label value="ถนน" />
+		 		<textbox id="txtAddress_Road" readonly="true" width="250px" />
+		 		<label value="ตำบล/แขวง" />
+		 		<textbox id="txtAddress_Tumbol" readonly="true" width="250px" />
+		 		<label value="อำเภอ/เขต" />
+		 		<textbox id="txtAddress_Amphur" readonly="true" width="250px" />
+		 		<label value="จังหวัด" />
+		 		<textbox id="txtAddress_Province" readonly="true" width="250px" />
+
+		 	</div>
+
+		 	<div style="text-align: center;">
+		 		<image id="img11" visible="true" width="45%" />
+		 	</div>
+		 	
+		 </div>
+
+		 <div style="text-align: center;">
+			<button id="btnRead11" label="เริ่มอ่านบัตร" />
+			<space spacing="5px" />
+			<label id="lblReadStatus" value="กำลังอ่านข้อมูลบัตร" visible="false" />		
+			<button id="btnNewCust11" label="สร้างข้อมูลลูกค้าจากบัตรนี้" visible="false" onClick="spaceOwner.btnNewCust11_Click()" />
+			<space spacing="5px" />
+			<button id="btnClose11" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			
+			<!-- ทดสอบ upload รูปภาพด้วย java script ทำการตรวจสอบขนาดก่อน upload -->
+			<!-- <h:label for="FrmCusCardIdFile0001">เลือกไฟล์:</h:label>
+			<h:input type="file" id="FrmCusCardIdFile0001" />
+			<button id="btnTest001" label="เริ่ม upload file" /> --> 	
+			
+		</div>
+		
+		<div style="text-align: center;background:yellow;">
+			<label value="ข้อมูลเดิมที่เหมือนกัน" />
+		</div>
+		
+		<grid id="grid2" height="100px" >
+			<columns>
+				<column label="ลำดับ" width="50px;" />
+				<column label="รหัสลูกค้า" width="150px;" />
+				<column label="คำนำหน้า" width="150px;" />
+				<column label="ชื่อ" width="200px;" />
+				<column label="นามสกุล" width="200px;" />
+				<column label="เลขบัตรประชาชน" width="150px;" />
+			</columns>
+		 	<rows></rows>		
+		</grid>
+
+		<!-- สามารถใช้แบบ <script src="javascripts/FrmCusCardId.js" defer="true" />  ก็ได้ -->
+	  	<script defer="true" ><![CDATA[
+
+jq(zk.Widget.$('$btnRead11')).bind("click",function() {
+
+	zk.Widget.$('$btnRead11').hide();
+	zk.Widget.$('$lblReadStatus').show();
+	zk.Widget.$('$btnNewCust11').hide();
+	zk.Widget.$('$btnClose11').hide();
+ 
+ 	//console.log(zk.Widget.$('$txtMicroServiceLink').getValue());//test ok
+
+ 	jq.getJSON(zk.Widget.$('$txtMicroServiceLink').getValue()+"service1/getCardData",function(data){
+		 if ( data.error == null ) {
+	
+			//การ setValue ด้วย java script ฝั่ง server จะยังไม่รับรู้ จึงต้องส่งข้อมูลไปให้ server 
+			//โดยตรงเพื่อ setValue เข้า Textbox ต่างๆ
+		 	//zk.Widget.$('$txtCitizenID').setValue(data.CitizenID);
+		 	//zk.Widget.$('$txtNameTH_Prefix').setValue(data.NameTH_Prefix);
+		 	//zk.Widget.$('$txtNameTH_FirstName').setValue(data.NameTH_FirstName);
+			//...
+			//ใช้ java script set โดยตรงกรณีเป็นภาพ
+		 	//zk.Widget.$('$img11').setSrc("data:image/jpg;base64,"+data.Image);//ทดสอบผ่าน  01/2/65
+		 	//ส่งประมวลที่ server แทน
+		 	zAu.send(new zk.Event(null, 'btnRead11Click', data, {toServer:true}));
+		 	zk.Widget.$('$btnNewCust11').show();
+	
+		 } else {
+			 zAu.send(new zk.Event(null, 'showErrorMsg2', data.error, {toServer:true}));
+		 }
+
+		 zk.Widget.$('$btnRead11').show();
+		 zk.Widget.$('$lblReadStatus').hide();
+		 zk.Widget.$('$btnClose11').show();
+
+	})
+   .fail(function() {
+	   	 zAu.send(new zk.Event(null, 'showErrorMsg2', 'เชื่อม Micro service ไม่ได้', {toServer:true}));
+	   	 
+	   	 zk.Widget.$('$btnRead11').show();
+		 zk.Widget.$('$lblReadStatus').hide();
+		 zk.Widget.$('$btnClose11').show();
+   });	
+});
+
+jq(zk.Widget.$('$btnTest001')).bind("click",function() {
+	//test
+	
+	if (typeof $('#FrmCusCardIdFile0001')[0].files[0] === 'undefined' ) {
+		zAu.send(new zk.Event(null, 'showErrorMsg2', 'กรุณาเลือกไฟล์ก่อน', {toServer:true}));
+		return;
+	}
+	//alert($('#FrmCusCardIdFile0001')[0].files[0].size); //ขนาดไฟล์  //test ผ่านแต่ต้องเลือกภาพก่อนไม่งั้นจะเกิด undefined
+	
+	//ส่งไฟล์ไปยัง server
+	//zAu.send(new zk.Event(null, 'showDataFile0001', "xxxx", {toServer:true})); //test ผ่าน		  
+	var reader = new FileReader();
+	reader.onerror = (error) => {
+		//console.log('Error: ', error);
+		zAu.send(new zk.Event(null, 'showErrorMsg2', 'ส่งภาพไม่ได้', {toServer:true}));
+	};
+	reader.onloadend = () => {
+       //console.log(reader.result); 
+       //เช่น data:image/jpeg;base64,/9j/4AAQSkZJRgABAQA..
+       //      data:application/pdf;base64,JVBERi0xLjUK...
+       //จากการทดสอบลอง mp4 ไม่ผ่าน
+       zAu.send(new zk.Event(null, 'showDataFile0001', reader.result, {toServer:true})); //test ผ่าน
+	};
+	reader.readAsDataURL($('#FrmCusCardIdFile0001')[0].files[0]);
+
+});
+  	  
+$('#FrmCusCardIdFile0001').bind('change', function() {
+	alert(this.files[0].size); //ขนาดไฟล์  //test ผ่าน
+});
+
+	]]></script>  
+
+	</window>
+
+</zk>

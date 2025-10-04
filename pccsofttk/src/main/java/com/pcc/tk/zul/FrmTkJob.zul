@@ -1,0 +1,134 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJob.FrmTkJob" id="FrmTkJob" width="1000px" title="สร้าง/แก้ไข Job" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<div>
+				<label value="จากวันที่รับงาน" />
+			</div>
+			<div>
+				<datebox id="tdbJOBDATE_FROM" width="120px" tooltiptext="วันที่รับงาน" placeholder="ทั้งหมด"  />
+				<label value="ถึงวันที่รับงาน" />
+				<datebox id="tdbJOBDATE_TO" width="120px" tooltiptext="วันที่รับงาน" placeholder="ทั้งหมด"  />
+
+				<label value="เลขที่งาน" />
+				<textbox id="txtJOBNO" width="150px" tooltiptext="เลขที่งาน" placeholder="ทั้งหมด" />
+
+				<label value="สถานะคดี" />
+				<bandbox id="txtLAWSTATID" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupLAWSTATID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" 
+					tooltiptext="สถานะคดี" placeholder="ทั้งหมด" />
+				<textbox id="txtLAWSTATNAME" width="150px" readonly="true" />
+			</div>
+			
+			<label value="Job Code" />
+			<hbox>
+				<bandbox id="txtJOBCODE" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupJOBCODE()" 
+					onChange="spaceOwner.onChange_Data(this.self)" 
+					tooltiptext="Job Code" placeholder="ทั้งหมด" />
+				<textbox id="txtJOBCODENAME" width="250px" readonly="true" tooltiptext="Job Code Name" />
+				
+				<label value="ประเภทคดี" />
+				<bandbox id="txtLAWTYPEID" width="70px" maxlength="7" 
+				    onOpen="spaceOwner.popupLAWTYPEID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสประเภทคดี" placeholder="ทั้งหมด" />
+				<textbox id="txtLAWTYPENAME" width="250px" readonly="true" tooltiptext="ชื่อประเภทคดี" />
+			</hbox>
+
+			<div>
+				<label value="เลขคดีดำ" />
+			</div>
+			<div>
+				<textbox id="txtLAWBLACKNO" width="150px" maxlength="150" tooltiptext="เลขคดีดำ" placeholder="ทั้งหมด" />
+				<label value="เลขคดีแดง" />
+				<textbox id="txtLAWREDNO" width="150px" maxlength="150" tooltiptext="เลขคดีแดง" placeholder="ทั้งหมด" />
+			</div>
+						
+			<div>
+				<label value="ชื่อลูกความ" />
+			</div>
+			<div>
+				<textbox id="txtCLIENTFNAME" width="160px" maxlength="150" tooltiptext="ชื่อลูกค้า" placeholder="ทั้งหมด" />
+				<label value="นามสกุล" />
+				<textbox id="txtCLIENTLNAME" width="160px" maxlength="150" tooltiptext="นามสกุลลูกค้า" placeholder="ทั้งหมด" />
+			</div>
+
+			<div>
+				<label value="ชื่อทนาย" />
+			</div>
+			<div>
+				<textbox id="txtLAWYERNAME" width="160px" maxlength="150" tooltiptext="ชื่อทนาย" placeholder="ทั้งหมด" />
+				<label value="ศาล" />
+				<bandbox id="txtCOURTID" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupCOURTID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสศาล" placeholder="ทั้งหมด" />
+				<textbox id="txtCOURTNAME" width="250px" readonly="true" tooltiptext="ชื่อศาล" />
+			</div>
+			
+			<div>
+				<label value="Zone" />
+			</div>
+			<div>
+				<bandbox id="txtZONEID" width="70px" maxlength="7" 
+					onOpen="spaceOwner.popupZONEID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัส Zone จังหวัด" placeholder="ทั้งหมด" />
+				<textbox id="txtZONENAME" width="350px" readonly="true" tooltiptext="ชื่อ Zone จังหวัด" placeholder="ทั้งหมด" />
+			</div>
+
+			<label value="" />
+			<hbox>
+				<button id="btnShow" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnShow()" />
+			</hbox>
+
+		</div>
+
+		<grid id="grdViewt" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label=".." width="110px" align="center" />
+				<column label=".." width="100px" align="center"  id="colDel" />
+				<column label="สถานะงาน" width="100px" align="left" />
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="เลขที่งาน" width="100px" align="center" />
+				<column label="วันที่งาน" width="100px" align="center" />
+				<column label="สถานะคดี" width="150px" align="center" />
+				<column label="เลขที่สัญญาลูกค้า" width="150px" align="center" />
+				<column label="ทุนทรัพย์ฟ้อง" width="150px" align="right" />
+				<column label="ค่าฤชาธรรมเนียม" width="150px" align="right" />
+				<column label="ลูกความ" width="300px" align="left" />
+				<column label="ทนาย" width="300px" align="left" />
+				<column label="วันที่ปิดงาน" width="100px" align="center" />
+				<column label="ผู้ปรับปรุงรายการล่าสุด" width="150px" align="left" />
+				<column label="วันปรับปรุงรายการล่าสุด" width="150px" align="center" />
+			</columns>
+			<rows>
+				<row>
+					<button label="ดูรายละเอียด" />
+					<button label="แก้ไข" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+					<label value="x" />
+				</row>
+			</rows>
+		</grid>
+
+	</window>
+
+</zk>

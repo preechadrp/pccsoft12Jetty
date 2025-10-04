@@ -1,0 +1,57 @@
+<window title="ลายเซ็นต์" border="normal" closable="true" sizable="true" sclass="popup-window" 
+onCancel="spaceOwner.onClose()" use="com.pcc.sys.lib.FSign001" id="FSign001" width="700px" 
+>
+
+	<div id="content" align="center">
+		<div id="signature99" width="95%" style="border: 2px dotted black;background-color:lightgrey;" />
+		<div align="center">
+			<button id="btnOkSg99" label="ตกลง"></button>
+			<button id="btnResetSg99" label="Reset"></button>
+		</div>
+
+		<!-- ทดสอบแสดงโดยใช้ java script -->
+		<div id="displayarea99" align="center" style="visibility: none;" />
+
+		<!-- ทดสอบแสดงโดยสั่งจาก ServerSide -->
+		<image id="img22" width="95%" visible="false" />
+
+	</div>
+
+	<script defer="true" >
+<![CDATA[	
+
+//เขียนแบบ jquery ปกติ         
+//var $FSign001a = $('#'+zk.Widget.$('$signature99').uuid).jSignature({'UndoButton':false});
+//หรือเขียนแบบ jquery ที่มากับ zk
+var $FSign001a = jq(zk.Widget.$('$signature99')).jSignature({'UndoButton':false});
+jq(zk.Widget.$('$btnOkSg99')).bind('click', function(e){
+	var data = $FSign001a.jSignature('getData', 'svgbase64');
+	if($.isArray(data) && data.length === 2){
+		try {
+		    
+			//==dynamic แสดงด้วย java script  ทดสอบผ่าน 6/2/65 
+			//var MyDisplayArea = jq(zk.Widget.$('$displayarea99'));
+			//MyDisplayArea.html('');
+			//var img = new Image();
+		    //img.src = 'data:' + data[0] + ',' + data[1];
+		    //$(img).attr("id","img1");
+		    //$(img).css("display", "none");
+		    //$(img).appendTo(MyDisplayArea);
+		    
+		    zAu.send(new zk.Event(null, 'onClickOKFSign001', data, {toServer:true}));
+		    
+		} catch (ex) {
+			alert(ex);
+		}
+	}
+})
+jq(zk.Widget.$('$btnResetSg99')).bind('click', function(e){
+	$FSign001a.jSignature('reset');
+	var MyDisplayArea = jq(zk.Widget.$('$displayarea99'));
+	MyDisplayArea.html('');
+}) 
+
+]]>
+	</script>
+	
+</window>

@@ -1,0 +1,100 @@
+<?page title="AcPayAp" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntr.AcPayAr" id="AcPayAr" width="1100px" title="เลือกรายการล้างยอด" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnSaveSub" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_btnSave()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 20% auto; ">
+			<div>
+				<label value="รหัสลูกหนี้" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสลูกหนี้" />
+				<textbox id="txtCUST_NAME" width="550px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="เลขที่เอกสาร/ใบแจ้งหนี้" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<textbox id="txtDOCNO" maxlength="40" width="300px" tooltiptext="เลขที่เอกสาร/ใบแจ้งหนี้" />
+			</div>
+
+			<div>
+				<label value="วันที่ใบสำคัญ" />
+				<label value="จาก" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE_FROM" />
+				<label value="ถึง" />
+				<datebox id="tdbPOSTDATE_TO" />
+			</div>
+
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="270px" readonly="true" tabindex="-1" />
+			</div>
+
+			<div>
+				<label value="เลขที่ใบสำคัญ" />
+			</div>
+			<div>
+				<textbox id="txtVOU_NO" width="150px" maxlength="15" />
+			</div>
+		</div>
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<button id="btnFind" label="ค้นหา" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<grid id="gridList1" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label=".." width="55px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="120px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="90px" align="center" sort="auto(POSTDATE)" />
+				<column label="ลูกหนี้" width="200px" align="left" sort="auto(FNAME,LNAME)" />
+				<column label="เลขที่เอกสาร/ใบแจ้งหนี้" width="180px" align="left" sort="auto(DOCNO)" />
+				<column label="วันที่เอกสาร" width="90px" align="center" sort="auto(DOCDATE)" />
+				<column label="คงเหลือ" width="120px" align="left" />
+				<column label="คำอธิบายรายการ" width="500px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<label value="รายการที่เลือก" />
+		</div>
+
+		<grid id="gridList2" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label=".." width="55px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="120px" align="left" />
+				<column label="วันที่ใบสำคัญ" width="90px" align="center" />
+				<column label="ลูกหนี้" width="200px" align="left" />
+				<column label="เลขที่เอกสาร/ใบแจ้งหนี้" width="180px" align="left" />
+				<column label="วันที่เอกสาร" width="90px" align="center" />
+				<column label="คงเหลือ" width="120px" align="left" />
+				<column label="รับจำนวน" width="120px" align="left" />
+				<column label="คำอธิบายรายการ" width="500px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+	</window>
+
+</zk>

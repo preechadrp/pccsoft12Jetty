@@ -1,0 +1,97 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJobRep1.FrmTkJobRep1" id="FrmTkJobRep1" width="1000px" title="รายงาน Job" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<!-- <button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" /> -->
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" width="50px" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<div>
+				<label value="เฉพาะยังไม่ปิดงาน" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<checkbox id="chkNOTCLOSE" tooltiptext="สถานะยังไม่ปิดงาน" />
+				<label value="*หากเลือกเงื่อนไขนี้ระบบจะไม่บังคับใส่เงื่อนไขอื่น" style="color:red;" />
+			</div>
+			
+			<div>
+				<label value="จากวันที่รับงาน" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbJOBDATE_FROM" width="120px" tooltiptext="วันที่รับงาน" placeholder="ทั้งหมด"  />
+				<label value="ถึงวันที่" />
+				<label value="" style="color:red;" />
+				<datebox id="tdbJOBDATE_TO" width="120px" tooltiptext="วันที่รับงาน" placeholder="ทั้งหมด"  />
+			</div>
+			
+			<div>
+				<label value="จากวันที่สถานะการทำงาน" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbLOGDATE_FROM" width="120px" tooltiptext="วันที่สถานะการทำงาน" placeholder="ทั้งหมด"  />
+				<label value="ถึงวันที่" />
+				<label value="" style="color:red;" />
+				<datebox id="tdbLOGDATE_TO" width="120px" tooltiptext="วันที่สถานะการทำงาน" placeholder="ทั้งหมด"  />
+			</div>
+			
+			<hbox>
+				<label value="สถานะคดี" />
+			</hbox>
+			<hbox>
+				<bandbox id="txtLAWSTATID" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupLAWSTATID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" 
+					tooltiptext="สถานะคดี" placeholder="ทั้งหมด" />
+				<textbox id="txtLAWSTATNAME" width="250px" readonly="true" />
+			</hbox>
+			
+			
+			<label value="Job Code" />
+			<hbox>
+				<bandbox id="txtJOBCODE" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupJOBCODE()" 
+					onChange="spaceOwner.onChange_Data(this.self)" 
+					tooltiptext="Job Code" placeholder="ทั้งหมด" />
+				<textbox id="txtJOBCODENAME" width="250px" readonly="true" tooltiptext="Job Code Name" />
+			</hbox>
+			
+			<label value="ประเภทคดี" />
+			<hbox>
+				<bandbox id="txtLAWTYPEID" width="90px" maxlength="7" 
+				    onOpen="spaceOwner.popupLAWTYPEID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสประเภทคดี" placeholder="ทั้งหมด" />
+				<textbox id="txtLAWTYPENAME" width="250px" readonly="true" tooltiptext="ชื่อประเภทคดี" />
+			</hbox>
+						
+			<hbox>
+				<label value="รหัสทนาย" />
+				<label value="" style="color:red;" />
+			</hbox>
+			<hbox>
+				<bandbox id="txtLAWYERID" width="90px" maxlength="7" 
+				 	onOpen="spaceOwner.popupLAWYERID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสทนาย" placeholder="ทั้งหมด"  />
+				<textbox id="txtLAWYERNAME" width="250px" tooltiptext="ชื่อทนาย" readonly="true" />
+			</hbox>
+			
+			<label value="ศาล" />
+			<hbox>
+				<bandbox id="txtCOURTID" width="90px" maxlength="7" 
+					onOpen="spaceOwner.popupCOURTID()" 
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสศาล" placeholder="ทั้งหมด" />
+				<textbox id="txtCOURTNAME" width="250px" readonly="true" tooltiptext="ชื่อศาล" />
+			</hbox>
+
+		</div>
+
+	</window>
+
+</zk>

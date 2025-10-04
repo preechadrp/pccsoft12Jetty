@@ -1,0 +1,27 @@
+<window title="ค้นหา" border="normal" closable="true" sizable="true" sclass="popup-window"
+	onCancel="spaceOwner.onClose()" use="com.pcc.sys.lib.FSearchPopup">
+
+	<div id="divSearch" />
+
+	<separator />
+
+	<div align="center">
+		<button label="${labels.comm.label.find2}" onClick="spaceOwner.onOK()" />
+	</div>
+
+	<separator />
+
+	<listbox id="listBox1" mold="paging" pageSize="10" emptyMessage="ไม่มีข้อมูล">
+		<listhead sizable="true">
+			<!-- 			<listheader label="ลำดับ" width="60px;" align="center" /> -->
+			<!-- 			<listheader label="รหัสบัญชี" width="250px;" sort="auto(ACCT_ID)" /> -->
+			<!-- 			<listheader label="ชื่อบัญชี" sort="auto(ACCT_NAME)" /> -->
+		</listhead>
+	</listbox>
+
+	<div style="text-align: center;background-color: #fff1c4;">
+		<button id="btnOK" label="ตกลง" onClick="spaceOwner.onClick_btnOK()" />
+		<button id="btnClose" label="ออก" onClick="spaceOwner.onClose()" />
+	</div>
+
+</window>

@@ -1,0 +1,95 @@
+<zk>
+	<window use="com.pcc.gl.ui.acVatwhCrPrint.AcVatwhCrPrint" id="AcVatwhCrPrint" width="1000px" title="พิมพ์ ภงด."
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="วันที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<datebox id="tdbPOSTDATE_FROM" tooltiptext="วันที่ใบสำคัญ" />
+				<label value="ถึงวันที่ใบสำคัญ" />
+				<datebox id="tdbPOSTDATE_TO" tooltiptext="ถึงวันที่ใบสำคัญ" />
+				<label value="รหัสผู้ถูกหัก" />
+				<bandbox id="txtCUST_CDE" width="150px" maxlength="15" onOpen="spaceOwner.popupCUST_CDE()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสผู้ถูกหัก" />
+				<textbox id="txtCUST_NAME" width="250px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="รหัสสมุดรายวัน" />
+				<label value="e" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtVOU_TYPE" width="100px" maxlength="10" onOpen="spaceOwner.popupVouType()"
+					onChange="spaceOwner.onChange_Data(this.self)" tooltiptext="รหัสสมุดรายวัน" />
+				<textbox id="txtVOU_NAME" width="200px" readonly="true" tabindex="-1" />
+				<label value="เลขที่ใบสำคัญ" />
+				<label value="e" style="color:red;" />
+				<textbox id="txtVOU_NO" width="110px" maxlength="15" />
+				<combobox id="cmbDOC_TYPE" width="180px" />
+			</div>
+		</div>
+
+		<separator />
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridList1" mold="paging" pageSize="10">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="center" sort="auto(POSTDATE)" />
+				<column label="รหัสผู้ถูกหัก" width="100px" align="left" />
+				<column label="ชื่อผู้ถูกหัก" width="200px" align="left" />
+				<column label="ประเภท" width="70px" align="left" sort="auto(DOC_TYPE)" />
+				<column label="ชื่อหัก ณ จ่าย" width="120px" align="left" sort="auto(WHNAME)" />
+				<column label="เงื่อนไขการหัก" width="120px" align="left" sort="auto(WHTYPE)" />
+				<column label="อัตราภาษี" width="70px" align="right" sort="auto(VAT_RATE)" />
+				<column label="จำนวน" width="90px" align="right" sort="auto(AMT)" />
+				<column label="มูลค่าสินค้าสุทธิ" width="150px" align="right" sort="auto(BASE_AMT)" />
+				<column label="เลขที่หัก" width="90px" align="left" sort="auto(DOCNO)" />
+				<column label="คำอธิบายรายการ" width="350px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+		<div style="text-align: center;background-color: #ebebeb;">
+			<label value="รายการที่เลือก" />
+		</div>
+
+		<grid id="gridList2" mold="paging" pageSize="3">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label=".." width="60px" align="center" />
+				<column label="เลขที่ใบสำคัญ" width="110px" align="left" sort="auto(VOU_TYPE,VOU_NO)" />
+				<column label="วันที่ใบสำคัญ" width="100px" align="center" sort="auto(POSTDATE)" />
+				<column label="รหัสผู้ถูกหัก" width="100px" align="left" />
+				<column label="ชื่อผู้ถูกหัก" width="200px" align="left" />
+				<column label="ประเภท" width="70px" align="left" sort="auto(DOC_TYPE)" />
+				<column label="ชื่อหัก ณ จ่าย" width="120px" align="left" sort="auto(WHNAME)" />
+				<column label="เงื่อนไขการหัก" width="120px" align="left" sort="auto(WHTYPE)" />
+				<column label="อัตราภาษี" width="70px" align="right" sort="auto(VAT_RATE)" />
+				<column label="จำนวน" width="90px" align="right" sort="auto(AMT)" />
+				<column label="มูลค่าสินค้าสุทธิ" width="150px" align="right" sort="auto(BASE_AMT)" />
+				<column label="เลขที่หัก" width="90px" align="left" sort="auto(DOCNO)" />
+				<column label="คำอธิบายรายการ" width="350px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+	</window>
+
+</zk>

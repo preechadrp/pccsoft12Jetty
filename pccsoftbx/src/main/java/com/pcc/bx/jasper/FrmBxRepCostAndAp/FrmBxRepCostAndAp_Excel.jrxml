@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FrmTkJobRep1_Excel" pageWidth="3802" pageHeight="555" orientation="Landscape" columnWidth="3802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="654fa0ed-f8ad-4f16-b67c-6c7424142ee3">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<import value="com.pcc.sys.lib.Fnc"/>
+	<parameter name="compName" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="reportConditionString1" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="COMP_CDE" class="java.lang.String"/>
+	<field name="TMPLCDE" class="java.lang.Integer"/>
+	<field name="BLNO" class="java.lang.String"/>
+	<field name="BLDATE" class="java.sql.Date"/>
+	<field name="VATTYPE" class="java.lang.String"/>
+	<field name="CUST_CDE" class="java.lang.String"/>
+	<field name="IDNO" class="java.lang.String"/>
+	<field name="CUST_TITLE" class="java.lang.String"/>
+	<field name="CUST_FNAME" class="java.lang.String"/>
+	<field name="CUST_LNAME" class="java.lang.String"/>
+	<field name="CUST_ADDR1" class="java.lang.String"/>
+	<field name="CUST_ADDR2" class="java.lang.String"/>
+	<field name="ZIPCODE" class="java.lang.String"/>
+	<field name="REMARK1" class="java.lang.String"/>
+	<field name="VATRATE" class="java.math.BigDecimal"/>
+	<field name="VATAMT" class="java.math.BigDecimal"/>
+	<field name="BASAMT" class="java.math.BigDecimal"/>
+	<field name="TOTALAMT" class="java.math.BigDecimal"/>
+	<field name="BRANC_CDE" class="java.lang.String"/>
+	<field name="RECSTA" class="java.lang.Integer"/>
+	<field name="COSTVATAMT" class="java.math.BigDecimal"/>
+	<field name="COSTBASAMT" class="java.math.BigDecimal"/>
+	<field name="CUST_CDE_AP" class="java.lang.String"/>
+	<field name="APNAME" class="java.lang.String"/>
+	<field name="SENDDATE" class="java.sql.Date"/>
+	<field name="UPBY" class="java.lang.String"/>
+	<field name="UPDT" class="java.sql.Timestamp"/>
+	<field name="CUST_NAME" class="java.lang.String"/>
+	<title>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="1000" height="21" uuid="db4dbe96-529e-476a-8504-313bd5123ea7"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="1000" height="21" uuid="a82b9b81-a4ee-4deb-9264-89e97cc14d92"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1080" y="0" width="70" height="21" uuid="30b45c7b-f25f-42fa-948c-f65a404303b8"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1150" y="0" width="140" height="21" uuid="d3b7988f-230a-4030-a5e9-aa137dd7014c"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1080" y="21" width="70" height="21" uuid="1f828be3-85d7-4ed8-b56b-c6b7c53097ec"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่พิมพ์"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1150" y="21" width="140" height="21" uuid="1401763e-dff5-499c-b2f3-622f8c0edf5d"/>
+				<box leftPadding="2" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateTimeString(FnDate.getTodayDateTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="1000" height="21" uuid="bdee60c4-d4cb-4ba5-997b-e14ec39ad32a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportConditionString1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="63" width="60" height="17" uuid="a9809cee-316a-4f7c-9781-94eff8b9bc8f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="63" width="80" height="17" uuid="b2af0f62-ec25-4979-8ef4-91da7df749f4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ส่งของ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="63" width="60" height="17" uuid="dd043933-9c67-49a7-a779-01f51d4eaf3c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขที่ใบกำกับภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="63" width="80" height="17" uuid="555174fb-ddb0-434c-8579-fce37463e2ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่ใบกำกับภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="63" width="220" height="17" uuid="1fff2e2e-6ddd-4848-b5d4-70f0ec4bfad5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อลูกค้า"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="63" width="80" height="17" uuid="03bd9148-d41b-4f26-8d1b-ccd3a78b5f53"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ราคาขายไม่รวมภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="63" width="70" height="17" uuid="7d6cf8e6-d479-4e40-80b8-da65337b550b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ภาษีมูลค่าเพิ่ม"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="63" width="90" height="17" uuid="9710ea5c-6cc7-4885-a372-fc61e4eb311c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ราคาขายรวมภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1420" y="63" width="140" height="17" uuid="c3ce58b7-7813-4ba6-8af6-be117322f098"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["พนักงานขาย"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="740" y="63" width="100" height="17" uuid="7cc1ba2d-7713-4ecc-b1ee-705745a54301">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ราคาต้นทุนซื้อไม่รวมภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="840" y="63" width="80" height="17" uuid="5f856301-915d-4634-aece-7f163beb4f26">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ภาษีต้นทุนซื้อ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="920" y="63" width="80" height="17" uuid="3a97c61c-959a-4a53-80f9-4327157fc938">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ราคาซื้อรวมภาษี"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1150" y="63" width="140" height="17" uuid="515f0ab0-60af-4d11-a294-da25fb50dae2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อเจ้าหนี้"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1290" y="63" width="130" height="17" uuid="7b92291e-abc0-48bb-9869-3996e5a3c4d9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["แผนก"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1080" y="63" width="70" height="17" uuid="6d7d5483-384d-4881-8f96-7e92c90289b9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รหัสเจ้าหนี้"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1000" y="63" width="80" height="17" uuid="e47e121f-6bc0-417e-98e1-830e30d95055">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["กำไรขั้นต้น"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="60" height="17" uuid="3c4810c4-3017-4c23-b977-502280e88a60"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="60" y="0" width="80" height="17" uuid="4e3a1614-6d26-435a-a0dc-8d9366ac40c0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{SENDDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="140" y="0" width="60" height="17" uuid="70445656-7786-4a59-b579-f4df3eef5690"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BLNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="200" y="0" width="80" height="17" uuid="0ef6f566-5c7e-4b70-a6dd-cc69ed6f706d"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.displayDateString($F{BLDATE})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="280" y="0" width="220" height="17" uuid="4a8c262e-b579-421c-ad15-067ef6facb43"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="500" y="0" width="80" height="17" uuid="3b027631-e180-48b4-a539-9a7ccec05dda"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{BASAMT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="580" y="0" width="70" height="17" uuid="5d88826b-b0e2-4cb8-8204-f06be481949b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{VATAMT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="650" y="0" width="90" height="17" uuid="65498ec9-4566-4f47-802f-b435307422ca"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{TOTALAMT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1420" y="0" width="140" height="17" uuid="a5f0f418-8239-4ac1-a1b8-7e3471fe6344"/>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="740" y="0" width="100" height="17" uuid="5dedff8f-a03e-4e3e-93ec-8e911f44be3b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{COSTBASAMT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="840" y="0" width="80" height="17" uuid="40274bc0-6d07-4339-82e1-08dbc3855b62">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{COSTVATAMT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="920" y="0" width="80" height="17" uuid="75ee2cfa-abef-4803-a152-c6f0f3333048">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{COSTBASAMT}).add(Fnc.getBigDecimalValue($F{COSTVATAMT}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1080" y="0" width="70" height="17" uuid="b9c3902c-e8ef-4d04-a8a9-ef081c8eccc7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUST_CDE_AP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1290" y="0" width="130" height="17" uuid="08e48855-6445-4a52-9e36-d070932b57d5">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1000" y="0" width="80" height="17" uuid="8359685e-43e0-47af-bfb0-e07599495960">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getBigDecimalValue($F{TOTALAMT}).subtract(
+	Fnc.getBigDecimalValue($F{COSTBASAMT}).add(Fnc.getBigDecimalValue($F{COSTVATAMT}))
+)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1150" y="0" width="140" height="17" uuid="3ac213c0-23dd-4f44-98f0-58f0bdd823f3">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APNAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

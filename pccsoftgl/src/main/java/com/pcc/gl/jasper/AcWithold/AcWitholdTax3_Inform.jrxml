@@ -1,0 +1,1978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AcWitholdTax3_Inform" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="576" leftMargin="19" rightMargin="0" topMargin="20" bottomMargin="20" uuid="801c049f-a9f5-46f6-98ea-a925ac85de4c">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="com.pcc.sys.lib.FnDate"/>
+	<import value="com.pcc.sys.lib.Fnc"/>
+	<style name="Regular" isDefault="true" fontName="Angsana New" fontSize="16"/>
+	<style name="Bold" fontName="Angsana New" fontSize="16" isBold="true"/>
+	<style name="Head" fontName="Angsana New" fontSize="18" isBold="true"/>
+	<parameter name="COMPNAME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="COMPTAXID" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="REPORT_TYPE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="MONTH" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="YEAR" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="PAIDNAME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="POSITION" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TAXDATE" class="java.sql.Date" isForPrompting="false"/>
+	<parameter name="BRANID" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ADDR1" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ADDR2" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TEL1" class="java.lang.String" isForPrompting="false"/>
+	<field name="FNAME" class="java.lang.String"/>
+	<field name="BASE_AMT" class="java.math.BigDecimal"/>
+	<field name="AMT" class="java.math.BigDecimal"/>
+	<variable name="COUNT_FNAME" class="java.math.BigDecimal" calculation="Count">
+		<variableExpression><![CDATA[$F{FNAME}]]></variableExpression>
+	</variable>
+	<variable name="SUM_BASEAMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[Fnc.getBigDecimalValue($F{BASE_AMT})]]></variableExpression>
+	</variable>
+	<variable name="SUM_TAXAMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[Fnc.getBigDecimalValue($F{AMT})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Prevent"/>
+	</background>
+	<title>
+		<band splitType="Prevent"/>
+	</title>
+	<pageHeader>
+		<band height="802" splitType="Prevent">
+			<staticText>
+				<reportElement key="staticText-67" style="Regular" x="171" y="274" width="77" height="20" uuid="463e40b0-c0a6-4e49-928b-1bb8bf442f5f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(2) ยื่นเพิ่มเติมครั้งที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-66" style="Regular" x="59" y="275" width="56" height="20" uuid="34d5fdd4-5cac-4a02-916a-ee2a425cf355"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(1) ยื่นปกติ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-50" style="Regular" x="450" y="173" width="58" height="20" uuid="1b23e03f-c218-4287-a554-24d9e8d4b91f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(9) กันยายน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-49" style="Regular" x="450" y="153" width="58" height="20" uuid="3ae25cc8-b118-4ca9-8560-ace420e8c5e2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(8) สิงหาคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-48" style="Regular" x="450" y="133" width="58" height="20" uuid="9e6fad2e-3a62-4cf5-84ee-dd412397f029"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(7) กรกฎาคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-42" style="Regular" x="339" y="133" width="58" height="20" uuid="5bc97999-b924-460f-9928-80865081781b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(1) มกราคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-44" style="Regular" x="339" y="173" width="58" height="20" uuid="3be428bd-2213-492f-a8e5-5dbd733682e0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(3) มีนาคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-43" style="Regular" x="339" y="153" width="58" height="20" uuid="5a65f0d4-37fd-4877-a726-9b55d77d3098"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(2) กุมภาพันธ์]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-46" style="Regular" x="395" y="153" width="58" height="20" uuid="8fe5d29f-93e3-4c1b-a941-14939ecea759"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(5) พฤษภาคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-45" style="Regular" x="395" y="133" width="58" height="20" uuid="eef9fbcb-c5c4-4b12-8217-ceeb0ac1a1ba"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(4) เมษายน]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-2" style="Regular" x="451" y="8" width="98" height="67" uuid="6323d6ab-d30f-4035-8079-d296ee0e6f1d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-1" style="Regular" x="0" y="8" width="444" height="67" uuid="dfae18ff-2f3a-4c5b-b6fc-e14baf0fa611"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-1" style="Regular" x="1" y="27" width="442" height="20" uuid="7515c5b6-9c77-44e8-99ba-c41d86dc00f7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ตามมาตรา 59 แห่งประมวลรัษฎากร]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-2" style="Regular" x="0" y="85" width="135" height="20" uuid="e6142ff0-59d4-499a-a39f-8934265dea78"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[เลขประจำตัวผู้เสียภาษีอากร  (13 หลัก)*]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-3" style="Regular" x="152" y="85" width="48" height="15" uuid="fae46537-e473-441b-ad11-42e66cb0a158"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-4" style="Regular" x="133" y="85" width="12" height="15" uuid="7a973f21-6583-44f3-b453-9163983c5e54"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-1" style="Regular" x="164" y="85" width="1" height="15" uuid="3aebbdc8-7e41-4f72-8fb9-fee57874617d"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-2" style="Regular" x="176" y="85" width="1" height="15" uuid="fda598e3-75a0-4f83-a632-8d2a51bd0e0a"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" style="Regular" x="188" y="85" width="1" height="15" uuid="a96b86cd-6c58-4271-8ca7-c7b4c9e923ef"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-5" style="Regular" x="207" y="85" width="60" height="15" uuid="904790b9-ac48-4a2b-8d07-e21191b094c4"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-7" style="Regular" x="145" y="92" width="7" height="1" uuid="9a8d9f66-2317-4db3-a180-7ba4009686cd"/>
+			</line>
+			<line>
+				<reportElement key="line-8" style="Regular" x="200" y="92" width="7" height="1" uuid="93d02bb0-9e22-42af-85da-4e64ccdbfef8"/>
+			</line>
+			<line>
+				<reportElement key="line-10" style="Regular" x="268" y="92" width="7" height="1" uuid="4efd0d63-dae1-4c7e-a9ec-d3dd5be15d46"/>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-6" style="Regular" x="275" y="85" width="24" height="15" uuid="14b50b62-3cd7-413a-adad-db830eecf06c"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-12" style="Regular" x="300" y="92" width="7" height="1" uuid="5b8683ff-9b9a-45b6-97d7-5a80d786bdfc"/>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-7" style="Regular" x="307" y="85" width="12" height="15" uuid="315a2806-2400-4ad4-bf3d-1fef4da0e74f"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-1" x="136" y="86" width="15" height="14" uuid="240e6ca7-b78a-43de-a41c-88457341ec7b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=1?$P{COMPTAXID}.substring(0, 1):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-2" x="155" y="86" width="15" height="14" uuid="b7873b1f-b910-4046-9d4f-605142379aaf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=2?$P{COMPTAXID}.substring(1, 2):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-3" x="167" y="86" width="15" height="14" uuid="70aa5a36-e2d9-4796-b589-511e1116c70a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=3?$P{COMPTAXID}.substring(2, 3):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-4" x="180" y="86" width="15" height="14" uuid="12d35269-fa2a-4ae6-bd92-65b88dee7806"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=4?$P{COMPTAXID}.substring(3, 4):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-5" x="192" y="86" width="15" height="14" uuid="c6e34639-01db-471c-ab61-44ffb237d92c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=5?$P{COMPTAXID}.substring(4, 5):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-6" x="211" y="86" width="15" height="14" uuid="2685990d-4456-472f-b75e-6fd175ea41da"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=6?$P{COMPTAXID}.substring(5, 6):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-7" x="223" y="86" width="15" height="14" uuid="42f38e16-6c66-4f3c-906e-399ce4549a24"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=7?$P{COMPTAXID}.substring(6, 7):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-8" x="235" y="86" width="15" height="14" uuid="3c96d3da-8918-4507-9fd6-d87595a9b985"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=8?$P{COMPTAXID}.substring(7, 8):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-9" x="247" y="86" width="15" height="14" uuid="48f0ef21-66e7-46bc-b02e-aaf0a089bffa"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=9?$P{COMPTAXID}.substring(8, 9):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-10" x="259" y="86" width="15" height="14" uuid="1595c9cd-8bec-43cd-b9be-08e7612a1a48"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=10?$P{COMPTAXID}.substring(9, 10):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-11" x="279" y="86" width="15" height="14" uuid="8932db29-1a2c-40eb-a99e-e1af320c55f3"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=11?$P{COMPTAXID}.substring(10, 11):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-12" x="291" y="86" width="15" height="14" uuid="2eb9beaf-f04f-42c9-bc84-39963bd5ac86"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=12?$P{COMPTAXID}.substring(11, 12):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-13" x="311" y="86" width="15" height="14" uuid="41faf1dd-c02e-4354-9688-cd67390d36bf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPTAXID}.trim().length()>=13?$P{COMPTAXID}.substring(12, 13):""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-3" style="Regular" x="1" y="12" width="442" height="20" uuid="8fd12206-353d-43eb-9ca4-5663bfce887c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="13" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-4" style="Regular" x="452" y="19" width="97" height="46" uuid="304ae8f8-571f-4076-b163-01cbbc65cb73"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="32" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ภ.ง.ด 3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" style="Regular" x="1" y="41" width="442" height="20" uuid="f6883321-8640-4e79-aa34-fe109e76a8d5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[สำหรับการหักภาษี ณ ที่จ่ายตามมาตรา 3 เตรส และมาตรา 50 (3) (4) (5)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-6" style="Regular" x="1" y="55" width="442" height="20" uuid="cfc6f2bb-0865-4e1c-9095-c7f1ee574431"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[กรณีการจ่ายเงินได้พึงประเมินตามมาตรา 40 (5) (6) (7) (8)  และการเสียภาษีตามมาตรา 48 ทวิ แห่งประมวลรัษฎากร
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" style="Regular" x="0" y="99" width="129" height="20" uuid="c0bb5527-9754-4c48-b55e-883097c3f188"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ของผู้มีหน้าที่หักภาษี ณ ที่จ่าย)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-8" style="Regular" x="0" y="129" width="153" height="20" uuid="07c4a293-2a7f-49f5-8ade-4332cc685935"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ชื่อผู้มีหน้าที่หักภาษี ณ ที่จ่าย  (หน่วยงาน)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" style="Regular" x="218" y="129" width="32" height="20" uuid="e279d6b2-942c-4c18-98cb-ca57061a4b5a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[สาขาที่]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-17" style="Regular" x="323" y="80" width="1" height="214" uuid="86242f5f-44cc-43e1-8687-c2f3d4d492bd"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-10" style="Regular" x="0" y="149" width="346" height="20" uuid="91608a53-acbc-4185-ac3e-ec42df058255"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[.................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-11" style="Regular" x="0" y="169" width="30" height="20" uuid="6f709536-836d-411e-b598-be085b17d078"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ที่อยู่ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-21" style="Regular" x="1" y="248" width="41" height="20" uuid="2ebd0136-f14c-4114-8a8a-5826ad9077b9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[โทรศัพท์ :]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-22" style="Regular" x="1" y="263" width="322" height="1" uuid="3cae5995-a756-4a0b-bbbd-2fd661caa54b"/>
+			</line>
+			<line>
+				<reportElement key="line-23" style="Regular" x="1" y="294" width="551" height="1" uuid="97d2de2c-4332-411a-94aa-79731b35e4a8"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-36" style="Regular" x="326" y="89" width="121" height="20" uuid="cbb160f7-6c80-454f-a0b4-3b0cace0eabc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[เดือนที่จ่ายเงินได้พึงประเมิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-37" style="Regular" x="326" y="109" width="96" height="20" uuid="848af3ac-7dbe-4d0e-b424-12e46fc7f61d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ให้ทำเครื่องหมาย  " ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-38" style="Regular" x="445" y="109" width="83" height="20" uuid="f7e0f6d2-78ab-40ee-9836-88c96b4282c4"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA["  หน้าชื่อเดือน)  พ.ศ.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-10" style="Regular" x="432" y="111" width="10" height="10" uuid="10570f48-3201-497a-8945-3b159f9cab11"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-39" style="Regular" x="399" y="109" width="36" height="20" uuid="23a3faf6-d584-4fa0-94c9-e9e516b01c90"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA["  ลงใน " ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-11" style="Regular" x="327" y="134" width="10" height="10" uuid="5b92ef53-9aa9-4ad4-a490-a883c1fd9d5f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-12" style="Regular" x="327" y="155" width="10" height="10" uuid="540b3f60-2057-457d-9ba2-5121efd1e196"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-13" style="Regular" x="327" y="175" width="10" height="10" uuid="f0bc088a-3643-4b22-988e-9ab8cca30bf6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-14" style="Regular" x="382" y="134" width="10" height="10" uuid="6a712933-e743-48c4-b0b4-55e6df222068"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-15" style="Regular" x="382" y="154" width="10" height="10" uuid="1daa5f90-fbfa-42db-bc35-abde75682b94"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-16" style="Regular" mode="Transparent" x="382" y="174" width="10" height="10" uuid="990cdd6d-96c8-430c-aabe-82ebd60c51ec"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-47" style="Regular" x="395" y="173" width="58" height="20" uuid="ebf44794-936a-459b-a05f-4a0b19430822"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(6) มิถุนายน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-51" style="Regular" x="503" y="133" width="58" height="20" uuid="12a2b4e7-613f-4eb4-a91a-b7aef3e818dd"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(10) ตุลาคม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-52" style="Regular" x="503" y="153" width="58" height="20" uuid="b50b630d-b18a-4fcc-b961-c8bca105b950"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(11) พฤศจิกายน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-53" style="Regular" x="503" y="173" width="58" height="20" uuid="67c53fbb-4ce6-41bb-8aaa-abec5a367e0c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(12) ธันวาคม]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-17" style="Regular" x="438" y="134" width="10" height="10" uuid="7e372bc5-2de9-4fa3-8a77-93729d684f68"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-18" style="Regular" x="438" y="154" width="10" height="10" uuid="f99b8526-f78a-4503-aa51-779b2501c198"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-19" style="Regular" x="438" y="174" width="10" height="10" uuid="48a708f0-3f1f-4210-8b2f-72d8e4dfef97"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-20" style="Regular" x="491" y="134" width="10" height="10" uuid="5400f5b2-6c7f-496f-872c-50b13739a092"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-21" style="Regular" x="491" y="154" width="10" height="10" uuid="7bab173e-1522-41bc-b20b-7d4b4d51461e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-22" style="Regular" x="491" y="174" width="10" height="10" uuid="9e0f2129-be7b-47c1-aa25-daeace19fcfc"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-24" style="Regular" x="324" y="199" width="228" height="1" uuid="8972ec17-c03a-42c9-97d4-b269c876ace5"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-54" style="Regular" x="339" y="203" width="81" height="20" uuid="4ced9fb8-2bb6-4442-bf34-dde366dc3c50"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ใบเสร็จเล่มที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-55" style="Regular" x="449" y="203" width="32" height="20" uuid="3a7894bd-851b-460b-9f03-2e9553f67ad7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-56" style="Regular" x="339" y="222" width="81" height="20" uuid="91212200-6c64-45c3-935e-5375709be077"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-57" style="Regular" x="449" y="223" width="32" height="20" uuid="eaa565a0-585d-4a16-a042-d73804aa6c28"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-58" style="Regular" x="340" y="248" width="81" height="20" uuid="7afabdb4-f1fc-4723-893b-ed7224b4c821"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ลงชื่อ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-59" style="Regular" x="449" y="248" width="32" height="20" uuid="d93103f7-4bb5-4bac-b125-d872811796fe"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ผู้รับเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-60" style="Regular" x="340" y="267" width="81" height="20" uuid="8f3b9c26-850e-4b73-b8e8-39f219f736fc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-61" style="Regular" x="380" y="204" width="81" height="20" uuid="96cbdae7-1cc0-4524-b372-a1f3c1cc5a1c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[...................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-62" style="Regular" x="466" y="204" width="81" height="20" uuid="765848da-4834-4cb4-9391-7495c44c7743"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-63" style="Regular" x="373" y="224" width="89" height="20" uuid="8775a82f-1a57-4d46-ba8a-3d70ed185410"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[......................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-64" style="Regular" x="357" y="249" width="122" height="20" uuid="143a0d75-d484-40ca-8f40-9fbcfe7fafc9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[..............................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-65" style="Regular" x="355" y="268" width="125" height="20" uuid="560a3e65-e7b3-4773-a35b-208e75bbc765"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................................................]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-23" style="Regular" x="45" y="277" width="10" height="10" uuid="d0dd06f6-5224-4d1d-a21e-532a124c9c5d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-24" style="Regular" x="157" y="276" width="10" height="10" uuid="24d4b9e8-0fa2-4766-82d5-727e1aaa3590"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-25" style="Regular" x="238" y="269" width="17" height="20" uuid="0edb9a98-6ac4-47bd-bfa9-bb2cd3b623f9"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-68" style="Regular" x="241" y="275" width="20" height="20" uuid="a74ae674-d730-4e0c-a3a5-fd2f1d508586"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[......]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-69" style="Regular" x="129" y="307" width="78" height="20" uuid="95e5de3e-cda9-48a8-a195-27620d49ac39"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(1) มาตรา 3 เตรส]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-26" style="Regular" x="114" y="309" width="10" height="10" uuid="639c72e3-5ded-43e1-9295-4f8b409739a3"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-70" style="Regular" x="58" y="307" width="64" height="20" uuid="5301ed37-36e5-4d10-a7e1-aee76a8339e5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[นำส่งภาษีตาม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-71" style="Regular" x="230" y="306" width="78" height="20" uuid="23bdbf30-9611-4680-a6ff-aa09aa68e517"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(2) มาตรา 40 ทวิ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-27" style="Regular" x="215" y="308" width="10" height="10" uuid="08e304a3-0514-4cae-b363-c5a378657f36"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-72" style="Regular" x="338" y="306" width="96" height="20" uuid="e3b262b3-ed8a-4d98-a4fa-6f80b70a8a05"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(3) มาตรา 50 (3) (4) (5)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-28" style="Regular" x="323" y="308" width="10" height="10" uuid="00c1a20d-9db6-4215-acb3-d58c4136e3e1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-29" style="Regular" x="216" y="340" width="10" height="10" uuid="80c7d6a4-5afd-4480-883e-f1423a0319d0"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-73" style="Regular" x="230" y="338" width="125" height="20" uuid="8d061091-0636-4e45-8156-ddc4abcb0d3f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ใบแนบ ภ.ง.ด 3 ที่แนบมาพร้อมนี้ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-74" style="Regular" x="230" y="357" width="125" height="20" uuid="0dddad36-4a81-4b63-bfe2-d905cc3572bc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[หรือ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-75" style="Regular" x="410" y="338" width="81" height="20" uuid="a172cf98-36b0-40e3-bb25-2c2bbe3c9ba6"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-76" style="Regular" x="496" y="338" width="32" height="20" uuid="b6fd21e2-9438-4b1a-9fae-2dc16d803a13"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ราย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-77" style="Regular" x="433" y="339" width="87" height="20" uuid="eabdca0b-38af-4d4c-88cd-ef708d91b043"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-78" style="Regular" x="410" y="357" width="81" height="20" uuid="556aaa22-9924-46e8-87c2-6addd9df4f81"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-79" style="Regular" x="496" y="357" width="32" height="20" uuid="c4f5a993-1814-4bbd-b671-a52176604d6b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[แผ่น]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-80" style="Regular" x="433" y="358" width="87" height="20" uuid="dc156625-b668-4d67-aeca-6519f040ac5f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................................]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-30" style="Regular" x="216" y="388" width="10" height="10" uuid="6f447c70-6d69-482c-85d8-9e06211e0c60"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-81" style="Regular" x="230" y="386" width="173" height="20" uuid="07dc101d-5a4e-455d-9bdc-b144d5b517c1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[สื่อบันทึกในระบบคอมพิวเตอร์  ที่แนบมาพร้อมนี้ : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-83" style="Regular" x="410" y="386" width="81" height="20" uuid="9386cbf6-4d37-4606-af32-a8a9c27f18fb"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-84" style="Regular" x="496" y="386" width="32" height="20" uuid="40d6b0c5-0403-4459-8511-c252bf6a2678"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ราย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-85" style="Regular" x="433" y="387" width="87" height="20" uuid="29eb7d6c-fa75-4d22-983d-e9507e511486"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-86" style="Regular" x="410" y="405" width="81" height="20" uuid="c3478233-de83-4001-8b7a-df53c81fb11d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-87" style="Regular" x="496" y="405" width="32" height="20" uuid="7ebcb72a-4725-4e92-8f2e-e45f98c843ae"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[แผ่น]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-88" style="Regular" x="433" y="406" width="87" height="20" uuid="553b52ac-ac87-4bc1-a65b-aa53c34d587a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-89" style="Regular" x="231" y="439" width="307" height="20" uuid="9c2e80bd-0ded-42cd-a512-7097d108db07"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ตามหนังสือแสดงความประสงค์ฯ  ทะเบียนรับเลขที่........................................................................................................)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-31" style="Regular" x="120" y="470" width="205" height="25" uuid="c59635d0-bf21-4ff2-b704-24526f0fd497"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-90" style="Regular" x="122" y="473" width="202" height="20" uuid="3597b9bd-d899-407d-8ec8-eea550ddbc9f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[สรุปรายการภาษีที่นำส่ง]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-32" style="Regular" x="328" y="470" width="92" height="25" uuid="f69b9ae8-2bd7-4119-b73f-7872775d0aec"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-91" style="Regular" x="330" y="473" width="88" height="20" uuid="b12ad871-ddd9-449a-be9c-ae598664f303"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-92" style="Regular" x="120" y="498" width="111" height="20" uuid="af4b14f2-5c19-4990-90df-33b343d6b9ac"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(1) รวมยอดเงินได้ทั้งสิ้น]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-93" style="Regular" x="120" y="518" width="111" height="20" uuid="44919cf3-2306-4f20-a018-aa80f96e1d17"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(2) รวมยอดภาษีที่นำส่งทั้งสิ้น]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-94" style="Regular" x="120" y="537" width="111" height="20" uuid="869cccd8-654e-400b-8654-fb45f8a260ae"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(3) เงินเพิ่ม (ถ้ามี)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-95" style="Regular" x="120" y="557" width="181" height="20" uuid="fe77101a-90ff-415f-bc62-7c0ef11d5067"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(4) รวมยอดภาษีที่นำส่งทั้งสิ้น และเงินเพิ่ม (2.+3.)]]></text>
+			</staticText>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-14" x="328" y="498" width="92" height="20" uuid="e0e8a0af-dd71-4d3d-bd7d-fdd7a9c59f24"/>
+				<box rightPadding="8">
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getStrBigDecimal($V{SUM_BASEAMT})]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-15" x="328" y="517" width="92" height="20" uuid="21373d09-7800-4534-8705-b2dc6085b9d5"/>
+				<box rightPadding="8">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getStrBigDecimal($V{SUM_TAXAMT})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-16" x="328" y="537" width="92" height="20" uuid="3c07658d-2618-43c2-9ef0-2a5101057b54"/>
+				<box rightPadding="8">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-17" x="328" y="557" width="92" height="20" uuid="4b6228fd-d8b7-4f44-875b-6077e6de05dd"/>
+				<box rightPadding="8">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.getStrBigDecimal($V{SUM_TAXAMT})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-96" style="Regular" x="277" y="557" width="57" height="20" uuid="5df6e2e0-21f9-409d-b1b9-30be5d642242"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[    .    .    .    .    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-97" style="Regular" x="199" y="498" width="136" height="20" uuid="cf491dec-d44f-49f2-a359-2a5d97b724f0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[    .    .    .    .    .    .    .    .    .    .    .    .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-98" style="Regular" x="178" y="537" width="157" height="20" uuid="65717e1c-71ac-4465-9c2a-4beee7bce6fa"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[    .    .    .    .    .    .    .    .    .    .    .    .    .    .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-99" style="Regular" x="218" y="518" width="117" height="20" uuid="01412704-4e1a-4e59-92df-a38bb1ac8784"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[    .    .    .    .    .    .    .    .    .    .    ]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-25" style="Regular" x="-1" y="582" width="551" height="1" uuid="01cf87f3-3876-4a42-b828-70c7247e0557"/>
+			</line>
+			<line>
+				<reportElement key="line-26" style="Regular" x="-1" y="708" width="551" height="1" uuid="338483b2-60a7-43a5-af49-1fd795819c84"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-100" style="Regular" x="0" y="593" width="548" height="20" uuid="f1e6bb31-6728-40a8-9c25-d9456f5d5651"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="13" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ข้าพเจ้าขอรับรองว่า รายการที่แจ้งไว้ข้างต้นนี้ เป็นรายการที่ถูกต้องและครบถ้วนทุกประการ]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement key="ellipse-1" style="Regular" x="461" y="633" width="35" height="35" uuid="64a7bc67-a7d0-48e1-afae-890f739359b0"/>
+			</ellipse>
+			<staticText>
+				<reportElement key="staticText-101" style="Regular" x="454" y="639" width="51" height="20" uuid="f630ee1a-37fc-4fe7-afd5-5dde597780ea"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ประทับตรา]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-102" style="Regular" x="454" y="647" width="51" height="20" uuid="82fb4c9e-41b1-4f1a-8aa5-25eaf1fb8664"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[นิติบุคคล]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-103" style="Regular" x="454" y="656" width="51" height="20" uuid="19ee7bfd-94d6-4d23-8480-1460a52ea176"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ถ้ามี]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-106" style="Regular" x="158" y="640" width="182" height="20" uuid="92d49ba2-802a-421d-b462-d608a39e065b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(..........................................................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-107" style="Regular" x="155" y="660" width="60" height="20" uuid="6f83718d-6e2f-443b-841d-b0e4a1185ce2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ตำแหน่ง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-108" style="Regular" x="183" y="661" width="189" height="20" uuid="9d228984-56ae-41bd-9b91-4f488c9a9433"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-109" style="Regular" x="155" y="680" width="60" height="20" uuid="b7be2519-3196-4d36-a53e-329fc0b84ac5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ยื่นวันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-110" style="Regular" x="179" y="682" width="48" height="20" uuid="c17b2acc-19c9-4856-b15a-c8c2610d42cf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-111" style="Regular" x="212" y="681" width="60" height="20" uuid="74be6e8d-c815-4fde-8cd7-57396b1e0ced"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[เดือน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-112" style="Regular" x="229" y="682" width="97" height="20" uuid="69e7ff3f-4479-4444-b7cf-1bf5db7754f4"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[...................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-113" style="Regular" x="299" y="681" width="60" height="20" uuid="5511b611-95f6-4156-8660-e92f427f39f5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[พ.ศ.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-114" style="Regular" x="313" y="682" width="48" height="20" uuid="4ba68442-aba8-4773-939d-e972cf1c5e25"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[...................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-115" style="Regular" x="243" y="711" width="307" height="20" uuid="52779f0f-65d6-42e4-adef-561acadff5ce"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ก่อนกรอกรายการ ดูคำชี้แจงด้านหลัง)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-116" style="Regular" x="36" y="351" width="173" height="20" uuid="1c6463a6-e78f-4177-a50a-0cecff99cfda"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[มีรายละเอียดการหักเป็นรายผู้มีเงินได้ ปรากฎตาม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-117" style="Regular" x="36" y="371" width="173" height="20" uuid="2d9f1c85-dc59-4feb-ba6e-bc45b5f4b8af"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[รายการที่แนบอย่างใดอย่างหนึ่ง ดังนี้]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-118" style="Regular" x="514" y="110" width="58" height="20" uuid="9f311ed7-6099-4097-9a7f-d33765d57156"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[...................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-119" style="Regular" x="155" y="620" width="60" height="20" uuid="b49f717c-49bf-4192-b0fb-c83c3a6f5040"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ลงชื่อ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-120" style="Regular" x="325" y="620" width="48" height="20" uuid="d23b3e97-506f-4395-8fe6-501e9f507844"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ผู้จ่ายเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-121" style="Regular" x="173" y="621" width="182" height="20" uuid="d9981fc7-e202-4b4b-81a2-42ceace3f78c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[............................................................................]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-18" x="517" y="107" width="43" height="20" uuid="8e9e5b51-d2ff-41c1-96ad-105e358c44b7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{YEAR}]]></textFieldExpression>
+			</textField>
+			<line direction="BottomUp">
+				<reportElement key="line-27" style="Regular" x="393" y="106" width="9" height="15" uuid="b082f9ca-2dbc-4efc-a321-a4aae8604f66"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-28" style="Regular" x="329" y="129" width="9" height="15" uuid="eab6060f-5941-42f6-9f82-5d814f6cb6d9">
+					<printWhenExpression><![CDATA[$P{MONTH}==1]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-29" style="Regular" x="383" y="129" width="9" height="15" uuid="a00dd863-b29a-4ebd-87d0-d0332616f9a6">
+					<printWhenExpression><![CDATA[$P{MONTH}==4]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-30" style="Regular" x="439" y="129" width="9" height="15" uuid="85b05200-7dfb-4613-b225-187f028ce307">
+					<printWhenExpression><![CDATA[$P{MONTH}==7]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-31" style="Regular" x="493" y="129" width="9" height="15" uuid="2ae5e6d0-456b-4ed4-ac89-37035e51587e">
+					<printWhenExpression><![CDATA[$P{MONTH}==10]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-32" style="Regular" x="329" y="150" width="9" height="15" uuid="dd5332c6-a538-46e1-aeae-1aaa266da978">
+					<printWhenExpression><![CDATA[$P{MONTH}==2]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-33" style="Regular" x="384" y="149" width="9" height="15" uuid="3616e04b-e324-433d-be38-d28034dc6092">
+					<printWhenExpression><![CDATA[$P{MONTH}==5]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-34" style="Regular" x="440" y="149" width="9" height="15" uuid="e3f816b0-1d17-4d37-a523-0b610d27570d">
+					<printWhenExpression><![CDATA[$P{MONTH}==8]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-35" style="Regular" x="493" y="149" width="9" height="15" uuid="8147b284-cdac-4e48-9d89-c597234db592">
+					<printWhenExpression><![CDATA[$P{MONTH}==11]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-36" style="Regular" x="329" y="170" width="9" height="15" uuid="5e507e9f-ba54-47b3-b830-c63c95119c2b">
+					<printWhenExpression><![CDATA[$P{MONTH}==3]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-37" style="Regular" x="384" y="169" width="9" height="15" uuid="937b59f3-5028-4045-b3fa-db2127efed3e">
+					<printWhenExpression><![CDATA[$P{MONTH}==6]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-38" style="Regular" x="440" y="169" width="9" height="15" uuid="d1ae3326-6a0a-483e-ad52-effb014a017f">
+					<printWhenExpression><![CDATA[$P{MONTH}==9]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-39" style="Regular" x="493" y="169" width="9" height="15" uuid="7cccb752-b710-43ef-9720-0f741f67aa7a">
+					<printWhenExpression><![CDATA[$P{MONTH}==12]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-40" style="Regular" x="115" y="304" width="9" height="15" uuid="6d0a9153-b22e-4f8d-b8df-ce829b34b07e"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement key="line-41" style="Regular" x="218" y="335" width="9" height="15" uuid="895f7bad-9eef-4120-9e5d-5588cc733867"/>
+			</line>
+			<textField evaluationTime="Report" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement key="textField-19" x="434" y="336" width="57" height="20" uuid="46bc894b-eb10-4367-99df-012c01a63cd9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COUNT_FNAME}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement key="textField-20" x="434" y="355" width="57" height="20" uuid="39b1cd96-7a58-4b9e-812f-9ec95416b182"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement key="textField-21" x="1" y="145" width="320" height="20" uuid="f7127469-e35a-44fd-aa00-5baf9917b84a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPNAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-23" style="Regular" x="181" y="678" width="28" height="20" uuid="a069ce29-a9b8-464c-9a8e-6d1b181d42b8"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.getDay($P{TAXDATE})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-24" style="Regular" x="313" y="677" width="39" height="20" uuid="9042a2a1-b039-48fd-826c-a26c3c1a807b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.getYear($P{TAXDATE})+543]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-25" style="Regular" x="229" y="678" width="70" height="20" uuid="8757401d-a19a-4d00-ba40-21527d3cbd2e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[FnDate.getThaiMonthFullName(FnDate.getMonth($P{TAXDATE}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-26" style="Regular" x="190" y="656" width="209" height="20" uuid="8133848f-fd9f-4632-97cb-8a0c9491b547"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{POSITION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-27" style="Regular" x="169" y="635" width="161" height="20" uuid="eb420fb3-9c4c-4b57-b79c-c68b195b50ae"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PAIDNAME}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement key="rectangle-33" style="Regular" x="259" y="125" width="60" height="15" uuid="76099cf8-2d0d-4518-b3f8-c292e72e17e0"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-42" style="Regular" x="271" y="125" width="1" height="15" uuid="99d3005b-ec00-4023-bccc-59a071703537"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-43" style="Regular" x="283" y="125" width="1" height="15" uuid="9d6f10ab-7530-420a-8f71-cfe4f36a0775"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-44" style="Regular" x="296" y="125" width="1" height="15" uuid="85c01c8d-5605-4490-bdaa-034c5ade80f4"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-45" style="Regular" x="308" y="125" width="1" height="15" uuid="b1092960-3595-49a0-a343-7a312b50d5ab"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-28" x="263" y="126" width="15" height="14" uuid="7e8c27cf-4aa8-4bd3-9e16-553974b89fea"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRANID}.trim().length()>=1?$P{BRANID}.substring(0, 1):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-29" x="275" y="126" width="15" height="14" uuid="388256f5-91fd-4b01-9044-2d14ba099039"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRANID}.trim().length()>=2?$P{BRANID}.substring(1, 2):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-30" x="287" y="126" width="15" height="14" uuid="c6ad0c26-e998-47df-ab21-2b84ed763626"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRANID}.trim().length()>=3?$P{BRANID}.substring(2,3):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-31" x="300" y="126" width="15" height="14" uuid="5a06d48e-c9ae-45c2-9835-d3b5803f3a17"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRANID}.trim().length()>=4?$P{BRANID}.substring(3, 4):""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-32" x="312" y="126" width="15" height="14" uuid="3898c5d4-5f50-4c33-8706-f7f6335478db"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRANID}.trim().length()>=5?$P{BRANID}.substring(4, 5):""]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-38" x="38" y="248" width="252" height="20" uuid="e04742fe-0b23-4339-80a4-e4e5f1b4b631"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fnc.isEmpty($P{TEL1})?"":$P{TEL1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-47" x="30" y="169" width="281" height="20" uuid="049802fa-f85b-4e3f-9499-3e2a4f30e412"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ADDR1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-11" style="Regular" x="287" y="85" width="1" height="15" uuid="0f5595c1-30f6-47c3-ad9d-9c2c25bb55cf"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-9" style="Regular" x="255" y="85" width="1" height="15" uuid="14d804e2-7867-481c-b845-a70d1bdfc293"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-6" style="Regular" x="243" y="85" width="1" height="15" uuid="49f9a366-b4fa-406b-9d9d-8e6283989c3e"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-5" style="Regular" x="231" y="85" width="1" height="15" uuid="61392a9a-dde1-4fda-99c8-83c46921f4fe"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-4" style="Regular" x="219" y="85" width="1" height="15" uuid="c58a1d5f-41b4-4c1b-b25c-aca2ad8ff6c7"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-47" x="30" y="189" width="281" height="34" uuid="a29d67f8-15c9-404d-a8c1-da0ffc9d4355"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Angsana New" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ADDR2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Prevent"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Prevent"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Prevent"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Prevent"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Prevent"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,43 @@
+<zk>
+	<window use="com.pcc.sys.ui.frmParaSys.FrmParaSys" id="FrmParaSys" width="1000px" title="พารามิเตอร์(แต่ละบริษัท)"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div align="right">
+				<label value="รหัสพารามิเตอร์ (%a%)" />
+			</div>
+			<div>
+				<textbox id="txtPARA_ID" width="150px" maxlength="20" />
+				<label value="ชื่อพารามิเตอร์ (%a%)" />
+				<textbox id="txtPARA_DESC" width="200px" maxlength="60" />
+			</div>
+		</div>
+
+		<separator />
+		<separator />
+
+		<div align="center">
+			<button id="btnFind" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnFind()" />
+			<button id="btnShowAll" label="แสดงทั้งหมด" onClick="spaceOwner.onClick_btnShowAll()" />
+		</div>
+
+		<separator />
+
+		<grid id="gridList" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="45px" align="center" />
+				<column label="รหัสพารามิเตอร์" width="200px" align="left" />
+				<column label="คำอธิบาย/ค่าพารามิเตอร์" width="900px" align="left" />
+			</columns>
+			<rows></rows>
+		</grid>
+
+	</window>
+
+</zk>

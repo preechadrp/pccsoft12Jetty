@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-07-12T13:36:19 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TestBal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2fbd3fd4-8dbb-4f15-a0c9-1927cb52911e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="VOU_TYPE" class="java.lang.String"/>
+	<field name="VOU_NO" class="java.lang.String"/>
+	<field name="AMT" class="java.math.BigDecimal"/>
+	<field name="DESCR" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="20" uuid="94d1c361-9ab6-4e29-a7c5-c22a3508bce1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<text><![CDATA[VOU_TYPE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="80" height="20" uuid="23ff6640-f01b-4d87-acdd-c10fa022b47a"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<text><![CDATA[VOU_NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="70" height="20" uuid="dd346257-cb32-4edd-bd7a-f044a17c2a9a"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<text><![CDATA[AMT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="324" height="20" uuid="3d007798-3112-4b71-9f8d-9b6088fdb033"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<text><![CDATA[DESC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="70" height="20" uuid="afcfb45f-24a6-438e-9bee-373b0e3b9f59"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VOU_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="2" width="80" height="20" uuid="6220df05-6f7f-4b5d-9ee6-1ba91dfd0e42"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VOU_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="2" width="70" height="20" uuid="65b5d9e2-2fd5-419d-ba59-6cc6bf40f872">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="2" width="324" height="20" uuid="b83d24f5-e7b8-4ccf-a496-2318e471a492">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="61" splitType="Stretch">
+			<componentElement>
+				<reportElement x="80" y="6" width="79" height="55" uuid="e2dc5f89-b95a-485a-aafa-2718f631ef26"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["123456789ทดสอบ"]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="16" splitType="Stretch"/>
+	</summary>
+</jasperReport>

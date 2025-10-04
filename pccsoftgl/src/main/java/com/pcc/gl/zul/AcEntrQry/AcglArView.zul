@@ -1,0 +1,36 @@
+<?page title="AcAr" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntrQry.AcglArView" id="AcglArView" width="950px" title="รายละเอียด(ตัวย่อย)"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 20% auto; ">
+
+			<label value="คำอธิบายรายการ" />
+			<textbox id="txtDESCR" width="98%" readonly="true" />
+
+			<label value="เลขที่เอกสาร/ใบแจ้งหนี้" />
+			<textbox id="txtDOCNO" maxlength="40" width="300px" tooltiptext="เลขที่เอกสาร/ใบแจ้งหนี้" readonly="true" />
+
+			<label value="วันที่เอกสาร/ใบแจ้งหนี้" />
+			<datebox id="tdbDOCDATE" tooltiptext="วันที่เอกสาร/ใบแจ้งหนี้" readonly="true" />
+
+			<label value="รหัสลูกหนี้" id="lblCust" />
+			<div>
+				<textbox id="txtCUST_CDE" width="150px" maxlength="15" readonly="true" />
+				<textbox id="txtCUST_NAME" width="550px" readonly="true" />
+			</div>
+
+			<label value="วันครบกำหนด" />
+			<datebox id="tdbDUEDATE" tooltiptext="วันครบกำหนด" readonly="true" />
+
+		</div>
+
+	</window>
+
+</zk>

@@ -1,0 +1,35 @@
+<zk>
+	<window use="com.pcc.sys.ui.FrmChgpass" id="FrmChgpass" width="500px" title="เปลี่ยนรหัสผ่าน" border="normal">
+
+		<separator />
+
+		<div style="display: grid; grid-template-columns: 30% auto; grid-gap: 5px; padding: 10px;">
+
+			<label value="ชื่อผู้ใช้" />
+			<label id="lblUsername" />
+
+			<label id="lblUserpass" value="รหัสผ่านเดิม" />
+			<textbox id="txtUserpass" type="password" width="200px" maxlength="20" />
+
+			<label id="lblNewpass" value="รหัสผ่านใหม่" />
+			<textbox id="txtNewpass" type="password" width="200px" maxlength="20" />
+
+			<label id="lblRenewpass" value="ยืนยันรหัสผ่านใหม่" />
+			<textbox id="txtRenewpass" type="password" width="200px" maxlength="20" />
+
+		</div>
+
+		<separator />
+
+		<div align="center">
+			<button id="btnOk" label="ตกลง" onClick="spaceOwner.onClick_btnOk()" sclass="button-standard" />
+			<space spacing="1px" />
+			<button id="btnCancel" label="ยกเลิก" onClick="spaceOwner.onClose()" sclass="button-standard" />
+			<space spacing="1px" />
+		</div>
+
+		<separator />
+
+	</window>
+
+</zk>

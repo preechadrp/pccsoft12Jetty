@@ -1,0 +1,75 @@
+<?page title="AcGlbook" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acWithold.AcWithold" id="AcWithold" width="1000px" title="รายงานภาษีหัก ณ ที่จ่าย"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+			<button id="btnExcel" label="${labels.comm.label.printExcel}" onClick="spaceOwner.onClick_btnPrint(2)" />
+			<button id="btnText" label="Text ส่งสรรพกร" onClick="spaceOwner.onClick_btnPrint(10)" />
+			<button id="btnPrint11" label="แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย" onClick="spaceOwner.onClick_btnPrint(11)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="ปี" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<intbox id="intYear" maxlength="4" width="45px" tooltiptext="ปี" />
+				<label value="*ระบุปีเป็น พ.ศ. เช่น 2567" style="color:blue;" />
+			</div>
+
+			<div>
+				<label value="เดือน" />
+				<label value="" style="color:red;" />
+			</div>
+			<div>
+				<intbox id="intMonth" maxlength="2" width="45px" tooltiptext="เดือน" />
+				<label value="*ระบุตัวเลข 1-12 เท่านั้น" style="color:blue;" />
+			</div>
+
+			<div>
+				<label value="ประเภทรายงาน" />
+			</div>
+			<div>
+				<combobox id="cmbReportType" autodrop="true" readonly="true" width="140px" tooltiptext="ประเภทรายงาน">
+					<comboitem value="3" label="ใบแนบ ภ.ง.ด.3" />
+					<comboitem value="53" label="ใบแนบ ภ.ง.ด.53" />
+				</combobox>
+			</div>
+			
+			<label value="ยื่นวันที่" />
+			<hbox>
+				<datebox id="tdbTaxDate" width="120px" tooltiptext="ยื่นวันที่" />
+				<label value="*ระบุถ้าพิมพ์แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย" style="color:blue;" />
+			</hbox>
+			
+			<div>
+				<label value="ยื่นด้วยสาขา" />
+			</div>
+			<div>
+				<combobox id="cmbBRANC_CDE" autodrop="true" readonly="true" width="450px" tooltiptext="ยื่นด้วยสาขา" />
+				<label value="*ระบุถ้าพิมพ์แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย" style="color:blue;" />
+			</div>
+			
+			<label value="ผู้จ่ายเงิน" />
+			<hbox>
+				<textbox id="txtPaidByName" width="250px" />
+				<label value="*ระบุถ้าพิมพ์แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย" style="color:blue;" />
+			</hbox>
+			
+			<label value="ตำแหน่ง" />
+			<hbox>
+				<textbox id="txtPosition" width="250px" />
+				<label value="*ระบุถ้าพิมพ์แบบยื่นรายการภาษีเงินได้ที่หัก ณ ที่จ่าย" style="color:blue;" />
+			</hbox>
+			
+		</div>
+
+	</window>
+
+</zk>

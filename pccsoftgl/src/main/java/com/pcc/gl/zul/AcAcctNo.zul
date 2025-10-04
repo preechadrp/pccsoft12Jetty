@@ -1,0 +1,77 @@
+<zk>
+	<window use="com.pcc.gl.ui.acAcctNo.AcAcctNo" id="AcAcctNo" width="1000px" title="ผังบัญชี" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+			<button id="btnBack" label="" onClick="spaceOwner.onClick_Back()" tooltiptext="Back"
+				image="img/ArrowLeft.png" />
+			<button id="btnSave" label="${labels.comm.label.save}" onClick="spaceOwner.onClick_Save()" />
+			<button id="btnDelete" label="${labels.comm.label.delete}" onClick="spaceOwner.onClick_Delete()"
+				sclass="buttondel" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+		
+			<div>
+				<label value="หมวดบัญชี" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<combobox id="cmbACCT_TYPE" width="130px" tooltiptext="หมวดบัญชี" readonly="true" autodrop="true" >
+				    <comboitem value="1" label="สินทรัพย์" />
+				    <comboitem value="2" label="หนี้สิน" />
+				    <comboitem value="3" label="ทุน" />
+				    <comboitem value="4" label="รายได้" />
+				    <comboitem value="5" label="ค่าใช้จ่าย" />
+				</combobox>
+			</div>
+				
+			<div>
+				<label value="รหัสบัญชี" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtACCT_ID" width="130px" maxlength="15" onOpen="spaceOwner.popupData()"
+					tooltiptext="รหัสบัญชี" />
+				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()"
+					sclass="buttonAdd" />
+			</div>
+		</div>
+
+		<div id="div1">
+			<div sclass="mainGridLayout2">
+				<div>
+					<label value="ชื่อบัญชี" />
+					<label value="*" style="color:red;" />
+				</div>
+				<div>
+					<textbox id="txtACCT_NAME" width="500px" maxlength="250" tooltiptext="ชื่อบัญชี" />
+				</div>
+
+				<div>
+					<label value="ผู้สร้างรายการ" />
+				</div>
+				<div>
+					<textbox id="txtINSBY" width="200px" readonly="true" />
+					<label value="วันสร้างรายการ" />
+					<textbox id="txtINSDT" width="200px" readonly="true" />
+				</div>
+
+				<div>
+					<label value="ผู้แก้ไขล่าสุด" />
+				</div>
+				<div>
+					<textbox id="txtUPBY" width="200px" readonly="true" />
+					<label value="วันแก้ไขล่าสุด" />
+					<textbox id="txtUPDT" width="200px" readonly="true" />
+				</div>
+
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

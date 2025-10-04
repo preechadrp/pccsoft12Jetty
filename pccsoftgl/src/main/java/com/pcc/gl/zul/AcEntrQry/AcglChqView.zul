@@ -1,0 +1,30 @@
+<?page title="AcglChq" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window use="com.pcc.gl.ui.acEntrQry.AcglChqView" id="AcglChqView" width="950px" title="รายละเอียด(ตัวย่อย)"
+		border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1" style="grid-template-columns: 20% auto; ">
+
+			<label value="สั่งจ่ายในนาม" />
+			<textbox id="txtCHQ_PAYEE" maxlength="100" width="350px" tooltiptext="สั่งจ่ายในนาม" readonly="true" />
+
+			<label value="วันที่เช็ค" />
+			<datebox id="tdbCHQ_DATE" tooltiptext="วันที่เช็ค" readonly="true" />
+
+			<label value="เลขที่เช็ค" />
+			<div>
+				<textbox id="txtCHQ_NO" maxlength="20" width="100px" tooltiptext="เลขที่เช็ค" readonly="true" />
+				<label value="(ไม่เกิน 20 ตัวอักษร)" style="color:red;" />
+			</div>
+
+		</div>
+
+	</window>
+
+</zk>

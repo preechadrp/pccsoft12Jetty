@@ -1,0 +1,246 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJob.FrmTkJobView" id="FrmTkJobView" width="1100px" title="รายละเอียด Job" border="normal" 
+	  closable="false" >
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="" onClick="spaceOwner.onClose()" tooltiptext="Back" image="img/ArrowLeft.png" />
+			<button id="btnPrint" label="${labels.comm.label.print}" onClick="spaceOwner.onClick_btnPrint(1)" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+			<div>
+				<label value="เลขที่งาน" />
+				<label value="*" style="color:red;" />
+			</div>
+			<div>
+				<bandbox id="txtJOBNO" width="150px" readonly="true" buttonVisible="false" />
+				<label value="วันที่รับงาน" />
+				<datebox id="tdbJOBDATE" width="120px" readonly="true" />
+				<label value="สถานะคดี" />
+				<bandbox id="txtLAWSTATID" width="70px" readonly="true" buttonVisible="false" />
+				<textbox id="txtLAWSTATNAME" width="200px" readonly="true" />
+			</div>
+
+			<div>
+				<label value="วันที่จ่ายงานทนาย" />
+			</div>
+			<div>
+				<datebox id="tdbSENDJOBDATE" width="120px" tooltiptext="วันที่จ่ายงานทนาย" readonly="true" />
+				<label value="Job Code" />
+				<bandbox id="txtJOBCODE" width="70px" tooltiptext="Job Code" readonly="true" />
+				<textbox id="txtJOBCODENAME" width="200px" readonly="true" tooltiptext="Job Code Name" />
+				<label value="เลขที่สัญญาของลูกค้า" />
+				<textbox id="txtCUSTCONTACTNO" width="200px" tooltiptext="เลขที่สัญญาของลูกค้า" readonly="true" />
+			</div>
+
+			<div>
+				<label value="ข้อหา" />
+			</div>
+			<div>
+				<textbox id="txtPLAINT" width="600px" tooltiptext="ข้อหา" readonly="true" />
+			</div>
+			
+			<div>
+				<label value="ประเภทคดี" />
+			</div>
+			<div>
+				<bandbox id="txtLAWTYPEID" width="70px" readonly="true" tooltiptext="รหัสประเภทคดี" buttonVisible="false" />
+				<textbox id="txtLAWTYPENAME" width="400px" readonly="true" tooltiptext="ชื่อประเภทคดี" />
+			</div>
+
+			<div>
+				<label value="วันที่ยื่นฟ้อง" />
+			</div>
+			<div>
+				<datebox id="tdbSUEATDATE" width="120px" tooltiptext="วันที่ยื่นฟ้อง" readonly="true" />
+				<label value="วันที่ถูกฟ้อง" />
+				<datebox id="tdbSUEDDATE" width="120px" tooltiptext="วันที่ถูกฟ้อง" readonly="true" />
+				<label value="ทุนทรัพย์ฟ้อง/บาท" />
+				<decimalbox id="decSUECOSTAMT" width="130px" tooltiptext="ทุนทรัพย์ฟ้อง/บาท" readonly="true" />
+				<label value="ค่าฤชาธรรมเนียม/บาท" />
+				<decimalbox id="decFEEAMT" width="130px" tooltiptext="ค่าฤชาธรรมเนียม/บาท" readonly="true" />
+			</div>
+
+			<div>
+				<label value="คำขอท้ายฟ้อง" />
+			</div>
+			<div>
+				<textbox id="txtREMARK1" width="600px" tooltiptext="คำขอท้ายฟ้อง" readonly="true" />
+			</div>
+
+			<div>
+				<label value="วันที่คดีดำ" />
+			</div>
+			<div>
+				<datebox id="tdbLAWBLACKDATE" width="120px" tooltiptext="วันที่คดีดำ" readonly="true" />
+				<label value="เลขคดีดำ" />
+				<textbox id="txtLAWBLACKNO" width="200px" tooltiptext="เลขคดีดำ" readonly="true" />
+				<label value="วันที่คดีแดง" />
+				<datebox id="tdbLAWREDDATE" width="120px" tooltiptext="วันที่คดีแดง" readonly="true" />
+				<label value="เลขคดีแดง" />
+				<textbox id="txtLAWREDNO" width="200px" tooltiptext="เลขคดีแดง" readonly="true" />
+			</div>
+
+			<div>
+				<label value="ศาล" />
+			</div>
+			<div>
+				<bandbox id="txtCOURTID" width="70px" tooltiptext="รหัสศาล" readonly="true" />
+				<textbox id="txtCOURTNAME" width="350px" readonly="true" tooltiptext="ชื่อศาล" />
+				<label value="Zone" />
+				<bandbox id="txtZONEID" width="70px" tooltiptext="รหัส Zone จังหวัด" readonly="true" />
+				<textbox id="txtZONENAME" width="250px" readonly="true" tooltiptext="ชื่อ Zone จังหวัด" />
+			</div>
+
+			<div>
+				<label value="หมายเหตุอื่นๆ" />
+			</div>
+			<div>
+				<textbox id="txtREMARK2" width="600px" tooltiptext="หมายเหตุอื่นๆ" readonly="true" />
+				<label value="วันที่ปิดงาน" />
+				<datebox id="tdbCLOSEDATE" width="110px" tooltiptext="วันที่ปิดงาน" readonly="true" />
+			</div>
+
+		</div>
+
+		<div sclass="div-split-box">
+			<label value="ลูกความ" />
+		</div>
+		<grid id="grdCust" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="โจทย์ที่" width="100px" align="center" id="grcCLIENTSEQ" />
+				<column label="ชื่อ-นามสกุล" width="400px" align="left" />
+				<column label="เบอร์ติดต่อ" align="left" />
+				<column label="ผู้ทำรายการล่าสุด" width="180px" />
+				<column label="ปรับปรุงรายการล่าสุด" width="180px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="1" />
+					<label value="1" />
+					<label value="นาย สนธิ ลิ้นดี" />
+					<label value="090xxxx" />
+					<label value="1" />
+					<label value="1" />
+				</row>
+			</rows>
+		</grid>
+
+		<div sclass="div-split-box">
+			<label value="ทนายที่รับงาน" />
+		</div>
+		<grid id="grdLawyer" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="รหัสทนาย" width="80px" align="left" />
+				<column label="ชื่อทนาย" align="left" />
+				<column label="ผู้ทำรายการล่าสุด" width="180px" />
+				<column label="ปรับปรุงรายการล่าสุด" width="180px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="1" />
+					<label value="20" />
+					<label value="นายสุขใจ บ้านสว่าง" />
+					<label value="20" />
+					<label value="20" />
+				</row>
+			</rows>
+		</grid>
+
+		<div sclass="div-split-box">
+			<label value="สถานะการทำงาน" />
+		</div>
+		<grid id="grdJobState" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="วันที่" width="150px" />
+				<column label="สถานะการทำงาน" width="350px" />
+				<column label="หมายเหตุ" width="400px" />
+				<column label="ผู้ทำรายการล่าสุด" width="180px" />
+				<column label="ปรับปรุงรายการล่าสุด" width="180px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="1" />
+					<label value="20/06/2567" />
+					<label value="12" />
+					<label value="วันนัดพิจารณาคดี" />
+					<label value="ดำเนินการแล้วเป็นวันที่ 14/7/67" />
+					<label value="abc" />
+					<label value="abc" />
+				</row>
+			</rows>
+		</grid>
+		
+		<div sclass="div-split-box">
+			<label value="ค่าใช้จ่าย" />
+		</div>
+		<grid id="grdJobExp" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="ค่าใช้จ่าย" width="250px" />
+				<column label="จำนวนเงิน" width="120px" align="right" />
+				<column label="ตั้งเบิกลูกความ" width="120px" align="right" />
+				<column label="ค่าใช้จ่ายบริษัท" width="120px" align="right" />
+				<column label="หมายเหตุ" width="450px"  />
+				<column label="ผู้ทำรายการล่าสุด" width="180px" />
+				<column label="ปรับปรุงรายการล่าสุด" width="180px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="1" />
+					<label value="1:ค่าเดินทาง" />
+					<label value="3000" />
+					<label value="3000" />
+					<label value="บริษัท abc" />
+					<label value="ดำเนินการแล้วเป็นวันที่ 14/7/67" />
+					<label value="abc" />
+					<label value="abc" />
+				</row>
+			</rows>
+			<foot>
+				<footer></footer>
+				<footer><label value="รวม :" /></footer>
+				<footer><decimalbox id="decSUM_EXPENSESAMT" width="97%" readonly="true" /></footer>
+				<footer><decimalbox id="decSUM_WITHDRAWAL_AMT" width="97%" readonly="true" /></footer>
+				<footer><decimalbox id="decSUM_EXPCOM_ADV" width="97%" readonly="true" /></footer>
+				<footer></footer>
+				<footer></footer>
+				<footer></footer>
+			</foot>
+		</grid>
+		
+		<div sclass="div-split-box">
+			<label value="ไฟล์เอกสาร" />
+		</div>
+		<grid id="grdImg1" mold="paging" pageSize="5">
+			<columns sizable="true">
+				<column label=".." width="90px" align="center" />
+				<column label="ลำดับ" width="40px" align="center" />
+				<column label="คำอธิบาย" align="left" />
+				<column label="ไฟล์เอกสาร" align="left" width="100px" />
+				<column label="ผู้ทำรายการล่าสุด" align="left" width="200px" />
+				<column label="วันทำรายการล่าสุด" align="left" width="200px" />
+			</columns>
+			<rows>
+				<row>
+					<button label="Download" />
+					<label value="1" />
+					<label value="หน้าสัญญาลูกค้า" />
+					<label value="pdf" />
+				</row>
+			</rows>
+		</grid>
+		
+		<div sclass="mainGridLayout1">
+			<label value="สถานะ Job" />
+			<label id="lblJOBSTATNAME" value="" style="color:blue;" />
+		</div>
+
+	</window>
+
+</zk>

@@ -1,0 +1,8 @@
+#Warning : This file use UTF-8 Charset
+#Update Thai Year ก่อนการ Deploy ให้ update ข้างนอกแล้วค่อยนำเข้า .war 
+#ด้วยโปรแกรม winrar หรือ winzip หรือ 7zip 
+#ห้าม update ใน code เพื่อไม่ให้กระทบกับ Version code ใน SVN
+app_name = PCC-SOFT
+update = 23/07/2556 15:03
+#SVN Version
+svnver = 1

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+    <Resource name="jdbc/pccsoft11"
+    auth="Container"
+    type="javax.sql.DataSource"
+    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+    driverClassName="org.firebirdsql.jdbc.FBDriver"
+    url="jdbc:firebird://firebird1:3050//var/lib/firebird/data/PCCSOFT11.FDB?encoding=UTF8"
+    username="sysdba"
+    password="pssss001"   
+    initialSize="1"
+    maxActive="50"
+    maxIdle="50"
+    maxWait="-1"
+    removeAbandoned = "true"
+    removeAbandonedTimeout ="300"
+    logAbandoned="false" 
+    validationQuery="select 1 from rdb$database"
+    validationInterval="35000"
+    testOnBorrow="true"   
+    />
+
+</Context>
