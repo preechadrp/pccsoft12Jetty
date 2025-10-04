@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?page title="pccsoft"?>
 <zk>
-	<zscript src="/chklogin.zs" />
 	<window id="FMainMn" use="com.pcc.sys.ui.FMainMn" title="" border="none" sclass="main-window" sizable="false" if="${!empty sessionScope.user}">
 
 		<div sclass="mainGridLayout3" style="grid-template-columns: auto auto;">
