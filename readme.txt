@@ -1,0 +1,3 @@
+- zk 9.6.0.2
+- jetty 10.0.26
+- dynamic reports 5.0.0
