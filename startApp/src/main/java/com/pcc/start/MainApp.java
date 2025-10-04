@@ -55,7 +55,7 @@ public class MainApp {
 		//toExternalForm : file:/D:/javaDemo1/demojetty10/target/classes/webapp/
 		webapp.setWarResource(Resource.newResource(webResource));
 
-		// เพิ่ม servlet
+		//============= เพิ่ม servlet
 		webapp.addServlet(IndexServlet.class, "");// Home Page
 		webapp.addServlet(Authen.class, "/auth/login");
 		webapp.addServlet(AppApiServlet.class, "/appapi");
@@ -70,14 +70,14 @@ public class MainApp {
 
 		webapp.addServlet(org.zkoss.zk.au.http.DHtmlUpdateServlet.class, "/zkau/*");
 
-		// เพิ่ม filter
+		//============= เพิ่ม filter
 		webapp.addFilter(JwtAuthFilter.class, "/appapi/*", EnumSet.of(DispatcherType.REQUEST));
 
-		// เพิ่ม Listener
+		//============= เพิ่ม Listener
 		webapp.addEventListener(new MyStartConfigListener());
 		webapp.addEventListener(new org.zkoss.zk.ui.http.HttpSessionListener()); //zk Listener
 
-		// เพิ่มเข้า handlers
+		//============= เพิ่มเข้า handlers
 		HandlerList handlers = new HandlerList();
 		handlers.addHandler(webapp);
 
