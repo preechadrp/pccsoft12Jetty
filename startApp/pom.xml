@@ -53,7 +53,7 @@
 
 			<!-- ทำหน้าที่ copy library มาใส่ในโฟลเดอร์ lib -->
 			<!--
-				ถ้าแดงให้ maven compile package จาก parent project แล้ว refresh project Explorer เพื่อให้ eclipse เห็น .jar ของ module อื่นๆ ที่อ้างอิง
+				ถ้า eclipse แจ้งสีแดงก็สามารถใช้งานได้ปกติให้ maven compile package จาก parent project แล้ว refresh project Explorer เพื่อให้ eclipse เห็น .jar ของ module อื่นๆ ที่อ้างอิง
 			 	ตอน package ให้เลือก skiptest 
 			 -->
 			<plugin>
